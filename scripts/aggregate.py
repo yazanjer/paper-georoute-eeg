@@ -33,7 +33,7 @@ def holm(p):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--inputs", default="results/*/")
+    ap.add_argument("--inputs", default="results/*/", help="glob of result dirs (quote it)")
     ap.add_argument("--ref", default="georoute")
     ap.add_argument("--out", default="results/summary")
     a = ap.parse_args()
@@ -43,16 +43,16 @@ def main():
         r = json.load(open(f))
         if "methods" not in r:
             continue
+        tag = (r.get("config") or {}).get("tag", "")
         for m, v in r["methods"].items():
             if "#" in m or "acc" not in v:
                 continue
-            rows.append(dict(dataset=r["dataset"], seed=r["seed"], target=r["target"], method=m,
+            rows.append(dict(dataset=r["dataset"], seed=r["seed"], target=r["target"], method=m + tag,
                              acc=v["acc"], bacc=v.get("bacc"), kappa=v.get("kappa")))
         ro = r.get("routing", {})
-        for key in ("spearman_riemann", "spearman_logeuclid", "spearman_euclid", "spearman_feature"):
-            if key in ro:
-                rrows.append(dict(dataset=r["dataset"], seed=r["seed"], target=r["target"],
-                                  space=key.split("_", 1)[1], rho=ro[key][0], p=ro[key][1]))
+        for key in [k for k in ro if k.startswith("spearman_")]:
+            rrows.append(dict(dataset=r["dataset"], seed=r["seed"], target=r["target"],
+                              space=key.split("_", 1)[1] + tag, rho=ro[key][0], p=ro[key][1]))
     df = pd.DataFrame(rows).drop_duplicates(["dataset", "seed", "target", "method"], keep="last")
     df.to_csv(os.path.join(a.out, "per_subject.csv"), index=False)
 
