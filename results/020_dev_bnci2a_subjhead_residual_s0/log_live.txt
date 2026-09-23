@@ -5,3 +5,5 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 [fold 0] target 1: shared 0.677 uniform 0.701 georoute 0.726 georoute_ens 0.750 uniform_ens 0.708 rho 0.51
 [fold 1] target 2: shared 0.354 uniform 0.368 georoute 0.378 georoute_ens 0.344 uniform_ens 0.347 rho 0.76
+[fold 2] target 3: shared 0.795 uniform 0.788 georoute 0.809 georoute_ens 0.809 uniform_ens 0.802 rho -0.33
+[fold 3] target 4: shared 0.524 uniform 0.510 georoute 0.500 georoute_ens 0.479 uniform_ens 0.493 rho 0.28
