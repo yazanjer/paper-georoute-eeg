@@ -2,3 +2,22 @@ constraints:
 torch==2.4.1+cu124
 torchaudio==2.4.1+cu124
 torchvision==0.19.1+cu124
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 24.2 -> 26.2.1
+[notice] To update, run: python -m pip install --upgrade pip
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = make_standard_montage("standard_1020")
+env ok 2.4.1+cu124 True 1.8.1 1.7.2
+Choosing from all possible events
+This is nemar-py 0.3.1.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 5 of 769 manifest files (16 concurrent downloads).
+Overall:   0%|          | 0.00/12.6k [00:00<?, ?B/s]Overall:   3%|▎         | 366/12.6k [00:01<01:05, 191B/s]Overall:  16%|█▋        | 2.06k/12.6k [00:02<00:07, 1.36kB/s]Overall:  31%|███▏      | 3.95k/12.6k [00:05<00:12, 686B/s]  Overall:  45%|████▌     | 5.66k/12.6k [00:05<00:07, 985B/s]
+Finished downloading nm000139 v1.0.2.
+This is nemar-py 0.3.1.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+S3:   0%|          | 0.00/82.6M [00:00<?, ?B/s]S3:   1%|          | 1.00M/82.6M [00:28<38:21, 37.2kB/s]S3:   2%|▏         | 2.00M/82.6M [00:36<21:58, 64.1kB/s]S3:   2%|▏         | 2.00M/82.6M [00:55<21:58, 64.1kB/s]S3:   4%|▎         | 3.00M/82.6M [01:03<28:25, 48.9kB/s]S3:   4%|▎         | 3.00M/82.6M [01:15<28:25, 48.9kB/s]S3:   5%|▍         | 4.00M/82.6M [01:15<23:03, 59.6kB/s]S3:   5%|▍         | 4.00M/82.6M [01:35<23:03, 59.6kB/s]S3:   6%|▌         | 5.00M/82.6M [01:37<24:36, 55.1kB/s]
