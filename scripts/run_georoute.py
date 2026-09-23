@@ -151,6 +151,7 @@ def main():
 
         # ---------------- Target evaluation -------------------------------
         topk_auto = max(1, math.ceil(math.sqrt(K)))
+        src_emb = None
         for t in targets:
             d = data[t]
             r_idx, e_idx = D.split_target(d)
@@ -229,8 +230,9 @@ def main():
                 # feature-space routing: distance between mean shared-model embeddings
                 L.set_mode(wr, use_global=True, active=None, mix=np.zeros(K))
                 ft = T.embed(model, Xe).mean(0)
-                fdist = np.array([np.linalg.norm(ft - T.embed(model, prep(data[s]["X"], ea_W[s])).mean(0))
-                                  for s in sources])
+                if src_emb is None:  # source mean embeddings: computed once per fold
+                    src_emb = [T.embed(model, prep(data[s]["X"], ea_W[s])).mean(0) for s in sources]
+                fdist = np.array([np.linalg.norm(ft - e_s) for e_s in src_emb])
                 res["routing"]["dist_feature"] = fdist.tolist()
                 run(G.routing_weights(fdist, topk_auto), "georoute[feature]", Xe)
                 ens(P, G.routing_weights(fdist, topk_auto), "georoute_ens[feature]")
