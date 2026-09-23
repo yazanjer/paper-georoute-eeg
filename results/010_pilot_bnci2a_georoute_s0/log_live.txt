@@ -14,8 +14,6 @@
   montage = make_standard_montage("standard_1005")
 /usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
   montage = make_standard_montage("standard_1005")
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
 Finished downloading nm000139 v1.0.2.
 This is nemar-py 0.3.0.
 Preparing to download nm000139 from https://data.nemar.org/
@@ -148,3 +146,5 @@ Finished downloading nm000139 v1.0.2.
 [fold 0] target 1: shared 0.677 uniform 0.719 georoute 0.764 rho 0.17
 [fold 1] target 2: shared 0.354 uniform 0.361 georoute 0.378 rho 0.02
 [fold 2] target 3: shared 0.795 uniform 0.792 georoute 0.771 rho -0.08
+[fold 3] target 4: shared 0.524 uniform 0.503 georoute 0.507 rho 0.10
+[fold 4] target 5: shared 0.490 uniform 0.490 georoute 0.483 rho 0.20
