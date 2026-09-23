@@ -113,8 +113,6 @@
   montage = make_standard_montage("standard_1005")
 /usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
   montage = make_standard_montage("standard_1005")
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
 /usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
   montage = mne.channels.make_standard_montage("standard_1020")
 /usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
@@ -148,3 +146,5 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 4] eegnet_ea: 5:0.455
 [fold 4] shallow_ea: 5:0.510
 [fold 4] conformer_ea: 5:0.528
+[fold 4] cbramod_lp_ea: 5:0.316
+[fold 4] cbramod_fullft_ea: 5:0.507
