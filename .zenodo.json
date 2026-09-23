@@ -1,0 +1,9 @@
+{
+  "title": "GeoRoute-EEG: code and results for label-free Riemannian routing of subject-specific LoRA adapters in EEG foundation models",
+  "upload_type": "software",
+  "description": "Code, experiment scripts and results (multi-seed, ablations, baselines) for GeoRoute on BCI Competition IV-2a (BNCI2014-001) and Lee2019-MI.",
+  "creators": [{"name": "Aljeroudi, Yazan"}],
+  "keywords": ["EEG", "brain-computer interface", "motor imagery", "foundation model", "LoRA", "Riemannian geometry", "cross-subject", "calibration-free"],
+  "license": "MIT",
+  "access_right": "open"
+}
