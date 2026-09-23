@@ -1,5 +1,4 @@
-# torch comes from the RunPod image (runpod/pytorch:2.4.0 cu12.4); torchaudio pinned to match
-torchaudio==2.4.0
+# torch/torchaudio come from the RunPod image (runpod/pytorch:2.4.x cu12.4) and are kept as-is
 braindecode[hub]==1.8.1
 moabb>=1.4.3
 pyriemann>=0.7
