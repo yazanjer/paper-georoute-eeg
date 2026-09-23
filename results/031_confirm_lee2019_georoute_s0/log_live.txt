@@ -39,3 +39,4 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
   rho, pv = spearmanr(-fdist, acc_k)
 [fold 3] target 15: shared 0.500 uniform 0.500 georoute 0.500 georoute_ens 0.500 uniform_ens 0.500 rho nan
 [fold 3] target 23: shared 0.750 uniform 0.800 georoute 0.780 georoute_ens 0.770 uniform_ens 0.790 rho -0.29
+[fold 3] target 30: shared 0.800 uniform 0.840 georoute 0.850 georoute_ens 0.840 uniform_ens 0.830 rho 0.21
