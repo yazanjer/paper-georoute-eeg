@@ -13,6 +13,7 @@ Writes one JSON per target subject to $RESULTS_DIR.
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import math
 import os
@@ -58,6 +59,11 @@ def main():
     ap.add_argument("--pretrained", type=int, default=1)
     ap.add_argument("--synthetic", type=int, default=0)
     ap.add_argument("--max-subjects", type=int, default=0)
+    ap.add_argument("--stage2", default="residual", choices=["residual", "independent"],
+                    help="residual: subject adapters on top of the global one; independent: global off")
+    ap.add_argument("--subject-head", type=int, default=0,
+                    help="1: each subject adapter also gets its own copy of the head")
+    ap.add_argument("--tag", default="", help="suffix for output file names")
     ap.add_argument("--out", default=os.environ.get("RESULTS_DIR", "results/local"))
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
@@ -102,19 +108,46 @@ def main():
         # ---------------- Stage 2: subject adapters ----------------------
         for p in gparams:
             p.requires_grad = False
+        use_g2 = a.stage2 == "residual"
+        head_mods = [model.pre, model.fc]
+        g_head = [copy.deepcopy(m.state_dict()) for m in head_mods]
+        heads = []
         h2 = {}
         for k, s in enumerate(sources):
             for w in wr:
                 w.add_subject_adapter()
-            L.set_mode(wr, use_global=True, active=k)
+            L.set_mode(wr, use_global=use_g2, active=k)
             bp = L.bank_params(wr, k)
+            if a.subject_head:
+                for m, st in zip(head_mods, g_head):
+                    m.load_state_dict(st)
+                bp = bp + model.head_params()
             for p in bp:
                 p.requires_grad = True
             h2[int(s)] = T.fit(model, bp, prep(data[s]["X"], ea_W[s]), data[s]["y"],
                                epochs=a.epochs_subject, lr=a.lr, bs=a.bs, seed=a.seed + k)
             for p in bp:
                 p.requires_grad = False
+            heads.append([copy.deepcopy(m.state_dict()) for m in head_mods])
+        for m, st in zip(head_mods, g_head):
+            m.load_state_dict(st)
         train_time = time.time() - t0
+
+        def expert_probs(Xe):
+            """(K, N, C) softmax outputs of each subject expert (adapter [+ own head])."""
+            out = []
+            for k in range(K):
+                L.set_mode(wr, use_global=use_g2, active=k)
+                if a.subject_head:
+                    for m, st in zip(head_mods, heads[k]):
+                        m.load_state_dict(st)
+                z = T.predict_logits(model, Xe)
+                z = np.exp(z - z.max(1, keepdims=True))
+                out.append(z / z.sum(1, keepdims=True))
+            for m, st in zip(head_mods, g_head):
+                m.load_state_dict(st)
+            L.set_mode(wr, use_global=True, active=None, mix=np.zeros(K))
+            return np.stack(out)
 
         # ---------------- Target evaluation -------------------------------
         topk_auto = max(1, math.ceil(math.sqrt(K)))
@@ -128,6 +161,11 @@ def main():
                    "n_route_trials": int(len(r_idx)), "n_eval_trials": int(len(e_idx)),
                    "train_time_s": train_time, "stage1": {k: v for k, v in h1.items() if k != "hist"},
                    "methods": {}, "routing": {}}
+
+            def ens(P, wts, tag):
+                pred = np.tensordot(wts, P, axes=1).argmax(1)
+                res["methods"][tag] = T.metrics(y_e, pred)
+                return res["methods"][tag]
 
             def run(mix, tag, Xe, use_global=True, t3a=False):
                 L.set_mode(wr, use_global=use_global, active=None, mix=mix)
@@ -154,8 +192,26 @@ def main():
                 wts = G.routing_weights(dists["riemann"], topk_auto)
                 res["routing"][f"weights{suf}"] = wts.tolist()
                 run(wts, f"georoute{suf}", Xe)
+                P = expert_probs(Xe)
+                ens(P, wts, f"georoute_ens{suf}")
                 if n != n_full:
                     continue
+                ens(P, np.full(K, 1.0 / K), "uniform_ens")
+                for m in ("logeuclid", "euclid"):
+                    ens(P, G.routing_weights(dists[m], topk_auto), f"georoute_ens[{m}]")
+                for k in (1, 3, 5, 8, K):
+                    if k <= K:
+                        ens(P, G.routing_weights(dists["riemann"], k), f"georoute_ens[top{k}]")
+                rng_e = np.random.default_rng(a.seed * 7919 + int(t) + 1)
+                rnd_e = [ens(P, G.routing_weights(rng_e.permutation(dists["riemann"]), topk_auto),
+                             f"random_ens#{i}")["acc"] for i in range(5)]
+                res["methods"]["random_ens"] = {"acc": float(np.mean(rnd_e))}
+                acc_e = [T.metrics(y_e, P[k].argmax(1))["acc"] for k in range(K)]
+                res["routing"]["acc_single_expert"] = acc_e
+                res["methods"]["oracle_best_expert"] = {"acc": float(max(acc_e))}
+                for m in ("riemann", "logeuclid", "euclid"):
+                    rho, pv = spearmanr(-dists[m], acc_e)
+                    res["routing"][f"spearman_ens_{m}"] = [float(rho), float(pv)]
                 # ---- everything below uses all routing trials -------------
                 run(np.zeros(K), "shared_only", Xe)
                 run(np.full(K, 1.0 / K), "uniform_merge", Xe)
@@ -177,6 +233,7 @@ def main():
                                   for s in sources])
                 res["routing"]["dist_feature"] = fdist.tolist()
                 run(G.routing_weights(fdist, topk_auto), "georoute[feature]", Xe)
+                ens(P, G.routing_weights(fdist, topk_auto), "georoute_ens[feature]")
                 # per-adapter transfer (analysis: does distance predict transfer?)
                 acc_k = []
                 for k in range(K):
@@ -190,11 +247,14 @@ def main():
                 rho, pv = spearmanr(-fdist, acc_k)
                 res["routing"]["spearman_feature"] = [float(rho), float(pv)]
                 res["methods"]["oracle_best_single"] = {"acc": float(max(acc_k))}
-            fn = os.path.join(a.out, f"{a.dataset}_seed{a.seed}_sub{int(t):03d}.json")
+            res["config"] = {"stage2": a.stage2, "subject_head": a.subject_head, "rank": a.rank,
+                             "epochs_subject": a.epochs_subject, "tag": a.tag}
+            fn = os.path.join(a.out, f"{a.dataset}_seed{a.seed}_sub{int(t):03d}{a.tag}.json")
             json.dump(res, open(fn, "w"), indent=1)
             m = res["methods"]
             print(f"[fold {fi}] target {t}: shared {m['shared_only']['acc']:.3f} "
                   f"uniform {m['uniform_merge']['acc']:.3f} georoute {m['georoute']['acc']:.3f} "
+                  f"georoute_ens {m['georoute_ens']['acc']:.3f} uniform_ens {m['uniform_ens']['acc']:.3f} "
                   f"rho {res['routing']['spearman_riemann'][0]:.2f}", flush=True)
         del model, wr
         torch.cuda.empty_cache()
