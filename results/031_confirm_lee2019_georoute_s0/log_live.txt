@@ -52,3 +52,5 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 4] target 16: shared 0.760 uniform 0.730 georoute 0.740 georoute_ens 0.740 uniform_ens 0.720 rho 0.06
 [fold 4] target 17: shared 0.670 uniform 0.680 georoute 0.690 georoute_ens 0.710 uniform_ens 0.680 rho -0.22
 [fold 4] target 21: shared 0.990 uniform 0.990 georoute 0.990 georoute_ens 0.990 uniform_ens 0.990 rho 0.05
+[fold 4] target 33: shared 0.770 uniform 0.770 georoute 0.770 georoute_ens 0.770 uniform_ens 0.770 rho 0.08
+[fold 4] target 34: shared 0.730 uniform 0.700 georoute 0.700 georoute_ens 0.690 uniform_ens 0.680 rho -0.12
