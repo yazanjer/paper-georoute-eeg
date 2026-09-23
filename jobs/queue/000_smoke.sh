@@ -1,19 +1,26 @@
 #!/usr/bin/env bash
-# Smoke test: GPU, torch, install core EEG stack, check a MOABB dataset download.
+# Smoke test: GPU, env setup, pretrained CBraMod download, one MOABB subject, tiny GeoRoute run.
 set -e
+cd "$(dirname "$0")/../.."
 nvidia-smi
-python -c "import torch;print('torch',torch.__version__,'cuda',torch.cuda.is_available(),torch.cuda.get_device_name(0) if torch.cuda.is_available() else '')"
-pip install -q moabb braindecode pyriemann peft mne scikit-learn pandas 2>&1 | tail -5
-python - <<'EOF'
-import json, os, torch, moabb, braindecode, pyriemann, mne
+bash scripts/setup_env.sh
+python - <<'PY'
+import json, os, sys, torch, moabb, braindecode, pyriemann
+sys.path.insert(0, "src")
+from georoute.models import load_cbramod
+m, pre = load_cbramod(True)
+x = torch.randn(2, 22, 800)
+out = m(x)
 info = dict(torch=torch.__version__, cuda=torch.cuda.is_available(),
             gpu=torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
-            moabb=moabb.__version__, braindecode=braindecode.__version__,
-            pyriemann=pyriemann.__version__, mne=mne.__version__)
-from moabb.datasets import BNCI2014_001
-ds = BNCI2014_001()
-data = ds.get_data(subjects=[1])
-info['bnci2014_001_subject1_sessions'] = list(data[1].keys())
+            braindecode=braindecode.__version__, moabb=moabb.__version__, pyriemann=pyriemann.__version__,
+            cbramod_pretrained=pre, cbramod_out_shape=list(out.shape))
+from georoute import data as D
+d, cls = D.load("bnci2014_001", subjects=[1])
+info["bnci_sub1"] = dict(X=list(d[1]["X"].shape), classes=[str(c) for c in cls],
+                         sessions=sorted(set(d[1]["session"].tolist())),
+                         x_std=float(d[1]["X"].std()))
 print(info)
-json.dump(info, open(os.path.join(os.environ['RESULTS_DIR'], 'env.json'), 'w'), indent=2)
-EOF
+json.dump(info, open(os.path.join(os.environ["RESULTS_DIR"], "env.json"), "w"), indent=2)
+PY
+python scripts/run_georoute.py --synthetic 1 --pretrained 1 --epochs-global 2 --epochs-subject 1 --fold-ids 0 --n-route all --out "$RESULTS_DIR/synthetic"

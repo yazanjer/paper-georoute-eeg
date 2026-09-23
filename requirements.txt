@@ -1,0 +1,10 @@
+# torch comes from the RunPod image (runpod/pytorch:2.4.0 cu12.4); torchaudio pinned to match
+torchaudio==2.4.0
+braindecode[hub]==1.8.1
+moabb>=1.4.3
+pyriemann>=0.7
+einops
+scikit-learn
+scipy
+pandas
+tabulate
