@@ -1,1 +1,1 @@
-{"time": "2026-09-23T13:21:21Z", "pod": "vq6narfg0bfbca", "gpu": "NVIDIA GeForce RTX 4090, 1 MiB, 24564 MiB, 0 %", "state": "running 011_pilot_bnci2a_baselines_s0", "agent_pid": 145}
+{"time": "2026-09-23T13:26:25Z", "pod": "vq6narfg0bfbca", "gpu": "NVIDIA GeForce RTX 4090, 5170 MiB, 24564 MiB, 35 %", "state": "running 011_pilot_bnci2a_baselines_s0", "agent_pid": 145}
