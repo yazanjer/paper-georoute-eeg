@@ -27,7 +27,10 @@ DATASETS = {
 }
 
 
-def _load_moabb(name: str, subjects=None):
+DELETE_RAW = {"lee2019_mi"}  # raw files are ~0.6 GB each; drop them once a subject is cached
+
+
+def _load_moabb(name: str, subjects=None, cache_dir=None):
     import moabb.datasets as mds
     from moabb.paradigms import MotorImagery
 
@@ -36,8 +39,14 @@ def _load_moabb(name: str, subjects=None):
     subs = subjects or ds.subject_list
     paradigm = MotorImagery(n_classes=n_classes, fmin=0.5, fmax=45.0,
                             tmin=tmin, tmax=tmax, resample=SFREQ, events=events)
-    out = {}
+    out, classes = {}, None
     for s in subs:
+        sp = os.path.join(cache_dir, f"sub{int(s):03d}.npz") if cache_dir else None
+        if sp and os.path.exists(sp):
+            z = np.load(sp, allow_pickle=True)
+            out[s] = dict(X=z["X"], y=z["y"], session=z["session"])
+            classes = list(z["classes"])
+            continue
         X, labels, meta = paradigm.get_data(dataset=ds, subjects=[s])
         classes = sorted(np.unique(labels))
         y = np.array([classes.index(l) for l in labels], dtype=np.int64)
@@ -50,6 +59,16 @@ def _load_moabb(name: str, subjects=None):
         n_t = int(round((tmax - tmin) * SFREQ))
         X = X[..., :n_t]
         out[s] = dict(X=X, y=y, session=np.asarray(meta["session"].astype(str)))
+        if sp:
+            np.savez(sp, X=X, y=y, session=out[s]["session"], classes=np.array(classes))
+        if name in DELETE_RAW:
+            try:
+                for f in ds.data_path(s):
+                    if os.path.isfile(f):
+                        os.remove(f)
+            except Exception as ex:  # never fail the run because of cleanup
+                print(f"[data] raw cleanup failed for subject {s}: {ex}")
+        print(f"[data] {name} subject {s}: X{X.shape}", flush=True)
     return out, classes
 
 
@@ -59,10 +78,11 @@ def load(name: str, subjects=None):
     if os.path.exists(path) and subjects is None:
         z = np.load(path, allow_pickle=True)
         return z["data"].item(), list(z["classes"])
-    data, classes = _load_moabb(name, subjects)
-    if subjects is None:
-        np.savez(path, data=np.array(data, dtype=object), classes=np.array(classes))
-    return data, classes
+    if subjects is None:  # per-subject cache so an interrupted download can resume
+        sub_dir = os.path.join(CACHE, f"{name}_{CACHE_VERSION}")
+        os.makedirs(sub_dir, exist_ok=True)
+        return _load_moabb(name, None, sub_dir)
+    return _load_moabb(name, subjects)
 
 
 def split_target(d: dict):
