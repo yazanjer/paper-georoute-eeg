@@ -1,1 +1,1 @@
-{"time": "2026-09-23T16:18:06Z", "pod": "vq6narfg0bfbca", "gpu": "NVIDIA GeForce RTX 4090, 1 MiB, 24564 MiB, 0 %", "state": "idle", "agent_pid": 145}
+{"time": "2026-09-23T16:51:05Z", "pod": "vr241sqz2ovejr", "gpu": "NVIDIA L40S, 1 MiB, 46068 MiB, 0 %", "state": "running 030_prep_lee2019", "agent_pid": 113}
