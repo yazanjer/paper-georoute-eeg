@@ -13,6 +13,7 @@ import os
 import numpy as np
 
 SFREQ = 200
+CACHE_VERSION = "v2"  # v2: unit auto-detection (uV vs V)
 CACHE = os.environ.get("GEOROUTE_CACHE", "/workspace/cache")
 if os.path.isdir("/workspace"):  # keep MOABB downloads on the persistent pod volume
     os.environ.setdefault("MNE_DATA", "/workspace/mne_data")
@@ -40,7 +41,12 @@ def _load_moabb(name: str, subjects=None):
         X, labels, meta = paradigm.get_data(dataset=ds, subjects=[s])
         classes = sorted(np.unique(labels))
         y = np.array([classes.index(l) for l in labels], dtype=np.int64)
-        X = (X * 1e6 / 100.0).astype(np.float32)  # V -> uV -> /100
+        X = X.astype(np.float64)
+        # MOABB returns volts for most sources but some (e.g. BNCI via the newer
+        # NeMAR mirror) arrive in microvolts: detect by magnitude.
+        if np.median(X.std(axis=-1)) < 1e-2:
+            X = X * 1e6                      # V -> uV
+        X = (X / 100.0).astype(np.float32)   # uV / 100 (CBraMod convention)
         n_t = int(round((tmax - tmin) * SFREQ))
         X = X[..., :n_t]
         out[s] = dict(X=X, y=y, session=np.asarray(meta["session"].astype(str)))
@@ -49,7 +55,7 @@ def _load_moabb(name: str, subjects=None):
 
 def load(name: str, subjects=None):
     os.makedirs(CACHE, exist_ok=True)
-    path = os.path.join(CACHE, f"{name}.npz")
+    path = os.path.join(CACHE, f"{name}_{CACHE_VERSION}.npz")
     if os.path.exists(path) and subjects is None:
         z = np.load(path, allow_pickle=True)
         return z["data"].item(), list(z["classes"])
