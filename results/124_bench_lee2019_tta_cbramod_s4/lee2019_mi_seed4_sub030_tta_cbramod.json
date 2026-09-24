@@ -1,0 +1,73 @@
+{
+ "dataset": "lee2019_mi",
+ "seed": 4,
+ "fold": 3,
+ "target": 30,
+ "backbone": "cbramod",
+ "bs": 32,
+ "n_warmup": 100,
+ "n_scored": 100,
+ "train_time_s": 188.53780007362366,
+ "methods": {
+  "source": {
+   "acc": 0.85,
+   "bacc": 0.85,
+   "kappa": 0.7
+  },
+  "t3a": {
+   "acc": 0.83,
+   "bacc": 0.83,
+   "kappa": 0.6599999999999999
+  },
+  "lame": {
+   "acc": 0.82,
+   "bacc": 0.8200000000000001,
+   "kappa": 0.64
+  },
+  "rctta": {
+   "acc": 0.84,
+   "bacc": 0.84,
+   "kappa": 0.6799999999999999
+  },
+  "rctta+t3a": {
+   "acc": 0.83,
+   "bacc": 0.83,
+   "kappa": 0.6599999999999999
+  },
+  "rctta_offline": {
+   "acc": 0.84,
+   "bacc": 0.84,
+   "kappa": 0.6799999999999999
+  },
+  "tent": {
+   "acc": 0.86,
+   "bacc": 0.86,
+   "kappa": 0.72
+  },
+  "tent@1e-4": {
+   "acc": 0.84,
+   "bacc": 0.84,
+   "kappa": 0.6799999999999999
+  },
+  "shot_im": {
+   "acc": 0.81,
+   "bacc": 0.81,
+   "kappa": 0.62
+  },
+  "shot_im@1e-5": {
+   "acc": 0.85,
+   "bacc": 0.85,
+   "kappa": 0.7
+  }
+ },
+ "config": {
+  "tag": "_cbramod"
+ },
+ "time_s": {
+  "backprop_free_all": 164.21302556991577,
+  "tent": 1.712308406829834,
+  "tent@1e-4": 1.5090434551239014,
+  "shot_im": 6.46320104598999,
+  "shot_im@1e-5": 6.599926710128784
+ }
+}
