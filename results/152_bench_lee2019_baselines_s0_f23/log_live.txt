@@ -1,4 +1,3 @@
-This is nemar-py 0.3.1.
 Preparing to download nm000338 from https://data.nemar.org/
 Retrying after failure when retrieving NEMAR manifest for nm000338 v1.0.5 (5 retries remain).
 Retrieving 6 of 1955 manifest files (16 concurrent downloads).
@@ -148,3 +147,4 @@ Finished downloading nm000338 v1.0.5.
   montage = mne.channels.make_standard_montage("standard_1020")
 /usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
   montage = make_standard_montage("standard_1020")
+[fold 2] eegnet_ea: 9:0.730 10:0.540 12:0.840 19:0.690 22:0.700 24:0.550 27:0.880 28:0.960 40:0.840
