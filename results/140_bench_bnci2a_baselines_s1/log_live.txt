@@ -6,3 +6,7 @@ Choosing from all possible events
 [fold 0] eegnet: 1:0.688
 [fold 0] eegnet_ea: 1:0.750
 [fold 0] shallow_ea: 1:0.795
+[fold 0] conformer_ea: 1:0.736
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[fold 0] cbramod_lp_ea: 1:0.566
+[fold 0] cbramod_fullft_ea: 1:0.760
