@@ -9,3 +9,11 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 To https://github.com/yazanjer/georoute-eeg.git
  ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 2a4b68faa4ab3e450cb5bb95f697bd57ce0a1a40 but expected 05acff0cfacccf322d108052787cc9e7e49b8594)
 error: failed to push some refs to 'https://github.com/yazanjer/georoute-eeg.git'
+To https://github.com/yazanjer/georoute-eeg.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/yazanjer/georoute-eeg.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
