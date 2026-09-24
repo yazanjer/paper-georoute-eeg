@@ -5,3 +5,5 @@ Choosing from all possible events
   montage = make_standard_montage("standard_1020")
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 [fold 0] target 1: shared 0.705 uniform 0.733 georoute 0.767 georoute_ens 0.764 uniform_ens 0.733 rho 0.60
+[fold 1] target 2: shared 0.375 uniform 0.368 georoute 0.347 georoute_ens 0.354 uniform_ens 0.368 rho -0.88
+[fold 2] target 3: shared 0.781 uniform 0.785 georoute 0.806 georoute_ens 0.806 uniform_ens 0.785 rho 0.67
