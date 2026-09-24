@@ -5,3 +5,9 @@ Choosing from all possible events
   montage = make_standard_montage("standard_1020")
 [fold 0] eegnet: 1:0.691
 [fold 0] eegnet_ea: 1:0.747
+[fold 0] shallow_ea: 1:0.715
+[fold 0] conformer_ea: 1:0.688
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[fold 0] cbramod_lp_ea: 1:0.510
+[fold 0] cbramod_fullft_ea: 1:0.736
+[fold 1] eegnet: 2:0.556
