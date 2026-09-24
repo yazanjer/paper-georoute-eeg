@@ -1,0 +1,50 @@
+{
+ "dataset": "lee2019_mi",
+ "seed": 0,
+ "fold": 3,
+ "target": 36,
+ "methods": {
+  "csp_lda_ea": {
+   "acc": 0.87,
+   "bacc": 0.87,
+   "kappa": 0.74,
+   "train_time_s": 13.44209337234497
+  },
+  "mdm_ra": {
+   "acc": 0.61,
+   "bacc": 0.61,
+   "kappa": 0.21999999999999997,
+   "train_time_s": 1031.4290225505829
+  },
+  "ts_lr_ra": {
+   "acc": 0.97,
+   "bacc": 0.97,
+   "kappa": 0.94,
+   "train_time_s": 1137.148833990097
+  },
+  "eegnet_ea": {
+   "acc": 0.97,
+   "bacc": 0.97,
+   "kappa": 0.94,
+   "train_time_s": 437.2416989803314
+  },
+  "shallow_ea": {
+   "acc": 0.97,
+   "bacc": 0.97,
+   "kappa": 0.94,
+   "train_time_s": 153.36501121520996
+  },
+  "cbramod_lp_ea": {
+   "acc": 0.8,
+   "bacc": 0.8,
+   "kappa": 0.6,
+   "train_time_s": 417.5164062976837
+  },
+  "cbramod_fullft_ea": {
+   "acc": 0.97,
+   "bacc": 0.97,
+   "kappa": 0.94,
+   "train_time_s": 339.0082573890686
+  }
+ }
+}
