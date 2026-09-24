@@ -38,8 +38,8 @@ heartbeat() {
   local gpu
   gpu=$(nvidia-smi --query-gpu=name,memory.used,memory.total,utilization.gpu --format=csv,noheader 2>/dev/null | head -1)
   printf '{"time": "%s", "pod": "%s", "gpu": "%s", "state": "%s", "agent_pid": %s}\n' \
-    "$(date -u +%FT%TZ)" "${RUNPOD_POD_ID:-unknown}" "$gpu" "$1" "$$" > status/pod.json
-  tail -n 60 /workspace/agent.log > status/agent_log_tail.txt 2>/dev/null || true
+    "$(date -u +%FT%TZ)" "${RUNPOD_POD_ID:-unknown}" "$gpu" "$1" "$$" > "status/pod_${GEOROUTE_WORKER:-default}.json"
+  tail -n 60 /workspace/agent.log > "status/agent_log_tail_${GEOROUTE_WORKER:-default}.txt" 2>/dev/null || true
 }
 
 LAST_HB=0
@@ -52,6 +52,8 @@ while true; do
       name=$(basename "$job" .sh)
       out="results/$name"
       [ -f "$out/status" ] && continue
+      want=$(grep -m1 '^# worker:' "$job" | awk '{print $3}')
+      if [ -n "$want" ] && [ "$want" != "${GEOROUTE_WORKER:-}" ]; then continue; fi
       mkdir -p "$out"
       echo running > "$out/status"; git rev-parse HEAD > "$out/commit"; date -u +%FT%TZ > "$out/started"
       heartbeat "running $name"; push "start $name"

@@ -41,6 +41,8 @@ from run_georoute import folds  # noqa: E402
 
 ALL = ("source,t3a,lame,tent,shot_im,rctta,rctta+t3a,rctta_lam0.5,rctta_lam2,rctta_nobp,"
        "rctta_norecenter,rctta_nogate,rctta_offline,geo_src")
+# frozen benchmark set (pre-registered 2026-09-24): two pre-specified lrs for each gradient method
+BENCH = "source,t3a,lame,tent,tent@1e-4,shot_im,shot_im@1e-5,rctta,rctta+t3a,rctta_offline,geo_src"
 
 
 # ------------------------------------------------------------------ decoders
@@ -252,6 +254,8 @@ def main():
     ap.add_argument("--ckpt-dir", default=os.environ.get("GEOROUTE_CKPT", "/workspace/ckpt"))
     ap.add_argument("--out", default=os.environ.get("RESULTS_DIR", "results/local"))
     a = ap.parse_args()
+    if a.methods == "bench":
+        a.methods = BENCH
     a.epochs = a.epochs or (30 if a.backbone == "cbramod" else 100)
     os.makedirs(a.out, exist_ok=True)
     which = a.methods.split(",")
@@ -292,10 +296,15 @@ def main():
             if bpf:
                 probs.update(run_backpropfree(dec, Xstream, a.bs, n_cls, bpf))
                 res["time_s"]["backprop_free_all"] = time.time() - t1
-            if "tent" in which:
-                t1 = time.time(); probs["tent"] = run_tent(dec, Xstream, a.bs); res["time_s"]["tent"] = time.time() - t1
-            if "shot_im" in which:
-                t1 = time.time(); probs["shot_im"] = run_shot_im(dec, Xstream, a.bs); res["time_s"]["shot_im"] = time.time() - t1
+            # gradient-based baselines; "name@lr" selects a pre-specified learning rate
+            for m in which:
+                base, _, lr_s = m.partition("@")
+                if base == "tent":
+                    t1 = time.time(); probs[m] = run_tent(dec, Xstream, a.bs, lr=float(lr_s or 1e-3))
+                    res["time_s"][m] = time.time() - t1
+                elif base == "shot_im":
+                    t1 = time.time(); probs[m] = run_shot_im(dec, Xstream, a.bs, lr=float(lr_s or 1e-4))
+                    res["time_s"][m] = time.time() - t1
             if "geo_src" in which:
                 t1 = time.time(); probs["geo_src"] = run_geo_src(data, sources, Xstream, a.bs, n_cls)
                 res["time_s"]["geo_src"] = time.time() - t1
