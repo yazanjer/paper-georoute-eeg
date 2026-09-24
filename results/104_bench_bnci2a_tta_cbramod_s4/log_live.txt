@@ -7,3 +7,5 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 0] target 1 (cbramod): source=0.701 t3a=0.743 lame=0.663 tent=0.365 rctta=0.743 rctta+t3a=0.750
 [fold 1] target 2 (cbramod): source=0.389 t3a=0.441 lame=0.302 tent=0.309 rctta=0.389 rctta+t3a=0.438
 [fold 2] target 3 (cbramod): source=0.819 t3a=0.858 lame=0.840 tent=0.333 rctta=0.837 rctta+t3a=0.868
+[fold 3] target 4 (cbramod): source=0.514 t3a=0.597 lame=0.413 tent=0.483 rctta=0.507 rctta+t3a=0.601
+[fold 4] target 5 (cbramod): source=0.486 t3a=0.500 lame=0.438 tent=0.514 rctta=0.483 rctta+t3a=0.503
