@@ -1,0 +1,7 @@
+Choosing from all possible events
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = make_standard_montage("standard_1020")
+[fold 0] target 1 (eegnet): source=0.729 t3a=0.816 lame=0.597 tent=0.771 rctta=0.747 rctta+t3a=0.826
+[fold 1] target 2 (eegnet): source=0.424 t3a=0.431 lame=0.264 tent=0.431 rctta=0.417 rctta+t3a=0.441
