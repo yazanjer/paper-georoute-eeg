@@ -25,33 +25,38 @@ sys.path.insert(0, os.path.dirname(__file__))
 from run_georoute import folds  # noqa: E402
 
 
-def classical(method, Xs_list, ys, Xt_route, Xt_eval):
+def fit_classical(method, Xs_list, ys):
+    """Fit a classical decoder on the source subjects only (independent of the target)."""
     from pyriemann.estimation import Covariances
     from pyriemann.classification import MDM
     from pyriemann.tangentspace import TangentSpace
-    from pyriemann.utils.mean import mean_riemann
     from pyriemann.spatialfilters import CSP
     from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
     from sklearn.linear_model import LogisticRegression
     from sklearn.pipeline import make_pipeline
-    from scipy.linalg import fractional_matrix_power as fmp
 
     cov = Covariances("oas")
     if method.startswith("csp_lda"):
         Cs = np.concatenate([cov.fit_transform(X.astype(np.float64)) for X in Xs_list])
-        clf = make_pipeline(CSP(nfilter=8, log=True), LDA())
-        clf.fit(Cs, ys)
-        return clf.predict(cov.fit_transform(Xt_eval.astype(np.float64)))
-
-    def recenter(Cx, Cref):  # Riemannian alignment (Zanini et al. 2018)
-        M = np.real(fmp(mean_riemann(Cref), -0.5))
-        return np.einsum("ij,njk,kl->nil", M, Cx, M)
-
-    Cs = np.concatenate([recenter(c, c) for c in (cov.fit_transform(X.astype(np.float64)) for X in Xs_list)])
-    Ct_r = cov.fit_transform(Xt_route.astype(np.float64))
-    Ct_e = recenter(cov.fit_transform(Xt_eval.astype(np.float64)), Ct_r)
+        return make_pipeline(CSP(nfilter=8, log=True), LDA()).fit(Cs, ys)
+    Cs = np.concatenate([_recenter(c, c) for c in (cov.fit_transform(X.astype(np.float64)) for X in Xs_list)])
     clf = MDM() if method == "mdm_ra" else make_pipeline(TangentSpace(), LogisticRegression(max_iter=2000))
-    clf.fit(Cs, ys)
+    return clf.fit(Cs, ys)
+
+
+def _recenter(Cx, Cref):  # Riemannian alignment (Zanini et al. 2018)
+    from pyriemann.utils.mean import mean_riemann
+    from scipy.linalg import fractional_matrix_power as fmp
+    M = np.real(fmp(mean_riemann(Cref), -0.5))
+    return np.einsum("ij,njk,kl->nil", M, Cx, M)
+
+
+def predict_classical(method, clf, Xt_route, Xt_eval):
+    from pyriemann.estimation import Covariances
+    cov = Covariances("oas")
+    Ct_e = cov.fit_transform(Xt_eval.astype(np.float64))
+    if not method.startswith("csp_lda"):
+        Ct_e = _recenter(Ct_e, cov.fit_transform(Xt_route.astype(np.float64)))
     return clf.predict(Ct_e)
 
 
@@ -81,6 +86,10 @@ def main():
 
     for fi in fold_ids:
         targets = fl[fi]
+        fns = {t: os.path.join(a.out, f"{a.dataset}_seed{a.seed}_sub{int(t):03d}_baselines.json") for t in targets}
+        if all(os.path.exists(f) for f in fns.values()):
+            print(f"[fold {fi}] already done, skipping", flush=True)
+            continue
         sources = [s for s in subjects if s not in targets]
         ys = np.concatenate([data[s]["y"] for s in sources])
         out = {t: {} for t in targets}
@@ -91,13 +100,15 @@ def main():
             Xs = [G.apply_ea(data[s]["X"], ea_W[s]) if use_ea else data[s]["X"] for s in sources]
             t0 = time.time()
             if base in ("csp_lda", "mdm_ra", "ts_lr_ra"):
+                clf = fit_classical(base, Xs, ys)   # source-only fit, shared by all targets of the fold
                 for t in targets:
                     r, e = D.split_target(data[t])
                     Xr, Xe = data[t]["X"][r], data[t]["X"][e]
                     if use_ea:
                         Xe = G.apply_ea(Xe, G.ea_matrix(Xr))
-                    pred = classical(base, Xs, ys, Xr, Xe)
-                    out[t][meth] = T.metrics(data[t]["y"][e], pred)
+                    out[t][meth] = T.metrics(data[t]["y"][e], predict_classical(base, clf, Xr, Xe))
+                    out[t][meth]["train_time_s"] = time.time() - t0
+                print(f"[fold {fi}] {meth}: " + " ".join(f"{t}:{out[t][meth]['acc']:.3f}" for t in targets), flush=True)
                 continue
             if base in ("eegnet", "shallow", "conformer"):
                 model = compact_model(base, C, n_cls, Tn)
@@ -126,7 +137,7 @@ def main():
                 out[t][meth]["train_time_s"] = time.time() - t0
             print(f"[fold {fi}] {meth}: " + " ".join(f"{t}:{out[t][meth]['acc']:.3f}" for t in targets), flush=True)
         for t in targets:
-            fn = os.path.join(a.out, f"{a.dataset}_seed{a.seed}_sub{int(t):03d}_baselines.json")
+            fn = fns[t]
             json.dump({"dataset": a.dataset, "seed": a.seed, "fold": fi, "target": int(t),
                        "methods": out[t]}, open(fn, "w"), indent=1)
 
