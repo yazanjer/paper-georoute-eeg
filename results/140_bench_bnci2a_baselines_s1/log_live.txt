@@ -10,3 +10,7 @@ Choosing from all possible events
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 [fold 0] cbramod_lp_ea: 1:0.566
 [fold 0] cbramod_fullft_ea: 1:0.760
+[fold 1] eegnet: 2:0.490
+[fold 1] eegnet_ea: 2:0.438
+[fold 1] shallow_ea: 2:0.351
+[fold 1] conformer_ea: 2:0.306
