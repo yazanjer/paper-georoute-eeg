@@ -3,3 +3,7 @@ Choosing from all possible events
   montage = mne.channels.make_standard_montage("standard_1020")
 /usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
   montage = make_standard_montage("standard_1020")
+[fold 0] target 1 (eegnet): source=0.870 t3a=0.890 lame=0.870 tent=0.850 rctta=0.870 rctta+t3a=0.890
+[fold 0] target 7 (eegnet): source=0.870 t3a=0.810 lame=0.670 tent=0.870 rctta=0.860 rctta+t3a=0.810
+[fold 0] target 29 (eegnet): source=0.790 t3a=0.800 lame=0.700 tent=0.840 rctta=0.910 rctta+t3a=0.900
+[fold 0] target 41 (eegnet): source=0.800 t3a=0.820 lame=0.590 tent=0.810 rctta=0.800 rctta+t3a=0.830
