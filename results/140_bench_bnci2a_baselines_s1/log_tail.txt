@@ -55,3 +55,6 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 8] eegnet: 9:0.597
 [fold 8] eegnet_ea: 9:0.594
 [fold 8] shallow_ea: 9:0.639
+[fold 8] conformer_ea: 9:0.580
+[fold 8] cbramod_lp_ea: 9:0.545
+[fold 8] cbramod_fullft_ea: 9:0.688
