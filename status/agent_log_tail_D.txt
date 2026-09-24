@@ -23,3 +23,6 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 To https://github.com/yazanjer/georoute-eeg.git
  ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 6ecec81fff696e4be2660935f5b38263500091d3 but expected 2a4b68faa4ab3e450cb5bb95f697bd57ce0a1a40)
 error: failed to push some refs to 'https://github.com/yazanjer/georoute-eeg.git'
+To https://github.com/yazanjer/georoute-eeg.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at fe8050010ffacb0ac3533a8aa409f05047fc7752 but expected 5d63474b9c195c47afe2b319e0d1e9bde8a03006)
+error: failed to push some refs to 'https://github.com/yazanjer/georoute-eeg.git'
