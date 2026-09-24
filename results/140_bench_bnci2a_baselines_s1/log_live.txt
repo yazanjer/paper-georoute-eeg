@@ -18,3 +18,7 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 1] cbramod_fullft_ea: 2:0.351
 [fold 2] eegnet: 3:0.771
 [fold 2] eegnet_ea: 3:0.781
+[fold 2] shallow_ea: 3:0.767
+[fold 2] conformer_ea: 3:0.788
+[fold 2] cbramod_lp_ea: 3:0.559
+[fold 2] cbramod_fullft_ea: 3:0.764
