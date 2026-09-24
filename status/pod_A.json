@@ -1,1 +1,1 @@
-{"time": "2026-09-24T09:30:41Z", "pod": "f3pnc5xw50erv1", "gpu": "NVIDIA L40S, 2011 MiB, 46068 MiB, 29 %", "state": "running 111_bench_bnci2a_georoute_s2", "agent_pid": 589}
+{"time": "2026-09-24T09:34:05Z", "pod": "f3pnc5xw50erv1", "gpu": "NVIDIA L40S, 0 MiB, 46068 MiB, 0 %", "state": "idle", "agent_pid": 589}
