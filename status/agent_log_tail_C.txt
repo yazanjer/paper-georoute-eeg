@@ -12,3 +12,9 @@ hint: not have locally. This is usually caused by another repository pushing
 hint: to the same ref. You may want to first integrate the remote changes
 hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+remote: Internal Server Error        
+remote: Request ID 85D4:2BC229:7CD7B:7E150:6AB53487        
+remote: Time 2026-09-24T14:32:39Z
+To https://github.com/yazanjer/georoute-eeg.git
+ ! [remote rejected] main -> main (Internal Server Error)
+error: failed to push some refs to 'https://github.com/yazanjer/georoute-eeg.git'
