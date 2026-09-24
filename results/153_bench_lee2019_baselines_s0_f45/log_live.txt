@@ -1,8 +1,3 @@
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-Finished downloading nm000338 v1.0.5.
 [data] lee2019_mi subject 41: X(200, 62, 800)
 This is nemar-py 0.3.1.
 Preparing to download nm000338 from https://data.nemar.org/
@@ -148,3 +143,8 @@ Finished downloading nm000338 v1.0.5.
 [data] lee2019_mi subject 54: X(200, 62, 800)
 [fold 4] csp_lda_ea: 2:0.490 8:0.560 14:0.500 16:0.540 17:0.510 21:0.780 33:0.620 34:0.390 38:0.560
 [fold 4] mdm_ra: 2:0.600 8:0.540 14:0.490 16:0.670 17:0.490 21:0.630 33:0.580 34:0.510 38:0.480
+[fold 4] ts_lr_ra: 2:0.550 8:0.580 14:0.600 16:0.780 17:0.510 21:0.960 33:0.830 34:0.520 38:0.650
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = make_standard_montage("standard_1020")
