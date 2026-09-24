@@ -39,3 +39,7 @@ Choosing from all possible events
 [fold 3] target 39 (eegnet): source=0.830 t3a=0.830 lame=0.710 tent=0.820 rctta=0.840 rctta+t3a=0.830
 [fold 3] target 51 (eegnet): source=0.730 t3a=0.690 lame=0.610 tent=0.730 rctta=0.720 rctta+t3a=0.670
 [fold 3] target 53 (eegnet): source=0.730 t3a=0.750 lame=0.530 tent=0.740 rctta=0.740 rctta+t3a=0.750
+[fold 4] target 2 (eegnet): source=0.770 t3a=0.770 lame=0.590 tent=0.850 rctta=0.730 rctta+t3a=0.760
+[fold 4] target 8 (eegnet): source=0.890 t3a=0.880 lame=0.880 tent=0.920 rctta=0.910 rctta+t3a=0.860
+[fold 4] target 14 (eegnet): source=0.660 t3a=0.700 lame=0.620 tent=0.730 rctta=0.620 rctta+t3a=0.690
+[fold 4] target 16 (eegnet): source=0.810 t3a=0.800 lame=0.780 tent=0.820 rctta=0.830 rctta+t3a=0.800
