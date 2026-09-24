@@ -3,7 +3,8 @@
 set -e
 MARK=/workspace/.georoute_env_ok
 REQ_HASH=$(md5sum "$(dirname "$0")/../requirements.txt" | cut -d' ' -f1)
-if [ -f "$MARK" ] && [ "$(cat $MARK)" = "$REQ_HASH" ]; then exit 0; fi
+if [ -f "$MARK" ] && [ "$(cat $MARK)" = "$REQ_HASH" ] && \
+   python -c "import braindecode, moabb, pyriemann" 2>/dev/null; then exit 0; fi   # container disk may be reset
 python - > /tmp/constraints.txt <<'PY'
 import importlib.metadata as md
 for p in ("torch", "torchaudio", "torchvision"):

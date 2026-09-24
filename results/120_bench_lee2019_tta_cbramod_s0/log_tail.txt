@@ -1,7 +1,0 @@
-Traceback (most recent call last):
-  File "/workspace/georoute-eeg/scripts/run_tta.py", line 37, in <module>
-    from georoute import data as D, geometry as G, lora as L, train as T, rctta as R  # noqa: E402
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/georoute-eeg/scripts/../src/georoute/geometry.py", line 5, in <module>
-    from scipy.linalg import sqrtm, inv
-ModuleNotFoundError: No module named 'scipy'
