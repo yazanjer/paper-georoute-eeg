@@ -1,1 +1,1 @@
-{"time": "2026-09-24T08:25:58Z", "pod": "7cy75j1vyk7w5p", "gpu": "NVIDIA L40S, 1627 MiB, 46068 MiB, 29 %", "state": "running 133_bench_lee2019_tta_eegnet_s3", "agent_pid": 102}
+{"time": "2026-09-24T08:31:02Z", "pod": "7cy75j1vyk7w5p", "gpu": "NVIDIA L40S, 1627 MiB, 46068 MiB, 0 %", "state": "running 133_bench_lee2019_tta_eegnet_s3", "agent_pid": 102}
