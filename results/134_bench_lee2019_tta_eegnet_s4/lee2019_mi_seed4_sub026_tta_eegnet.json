@@ -1,0 +1,73 @@
+{
+ "dataset": "lee2019_mi",
+ "seed": 4,
+ "fold": 5,
+ "target": 26,
+ "backbone": "eegnet",
+ "bs": 32,
+ "n_warmup": 100,
+ "n_scored": 100,
+ "train_time_s": 277.2638771533966,
+ "methods": {
+  "source": {
+   "acc": 0.88,
+   "bacc": 0.8799999999999999,
+   "kappa": 0.76
+  },
+  "t3a": {
+   "acc": 0.89,
+   "bacc": 0.89,
+   "kappa": 0.78
+  },
+  "lame": {
+   "acc": 0.81,
+   "bacc": 0.81,
+   "kappa": 0.62
+  },
+  "rctta": {
+   "acc": 0.88,
+   "bacc": 0.88,
+   "kappa": 0.76
+  },
+  "rctta+t3a": {
+   "acc": 0.9,
+   "bacc": 0.9,
+   "kappa": 0.8
+  },
+  "rctta_offline": {
+   "acc": 0.87,
+   "bacc": 0.87,
+   "kappa": 0.74
+  },
+  "tent": {
+   "acc": 0.92,
+   "bacc": 0.9199999999999999,
+   "kappa": 0.84
+  },
+  "tent@1e-4": {
+   "acc": 0.92,
+   "bacc": 0.9199999999999999,
+   "kappa": 0.84
+  },
+  "shot_im": {
+   "acc": 0.91,
+   "bacc": 0.9099999999999999,
+   "kappa": 0.8200000000000001
+  },
+  "shot_im@1e-5": {
+   "acc": 0.88,
+   "bacc": 0.88,
+   "kappa": 0.76
+  }
+ },
+ "config": {
+  "tag": "_eegnet"
+ },
+ "time_s": {
+  "backprop_free_all": 68.16315197944641,
+  "tent": 0.6974985599517822,
+  "tent@1e-4": 0.7106409072875977,
+  "shot_im": 2.305586099624634,
+  "shot_im@1e-5": 2.4070231914520264
+ }
+}
