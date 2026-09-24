@@ -6,3 +6,6 @@ Choosing from all possible events
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 [fold 0] target 1 (cbramod): source=0.820 t3a=0.820 lame=0.800 tent=0.820 rctta=0.830 rctta+t3a=0.820
 [fold 0] target 7 (cbramod): source=0.890 t3a=0.860 lame=0.850 tent=0.870 rctta=0.900 rctta+t3a=0.870
+[fold 0] target 29 (cbramod): source=0.700 t3a=0.810 lame=0.710 tent=0.730 rctta=0.820 rctta+t3a=0.840
+[fold 0] target 41 (cbramod): source=0.870 t3a=0.850 lame=0.820 tent=0.850 rctta=0.870 rctta+t3a=0.850
+[fold 0] target 42 (cbramod): source=0.790 t3a=0.820 lame=0.740 tent=0.760 rctta=0.780 rctta+t3a=0.820
