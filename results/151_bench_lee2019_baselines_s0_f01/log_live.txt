@@ -1,4 +1,3 @@
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
   montage = make_standard_montage("standard_1005")
 /usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
   montage = make_standard_montage("standard_1005")
@@ -148,3 +147,4 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 0] cbramod_fullft_ea: 1:0.830 7:0.850 29:0.690 41:0.810 42:0.720 44:0.900 45:0.940 47:0.840 54:0.750
 [fold 1] csp_lda_ea: 4:0.520 5:0.500 6:0.580 13:0.520 20:0.550 25:0.850 43:0.600 49:0.700 50:0.470
 [fold 1] mdm_ra: 4:0.510 5:0.510 6:0.490 13:0.520 20:0.530 25:0.710 43:0.500 49:0.550 50:0.510
+[fold 1] ts_lr_ra: 4:0.600 5:0.650 6:0.710 13:0.540 20:0.780 25:0.800 43:0.570 49:0.620 50:0.520
