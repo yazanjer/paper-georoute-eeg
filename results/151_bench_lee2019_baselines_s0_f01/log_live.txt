@@ -1,6 +1,3 @@
-  montage = make_standard_montage("standard_1005")
-Finished downloading nm000338 v1.0.5.
-[data] lee2019_mi subject 40: X(200, 62, 800)
 This is nemar-py 0.3.1.
 Preparing to download nm000338 from https://data.nemar.org/
 Retrieving 6 of 1955 manifest files (16 concurrent downloads).
@@ -148,3 +145,6 @@ Finished downloading nm000338 v1.0.5.
   montage = mne.channels.make_standard_montage("standard_1020")
 /usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
   montage = make_standard_montage("standard_1020")
+[fold 0] eegnet_ea: 1:0.830 7:0.850 29:0.830 41:0.810 42:0.720 44:0.960 45:0.900 47:0.700 54:0.740
+[fold 0] shallow_ea: 1:0.800 7:0.770 29:0.700 41:0.750 42:0.740 44:0.880 45:0.850 47:0.730 54:0.700
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
