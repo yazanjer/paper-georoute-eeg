@@ -29,14 +29,6 @@ hint: to the same ref. You may want to first integrate the remote changes
 hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 To https://github.com/yazanjer/georoute-eeg.git
- ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'https://github.com/yazanjer/georoute-eeg.git'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-To https://github.com/yazanjer/georoute-eeg.git
  ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 1c0ffaed02b5c95dc617d13ae91c088024d742d9 but expected 820f95a933ba750c2e4dd0a05337cb2469e90d3f)
 error: failed to push some refs to 'https://github.com/yazanjer/georoute-eeg.git'
 To https://github.com/yazanjer/georoute-eeg.git
@@ -50,6 +42,14 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 To https://github.com/yazanjer/georoute-eeg.git
  ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at f3e78e2ea931bdb8a1c4ea6dd2fe9eb24da1a3e7 but expected 066e4f745a22efe55680f2dff9dd2772347d15dc)
 error: failed to push some refs to 'https://github.com/yazanjer/georoute-eeg.git'
+To https://github.com/yazanjer/georoute-eeg.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/yazanjer/georoute-eeg.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 To https://github.com/yazanjer/georoute-eeg.git
  ! [rejected]        main -> main (fetch first)
 error: failed to push some refs to 'https://github.com/yazanjer/georoute-eeg.git'
