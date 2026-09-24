@@ -215,20 +215,27 @@ def run_shot_im(dec, Xstream, bs, epochs=10, lr=1e-4):
     return R.softmax(z)
 
 
-def run_geo_src(data, sources, Xstream, bs, n_cls):
-    """Source-trained MDM on re-centred 8-30 Hz covariances; target re-centred online."""
+def _recenter(C, ref):
+    from scipy.linalg import fractional_matrix_power as fmp
+    M = np.real(fmp(ref, -0.5))
+    return np.einsum("ij,njk,kl->nil", M, C, M)
+
+
+def fit_geo_src(data, sources):
+    """Source-trained MDM on per-subject re-centred 8-30 Hz covariances (fit once per fold)."""
     from pyriemann.classification import MDM
     from pyriemann.utils.mean import mean_riemann
-    from scipy.linalg import fractional_matrix_power as fmp
-
-    def rc(C, ref):
-        M = np.real(fmp(ref, -0.5))
-        return np.einsum("ij,njk,kl->nil", M, C, M)
     Cs, ys = [], []
     for s in sources:
         C = R.covs(R.bandpass(data[s]["X"]))
-        Cs.append(rc(C, mean_riemann(C))); ys.append(data[s]["y"])
-    clf = MDM().fit(np.concatenate(Cs), np.concatenate(ys))
+        Cs.append(_recenter(C, mean_riemann(C))); ys.append(data[s]["y"])
+    return MDM().fit(np.concatenate(Cs), np.concatenate(ys))
+
+
+def run_geo_src(clf, Xstream, bs):
+    """geo_src on the target stream, re-centred online. Deterministic: independent of seed/backbone."""
+    from pyriemann.utils.mean import mean_riemann
+    rc = _recenter
     outs, seen = [], None
     for i in range(0, len(Xstream), bs):
         Cb = R.covs(R.bandpass(Xstream[i:i + bs]))
@@ -274,6 +281,11 @@ def main():
         T.seed_all(a.seed * 1000 + fi)
         Xs = np.concatenate([G.apply_ea(data[s]["X"], ea_W[s]) for s in sources])
         ys = np.concatenate([data[s]["y"] for s in sources])
+        fns = {t: os.path.join(a.out, f"{a.dataset}_seed{a.seed}_sub{int(t):03d}_tta_{a.backbone}.json")
+               for t in targets}
+        if all(os.path.exists(f) for f in fns.values()):   # resume: fold already done
+            continue
+        geo_clf = None
         tag = "synthetic" if a.synthetic else a.dataset
         ckpt = os.path.join(a.ckpt_dir, f"{tag}_{a.backbone}_s{a.seed}_{a.cv.replace(':', '')}_f{fi}.pt")
         t0 = time.time()
@@ -281,6 +293,8 @@ def main():
         dec = Decoder(a.backbone, model)
         t_train = time.time() - t0
         for t in targets:
+            if os.path.exists(fns[t]):
+                continue
             d = data[t]
             r_idx, e_idx = D.split_target(d)
             order = np.concatenate([r_idx, e_idx])      # warm-up session, then scored session
@@ -305,8 +319,11 @@ def main():
                 elif base == "shot_im":
                     t1 = time.time(); probs[m] = run_shot_im(dec, Xstream, a.bs, lr=float(lr_s or 1e-4))
                     res["time_s"][m] = time.time() - t1
-            if "geo_src" in which:
-                t1 = time.time(); probs["geo_src"] = run_geo_src(data, sources, Xstream, a.bs, n_cls)
+            if "geo_src" in which and a.seed == 0:   # seed-independent: computed once (seed 0)
+                t1 = time.time()
+                if geo_clf is None:
+                    geo_clf = fit_geo_src(data, sources)
+                probs["geo_src"] = run_geo_src(geo_clf, Xstream, a.bs)
                 res["time_s"]["geo_src"] = time.time() - t1
             for m, P in probs.items():
                 res["methods"][m] = T.metrics(ystream[scored], P[scored].argmax(1))
