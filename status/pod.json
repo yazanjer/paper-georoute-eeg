@@ -1,1 +1,1 @@
-{"time": "2026-09-24T00:38:04Z", "pod": "j22yzxp7s0lxkb", "gpu": "NVIDIA GeForce RTX 4090, 4 MiB, 24564 MiB, 0 %", "state": "running 041_pilot_bnci2a_tta_eegnet_s0", "agent_pid": 145}
+{"time": "2026-09-24T00:40:12Z", "pod": "x69b1r2txhl9xd", "gpu": "NVIDIA L40S, 1 MiB, 46068 MiB, 0 %", "state": "running 040_pilot_bnci2a_tta_cbramod_s0", "agent_pid": 114}
