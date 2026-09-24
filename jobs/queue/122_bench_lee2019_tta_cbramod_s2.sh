@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # BENCHMARK (frozen protocol, see docs/BENCHMARK_PROTOCOL.md)
-# worker: B
+# worker: C
 set -e
 cd "$(dirname "$0")/../.."
 bash scripts/setup_env.sh
