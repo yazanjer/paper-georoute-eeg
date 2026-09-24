@@ -5,3 +5,6 @@ Choosing from all possible events
   montage = make_standard_montage("standard_1020")
 [fold 0] target 1 (eegnet): source=0.753 t3a=0.764 lame=0.562 tent=0.743 rctta=0.771 rctta+t3a=0.764
 [fold 1] target 2 (eegnet): source=0.448 t3a=0.455 lame=0.281 tent=0.431 rctta=0.465 rctta+t3a=0.455
+[fold 2] target 3 (eegnet): source=0.792 t3a=0.819 lame=0.535 tent=0.830 rctta=0.799 rctta+t3a=0.826
+[fold 3] target 4 (eegnet): source=0.611 t3a=0.590 lame=0.278 tent=0.667 rctta=0.625 rctta+t3a=0.611
+[fold 4] target 5 (eegnet): source=0.538 t3a=0.490 lame=0.312 tent=0.590 rctta=0.524 rctta+t3a=0.486
