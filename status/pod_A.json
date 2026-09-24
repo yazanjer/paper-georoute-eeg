@@ -1,1 +1,1 @@
-{"time": "2026-09-24T04:53:17Z", "pod": "f3pnc5xw50erv1", "gpu": "NVIDIA L40S, 2003 MiB, 46068 MiB, 30 %", "state": "running 100_bench_bnci2a_tta_cbramod_s0", "agent_pid": 589}
+{"time": "2026-09-24T04:58:33Z", "pod": "f3pnc5xw50erv1", "gpu": "NVIDIA L40S, 2003 MiB, 46068 MiB, 0 %", "state": "running 100_bench_bnci2a_tta_cbramod_s0", "agent_pid": 589}
