@@ -8,3 +8,5 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 1] target 2: shared 0.375 uniform 0.368 georoute 0.347 georoute_ens 0.354 uniform_ens 0.368 rho -0.88
 [fold 2] target 3: shared 0.781 uniform 0.785 georoute 0.806 georoute_ens 0.806 uniform_ens 0.785 rho 0.67
 [fold 3] target 4: shared 0.562 uniform 0.545 georoute 0.545 georoute_ens 0.559 uniform_ens 0.549 rho -0.36
+[fold 4] target 5: shared 0.479 uniform 0.476 georoute 0.476 georoute_ens 0.465 uniform_ens 0.479 rho -0.52
+[fold 5] target 6: shared 0.420 uniform 0.444 georoute 0.455 georoute_ens 0.448 uniform_ens 0.434 rho 0.10
