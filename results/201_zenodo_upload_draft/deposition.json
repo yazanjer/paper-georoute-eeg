@@ -4,5 +4,11 @@
  "state": "unsubmitted",
  "html": "https://zenodo.org/deposit/22965131",
  "bucket": "https://zenodo.org/api/files/f42d9ed0-f613-42d9-b635-148d0c875a95",
- "files": []
+ "files": [
+  {
+   "name": "georoute-eeg-v1.0.0.zip",
+   "size": 1200775,
+   "checksum": "82972a8d85a8bd7b27ecb6767ed131fd"
+  }
+ ]
 }

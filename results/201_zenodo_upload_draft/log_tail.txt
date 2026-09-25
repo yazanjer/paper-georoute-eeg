@@ -1,6 +1,20 @@
-total 5079
+total 5081
 drwxrwxrwx 2 root root 2000114 Sep 25 18:26 .
-drwxrwxrwx 4 root root 2000618 Sep 25 18:26 ..
--rw-rw-rw- 1 root root 1199516 Sep 25 18:26 georoute-eeg-v1.0.0.zip
-usage: zenodo_deposit.py [-h] [--state STATE] {create,upload} [files ...]
-zenodo_deposit.py: error: unrecognized arguments: /workspace/zen/georoute-eeg-v1.0.0.zip
+drwxrwxrwx 4 root root 2000619 Sep 25 18:26 ..
+-rw-rw-rw- 1 root root 1200775 Sep 25 18:27 georoute-eeg-v1.0.0.zip
+uploaded /workspace/zen/georoute-eeg-v1.0.0.zip (1200775 bytes, md5:82972a8d85a8bd7b27ecb6767ed131fd)
+draft 22965131 now has 1 files; NOT published
+{
+ "id": 22965131,
+ "doi": "10.5281/zenodo.22965131",
+ "state": "unsubmitted",
+ "html": "https://zenodo.org/deposit/22965131",
+ "bucket": "https://zenodo.org/api/files/f42d9ed0-f613-42d9-b635-148d0c875a95",
+ "files": [
+  {
+   "name": "georoute-eeg-v1.0.0.zip",
+   "size": 1200775,
+   "checksum": "82972a8d85a8bd7b27ecb6767ed131fd"
+  }
+ ]
+}
