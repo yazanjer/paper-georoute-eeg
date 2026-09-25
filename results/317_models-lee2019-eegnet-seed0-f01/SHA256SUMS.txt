@@ -1,0 +1,2 @@
+11226d609fc8902ad2b32021c44a3cc3ffd5ebbc48954884d89c43e58f6df523  lee2019_mi_eegnet_s0_kfold6_f0.pt
+63242f0d605bc7fc4ed1d641009bfb00ee0114c01e6de21091c5fecbdc421e8b  lee2019_mi_eegnet_s0_kfold6_f1.pt

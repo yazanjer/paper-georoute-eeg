@@ -1,0 +1,10 @@
+total 44
+drwxr-xr-x 2 root root   100 Sep 25 21:39 .
+drwxr-xr-x 7 root root  4096 Sep 25 21:41 ..
+-rw-r--r-- 1 root root 20054 Sep 25 21:36 lee2019_mi_eegnet_s0_kfold6_f0.pt
+-rw-r--r-- 1 root root 20054 Sep 25 21:39 lee2019_mi_eegnet_s0_kfold6_f1.pt
+total 32
+drwxr-xr-x 2 root root    49 Sep 25 21:41 .
+drwxr-xr-x 7 root root  4096 Sep 25 21:41 ..
+-rw-r--r-- 1 root root 27756 Sep 25 21:41 models-lee2019-eegnet-seed0-f01.zip
+uploaded models-lee2019-eegnet-seed0-f01.zip 27756 bytes sha256 4ad353a13a7115f37ce08ce62c7a5b2f415597cc113b220d40e3937f44dc114c
