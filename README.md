@@ -3,7 +3,7 @@
 Code, pre-registered protocol and all results for the paper
 **"EEG Foundation Models vs Compact Decoders under Test-Time Adaptation: A Pre-Registered Cross-Subject Motor-Imagery Benchmark"** (Y. Aljeroudi, 2026).
 
-Archive: Zenodo, reserved DOI [10.5281/zenodo.22965131](https://doi.org/10.5281/zenodo.22965131) (record in draft until published; metadata in `.zenodo.json`).
+Archive: Zenodo, reserved DOI [10.5281/zenodo.22965131](https://doi.org/10.5281/zenodo.22965131) (record in draft until published; metadata in `.zenodo.json`). The record holds a snapshot of this repository and the trained seed-0 source models for every fold, dataset and backbone (see [`MODELS.md`](MODELS.md)).
 
 ## What is benchmarked
 
@@ -40,11 +40,22 @@ scripts/run_tta.py         online TTA benchmark (all methods, one backbone, one 
 scripts/run_baselines.py   source-model baselines
 scripts/run_georoute.py    GeoRoute (stage 1/2 adapters + routing and controls)
 scripts/aggregate.py       summaries and paired statistics
-scripts/zenodo_deposit.py  Zenodo draft deposition (create / upload; never publishes)
+scripts/zenodo_deposit.py  Zenodo draft deposition (create / upload / delete; never publishes)
+scripts/release_assets.py  stage trained checkpoints on a GitHub release before Zenodo
+paper/                     scripts regenerating every manuscript figure from results/ (see paper/README.md)
+MODELS.md                  trained seed-0 model archives on Zenodo, checksums, how to load them
 jobs/queue/*.sh            every job exactly as run (one file = one job)
 results/<job>/             per-subject JSON results, logs, commit hash, start/finish times
 runner/agent.sh            pull-based GPU worker used on RunPod
 ```
+
+## Seed-0 re-run: convergence curves and trained models
+
+Jobs `300`, `301`, `303` and `305`–`309` re-ran seed 0 of every cell with the frozen settings and `--save-preds 1`, logging
+per-epoch training/validation loss and every per-trial prediction (used for the convergence figures). The re-run reproduces
+the original seed-0 source accuracy to within 0.9 points. Jobs `302` and `304` were aborted because their pods' CPUs were
+~50x slower and were replaced by `305`–`309`; their partial files are kept and marked `ABORTED.txt`. Jobs `310`–`319` exported
+the trained checkpoints and job `320` deposited them on Zenodo.
 
 ## Reproducing
 
