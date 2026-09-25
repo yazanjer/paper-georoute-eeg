@@ -3,7 +3,7 @@
 Code, pre-registered protocol and all results for the paper
 **"EEG Foundation Models vs Compact Decoders under Test-Time Adaptation: A Pre-Registered Cross-Subject Motor-Imagery Benchmark"** (Y. Aljeroudi, 2026).
 
-Archive: Zenodo, DOI `ZENODO_DOI` (see `.zenodo.json`).
+Archive: Zenodo, reserved DOI [10.5281/zenodo.22965131](https://doi.org/10.5281/zenodo.22965131) (record in draft until published; metadata in `.zenodo.json`).
 
 ## What is benchmarked
 
@@ -30,7 +30,7 @@ The protocol and hypotheses H1–H4 were frozen before any benchmark run: `docs/
 | SHOT-IM, lr 1e-5 | 64.2 | 65.8 | 83.4 | 84.2 |
 | RCTTA + T3A | 64.4 | 65.7 | 82.5 | 82.2 |
 
-Full tables, statistics and figures are in `paper/`.
+Full tables, statistics and figures are in the accompanying manuscript; `scripts/aggregate.py` recomputes them from `results/`.
 
 ## Layout
 
@@ -43,7 +43,6 @@ scripts/aggregate.py       summaries and paired statistics
 scripts/zenodo_deposit.py  Zenodo draft deposition (create / upload; never publishes)
 jobs/queue/*.sh            every job exactly as run (one file = one job)
 results/<job>/             per-subject JSON results, logs, commit hash, start/finish times
-paper/                     LaTeX sources, bibliography, figure script and per-subject data (agg.json)
 runner/agent.sh            pull-based GPU worker used on RunPod
 ```
 
