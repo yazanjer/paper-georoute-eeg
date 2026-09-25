@@ -1,1 +1,1 @@
-{"time": "2026-09-25T18:27:50Z", "pod": "6dj0nu5stkiwq9", "gpu": "NVIDIA GeForce RTX 3090, 1 MiB, 24576 MiB, 0 %", "state": "idle", "agent_pid": 590}
+{"time": "2026-09-25T22:20:14Z", "pod": "pzjiju2diccjpa", "gpu": "NVIDIA RTX A4000, 2 MiB, 16376 MiB, 0 %", "state": "running 320_zenodo_models_and_snapshot", "agent_pid": 89}
