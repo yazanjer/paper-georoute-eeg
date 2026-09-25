@@ -3,6 +3,7 @@
 Usage (token from env ZENODO_TOKEN, e.g. RunPod secret {{ RUNPOD_SECRET_zenodo }}):
   python scripts/zenodo_deposit.py create --state zenodo/deposition.json
   python scripts/zenodo_deposit.py upload --state zenodo/deposition.json FILE [FILE ...]
+  python scripts/zenodo_deposit.py delete --state zenodo/deposition.json NAME [NAME ...]   (remove files from the draft)
 The state file stores only the deposition id, reserved DOI and public links - never the token.
 """
 from __future__ import annotations
@@ -70,10 +71,23 @@ def upload(state, files):
     print(f"draft {s['id']} now has {len(s['files'])} files; NOT published")
 
 
+def delete(state, names):
+    s = json.load(open(state))
+    d = _check(requests.get(f"{API}/deposit/depositions/{s['id']}", headers=_h(), timeout=60))
+    if d.get("submitted"):
+        sys.exit("deposition already published; refusing to modify")
+    for f in d.get("files", []):
+        if f["filename"] in names:
+            r = requests.delete(f"{API}/deposit/depositions/{s['id']}/files/{f['id']}", headers=_h(), timeout=60)
+            if r.status_code >= 400:
+                sys.exit(f"Zenodo error {r.status_code}: {r.text[:300]}")
+            print(f"deleted {f['filename']} from draft {s['id']}")
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["create", "upload"])
+    ap.add_argument("cmd", choices=["create", "upload", "delete"])
     ap.add_argument("--state", default="zenodo/deposition.json")
     ap.add_argument("files", nargs="*")
     a = ap.parse_intermixed_args()
-    create(a.state) if a.cmd == "create" else upload(a.state, a.files)
+    {"create": lambda: create(a.state), "upload": lambda: upload(a.state, a.files), "delete": lambda: delete(a.state, a.files)}[a.cmd]()

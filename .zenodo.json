@@ -1,10 +1,29 @@
 {
-  "title": "EEG foundation models vs compact decoders under test-time adaptation: code, frozen protocol and per-subject results of a pre-registered cross-subject motor-imagery benchmark",
+  "title": "EEG foundation models vs compact decoders under test-time adaptation: code, frozen protocol, per-subject results and trained models of a pre-registered cross-subject motor-imagery benchmark",
   "upload_type": "software",
-  "version": "1.0.0",
-  "description": "<p>Code, pre-registered protocol, job scripts, logs and all per-subject, per-seed results for a benchmark comparing a pretrained EEG foundation model (CBraMod with LoRA) and a compact aligned decoder (EEGNet + Euclidean alignment) under eight test-time adaptation methods (T3A, LAME, Tent and SHOT-IM at two pre-specified learning rates, Riemannian re-centring, and two rejected geometry-based methods, GeoRoute and RCTTA). Datasets: BCI Competition IV-2a (BNCI2014-001, 9 subjects) and Lee2019-MI (54 subjects), 5 seeds per cell, plus classical and deep source-model baselines.</p><p>Trained model weights are not included; every model can be re-trained from the included code, seeds and job scripts (GPU non-determinism may cause small differences).</p>",
-  "creators": [{"name": "Aljeroudi, Yazan"}],
-  "keywords": ["EEG", "brain-computer interface", "motor imagery", "foundation model", "test-time adaptation", "CBraMod", "EEGNet", "Euclidean alignment", "Riemannian geometry", "LoRA", "cross-subject", "calibration-free", "pre-registration", "negative results"],
+  "version": "1.1.0",
+  "description": "<p>Code, pre-registered protocol, job scripts, logs and all per-subject, per-seed results for a benchmark comparing a pretrained EEG foundation model (CBraMod with LoRA) and a compact aligned decoder (EEGNet + Euclidean alignment) under eight test-time adaptation methods (T3A, LAME, Tent and SHOT-IM at two pre-specified learning rates, Riemannian re-centring, and two rejected geometry-based methods, GeoRoute and RCTTA). Datasets: BCI Competition IV-2a (BNCI2014-001, 9 subjects) and Lee2019-MI (54 subjects), 5 seeds per cell, plus classical and deep source-model baselines.</p><p>Trained models: the four <code>models-*.zip</code> archives hold the seed-0 source models (PyTorch state_dicts with SHA-256 checksums) for every cross-validation fold: BCI IV-2a CBraMod-LoRA and EEGNet+EA (9 LOSO folds each) and Lee2019-MI CBraMod-LoRA and EEGNet+EA (6 folds each), trained with the frozen benchmark settings in the seed-0 convergence re-run. See MODELS.md in the code archive. The other four seeds can be re-trained from the included code, seeds and job scripts (GPU non-determinism may cause small differences).</p>",
+  "creators": [
+    {
+      "name": "Aljeroudi, Yazan"
+    }
+  ],
+  "keywords": [
+    "EEG",
+    "brain-computer interface",
+    "motor imagery",
+    "foundation model",
+    "test-time adaptation",
+    "CBraMod",
+    "EEGNet",
+    "Euclidean alignment",
+    "Riemannian geometry",
+    "LoRA",
+    "cross-subject",
+    "calibration-free",
+    "pre-registration",
+    "negative results"
+  ],
   "license": "mit",
   "access_right": "open"
 }
