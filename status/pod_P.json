@@ -1,1 +1,1 @@
-{"time": "2026-09-25T20:14:07Z", "pod": "8b9x3imxe16cqf", "gpu": "NVIDIA A40, 737 MiB, 46068 MiB, 9 %", "state": "running 301_curves_bnci2a_eegnet_s0", "agent_pid": 150}
+{"time": "2026-09-25T20:19:28Z", "pod": "8b9x3imxe16cqf", "gpu": "NVIDIA A40, 739 MiB, 46068 MiB, 5 %", "state": "running 301_curves_bnci2a_eegnet_s0", "agent_pid": 150}
