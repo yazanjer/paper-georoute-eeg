@@ -1,0 +1,73 @@
+downloaded models-bnci2a-seed0.zip 211468310 bytes sha256 bb1fb4eff2a5acbba066830f88800732c3653e2fed93aea9e9870d08a477aa15
+downloaded models-lee2019-cbramod-seed0-f0.zip 31086592 bytes sha256 1d7d8a7c40ee1292ce453a38625767f3ef73cbf1458e89735323afd5d5e658e8
+downloaded models-lee2019-cbramod-seed0-f12.zip 62172102 bytes sha256 ba0cd7bf619689f983fbba639e9dc896a489571c657ba56382e111c562fbdff3
+downloaded models-lee2019-cbramod-seed0-f345.zip 93261427 bytes sha256 3e5afdb8570374a10a00fe60e2d3a521aedf64afabe37d4ed8eadff1068c867e
+downloaded models-lee2019-eegnet-seed0-f01.zip 27756 bytes sha256 4ad353a13a7115f37ce08ce62c7a5b2f415597cc113b220d40e3937f44dc114c
+downloaded models-lee2019-eegnet-seed0-f23.zip 27767 bytes sha256 703aa694a4373b9b905fddb1f2522aa2b418ed17096b5f5b3b02f74b5ce7d6c3
+downloaded models-lee2019-eegnet-seed0-f45.zip 27767 bytes sha256 3dbcf292e3a908fa495b479ead6e8a74008a7ee78d22a8d8263230166e6a8301
+bb1fb4eff2a5acbba066830f88800732c3653e2fed93aea9e9870d08a477aa15  models-bnci2a-seed0.zip
+1d7d8a7c40ee1292ce453a38625767f3ef73cbf1458e89735323afd5d5e658e8  models-lee2019-cbramod-seed0-f0.zip
+ba0cd7bf619689f983fbba639e9dc896a489571c657ba56382e111c562fbdff3  models-lee2019-cbramod-seed0-f12.zip
+3e5afdb8570374a10a00fe60e2d3a521aedf64afabe37d4ed8eadff1068c867e  models-lee2019-cbramod-seed0-f345.zip
+4ad353a13a7115f37ce08ce62c7a5b2f415597cc113b220d40e3937f44dc114c  models-lee2019-eegnet-seed0-f01.zip
+703aa694a4373b9b905fddb1f2522aa2b418ed17096b5f5b3b02f74b5ce7d6c3  models-lee2019-eegnet-seed0-f23.zip
+3dbcf292e3a908fa495b479ead6e8a74008a7ee78d22a8d8263230166e6a8301  models-lee2019-eegnet-seed0-f45.zip
+deleted georoute-eeg-v1.0.0.zip from draft 22965131
+uploaded /workspace/zen/georoute-eeg-v1.1.0.zip (1711753 bytes, md5:20a1ca8fbaf13b0d1661c52a98538a4a)
+uploaded /workspace/zen/models/models-bnci2a-seed0.zip (211468310 bytes, md5:8da453ab0d8ff8e8a56719eb39093d2f)
+uploaded /workspace/zen/models/models-lee2019-cbramod-seed0-f0.zip (31086592 bytes, md5:099ad6839ade5af7b402f7fb5557bbc5)
+uploaded /workspace/zen/models/models-lee2019-cbramod-seed0-f12.zip (62172102 bytes, md5:0b61acad2cb09f8cda787cd0df2274d5)
+uploaded /workspace/zen/models/models-lee2019-cbramod-seed0-f345.zip (93261427 bytes, md5:5f79aef2be3fe7b96464c30b944b0d91)
+uploaded /workspace/zen/models/models-lee2019-eegnet-seed0-f01.zip (27756 bytes, md5:31fc97835b8330146b2c28b21e2395d7)
+uploaded /workspace/zen/models/models-lee2019-eegnet-seed0-f23.zip (27767 bytes, md5:ae87cdba6ea82ea93dc31c060ad2073c)
+uploaded /workspace/zen/models/models-lee2019-eegnet-seed0-f45.zip (27767 bytes, md5:2bd040e7df237e6c1e29a0296d6e7074)
+draft 22965131 now has 8 files; NOT published
+{
+ "id": 22965131,
+ "doi": "10.5281/zenodo.22965131",
+ "state": "unsubmitted",
+ "html": "https://zenodo.org/deposit/22965131",
+ "bucket": "https://zenodo.org/api/files/f42d9ed0-f613-42d9-b635-148d0c875a95",
+ "files": [
+  {
+   "name": "georoute-eeg-v1.1.0.zip",
+   "size": 1711753,
+   "checksum": "20a1ca8fbaf13b0d1661c52a98538a4a"
+  },
+  {
+   "name": "models-bnci2a-seed0.zip",
+   "size": 211468310,
+   "checksum": "8da453ab0d8ff8e8a56719eb39093d2f"
+  },
+  {
+   "name": "models-lee2019-cbramod-seed0-f0.zip",
+   "size": 31086592,
+   "checksum": "099ad6839ade5af7b402f7fb5557bbc5"
+  },
+  {
+   "name": "models-lee2019-cbramod-seed0-f12.zip",
+   "size": 62172102,
+   "checksum": "0b61acad2cb09f8cda787cd0df2274d5"
+  },
+  {
+   "name": "models-lee2019-cbramod-seed0-f345.zip",
+   "size": 93261427,
+   "checksum": "5f79aef2be3fe7b96464c30b944b0d91"
+  },
+  {
+   "name": "models-lee2019-eegnet-seed0-f01.zip",
+   "size": 27756,
+   "checksum": "31fc97835b8330146b2c28b21e2395d7"
+  },
+  {
+   "name": "models-lee2019-eegnet-seed0-f23.zip",
+   "size": 27767,
+   "checksum": "ae87cdba6ea82ea93dc31c060ad2073c"
+  },
+  {
+   "name": "models-lee2019-eegnet-seed0-f45.zip",
+   "size": 27767,
+   "checksum": "2bd040e7df237e6c1e29a0296d6e7074"
+  }
+ ]
+}

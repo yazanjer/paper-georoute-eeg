@@ -1,0 +1,7 @@
+bb1fb4eff2a5acbba066830f88800732c3653e2fed93aea9e9870d08a477aa15  models-bnci2a-seed0.zip
+1d7d8a7c40ee1292ce453a38625767f3ef73cbf1458e89735323afd5d5e658e8  models-lee2019-cbramod-seed0-f0.zip
+ba0cd7bf619689f983fbba639e9dc896a489571c657ba56382e111c562fbdff3  models-lee2019-cbramod-seed0-f12.zip
+3e5afdb8570374a10a00fe60e2d3a521aedf64afabe37d4ed8eadff1068c867e  models-lee2019-cbramod-seed0-f345.zip
+4ad353a13a7115f37ce08ce62c7a5b2f415597cc113b220d40e3937f44dc114c  models-lee2019-eegnet-seed0-f01.zip
+703aa694a4373b9b905fddb1f2522aa2b418ed17096b5f5b3b02f74b5ce7d6c3  models-lee2019-eegnet-seed0-f23.zip
+3dbcf292e3a908fa495b479ead6e8a74008a7ee78d22a8d8263230166e6a8301  models-lee2019-eegnet-seed0-f45.zip
