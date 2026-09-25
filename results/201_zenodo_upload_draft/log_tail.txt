@@ -1,0 +1,6 @@
+total 5079
+drwxrwxrwx 2 root root 2000114 Sep 25 18:26 .
+drwxrwxrwx 4 root root 2000618 Sep 25 18:26 ..
+-rw-rw-rw- 1 root root 1199516 Sep 25 18:26 georoute-eeg-v1.0.0.zip
+usage: zenodo_deposit.py [-h] [--state STATE] {create,upload} [files ...]
+zenodo_deposit.py: error: unrecognized arguments: /workspace/zen/georoute-eeg-v1.0.0.zip
