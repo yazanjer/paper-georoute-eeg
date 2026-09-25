@@ -1,0 +1,2 @@
+8caa70cb85a3981d391b06724dddbb1cdf485d1c00be2ff9081f9e2a7d3d9585  lee2019_mi_eegnet_s0_kfold6_f4.pt
+22573695813d7a8397337aa2c0220b79c2337e7add3085453ecb018eaa0da2fa  lee2019_mi_eegnet_s0_kfold6_f5.pt
