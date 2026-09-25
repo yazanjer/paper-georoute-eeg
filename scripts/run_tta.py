@@ -103,8 +103,9 @@ def train_source(kind, Xs, ys, C, n_cls, Tn, a, ckpt):
     if os.path.exists(ckpt):
         model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
         return model
-    T.fit(model, ps, Xs, ys, epochs=a.epochs, lr=a.lr, bs=64, seed=a.seed,
-          patience=8 if kind == "cbramod" else 15)
+    h = T.fit(model, ps, Xs, ys, epochs=a.epochs, lr=a.lr, bs=64, seed=a.seed,
+              patience=8 if kind == "cbramod" else 15)
+    model._hist = h["hist"]   # per-epoch (train loss, val loss); logged with --save-preds
     os.makedirs(os.path.dirname(ckpt), exist_ok=True)
     torch.save(model.state_dict(), ckpt)
     return model
@@ -258,6 +259,8 @@ def main():
     ap.add_argument("--lr", type=float, default=1e-3)
     ap.add_argument("--rank", type=int, default=8)
     ap.add_argument("--synthetic", type=int, default=0)
+    ap.add_argument("--save-preds", type=int, default=0,
+                    help="1 = also store per-trial predictions of the whole stream and the source training history")
     ap.add_argument("--ckpt-dir", default=os.environ.get("GEOROUTE_CKPT", "/workspace/ckpt"))
     ap.add_argument("--out", default=os.environ.get("RESULTS_DIR", "results/local"))
     a = ap.parse_args()
@@ -327,6 +330,10 @@ def main():
                 res["time_s"]["geo_src"] = time.time() - t1
             for m, P in probs.items():
                 res["methods"][m] = T.metrics(ystream[scored], P[scored].argmax(1))
+            if a.save_preds:   # for online-accuracy and convergence curves
+                res["train_hist"] = getattr(model, "_hist", None)
+                res["y_stream"] = ystream.tolist()
+                res["preds"] = {m: P.argmax(1).tolist() for m, P in probs.items()}
             fn = os.path.join(a.out, f"{a.dataset}_seed{a.seed}_sub{int(t):03d}_tta_{a.backbone}.json")
             json.dump(res, open(fn, "w"), indent=1)
             mm = res["methods"]
