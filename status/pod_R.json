@@ -1,1 +1,1 @@
-{"time": "2026-09-25T19:51:51Z", "pod": "0o9lrc0c7j31zz", "gpu": "NVIDIA L40S, 4603 MiB, 46068 MiB, 0 %", "state": "running 303_curves_lee2019_cbramod_s0_f345", "agent_pid": 654}
+{"time": "2026-09-25T19:59:39Z", "pod": "0o9lrc0c7j31zz", "gpu": "NVIDIA L40S, 4561 MiB, 46068 MiB, 75 %", "state": "running 303_curves_lee2019_cbramod_s0_f345", "agent_pid": 654}
