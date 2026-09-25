@@ -1,12 +1,3 @@
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-Finished downloading nm000338 v1.0.5.
-[data] lee2019_mi subject 40: X(200, 62, 800)
-This is nemar-py 0.3.1.
-Preparing to download nm000338 from https://data.nemar.org/
-Retrieving 6 of 1955 manifest files (16 concurrent downloads).
 S3:   0%|          | 0.00/1.07G [00:00<?, ?B/s]S3:   0%|          | 1.00M/1.07G [00:02<39:04, 489kB/s]S3:   1%|▏         | 15.0M/1.07G [00:02<01:58, 9.58MB/s]S3:   2%|▏         | 26.0M/1.07G [00:02<01:02, 18.0MB/s]S3:   4%|▍         | 47.0M/1.07G [00:02<00:28, 38.8MB/s]S3:   7%|▋         | 76.0M/1.07G [00:02<00:14, 72.7MB/s]S3:  11%|█         | 120M/1.07G [00:02<00:07, 131MB/s]  S3:  15%|█▍        | 163M/1.07G [00:02<00:05, 188MB/s]S3:  19%|█▊        | 204M/1.07G [00:02<00:03, 236MB/s]S3:  22%|██▏       | 239M/1.07G [00:02<00:03, 262MB/s]S3:  25%|██▍       | 273M/1.07G [00:03<00:04, 203MB/s]S3:  28%|██▊       | 305M/1.07G [00:03<00:03, 219MB/s]S3:  32%|███▏      | 352M/1.07G [00:03<00:02, 274MB/s]S3:  37%|███▋      | 401M/1.07G [00:03<00:02, 328MB/s]S3:  40%|████      | 439M/1.07G [00:03<00:01, 344MB/s]S3:  44%|████▎     | 477M/1.07G [00:03<00:01, 327MB/s]S3:  47%|████▋     | 512M/1.07G [00:04<00:02, 281MB/s]S3:  50%|████▉     | 542M/1.07G [00:04<00:02, 264MB/s]S3:  52%|█████▏    | 570M/1.07G [00:04<00:02, 270MB/s]S3:  56%|█████▋    | 617M/1.07G [00:04<00:01, 323MB/s]S3:  60%|█████▉    | 655M/1.07G [00:04<00:01, 342MB/s]S3:  63%|██████▎   | 690M/1.07G [00:04<00:01, 257MB/s]S3:  66%|██████▌   | 719M/1.07G [00:04<00:01, 230MB/s]S3:  68%|██████▊   | 745M/1.07G [00:04<00:01, 218MB/s]S3:  71%|███████   | 774M/1.07G [00:05<00:01, 236MB/s]S3:  73%|███████▎  | 799M/1.07G [00:05<00:01, 236MB/s]S3:  76%|███████▌  | 831M/1.07G [00:05<00:01, 259MB/s]S3:  78%|███████▊  | 858M/1.07G [00:05<00:00, 265MB/s]S3:  81%|████████  | 885M/1.07G [00:05<00:00, 255MB/s]S3:  83%|████████▎ | 911M/1.07G [00:05<00:00, 240MB/s]S3:  86%|████████▌ | 938M/1.07G [00:05<00:00, 244MB/s]S3:  89%|████████▉ | 973M/1.07G [00:05<00:00, 273MB/s]S3:  91%|█████████▏| 0.98G/1.07G [00:05<00:00, 275MB/s]S3:  94%|█████████▍| 1.00G/1.07G [00:06<00:00, 265MB/s]S3:  96%|█████████▌| 1.03G/1.07G [00:06<00:00, 256MB/s]S3:  99%|█████████▊| 1.05G/1.07G [00:06<00:00, 190MB/s]S3: 100%|██████████| 1.07G/1.07G [00:07<00:00, 161MB/s]
 /usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
   montage = make_standard_montage("standard_1005")
@@ -148,3 +139,12 @@ Finished downloading nm000338 v1.0.5.
   montage = mne.channels.make_standard_montage("standard_1020")
 /usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
   montage = make_standard_montage("standard_1020")
+[fold 4] target 2 (eegnet): source=0.730 t3a=0.680 lame=0.500 tent=0.840 rctta=0.660 rctta+t3a=0.670
+[fold 4] target 8 (eegnet): source=0.910 t3a=0.880 lame=0.850 tent=0.910 rctta=0.920 rctta+t3a=0.890
+[fold 4] target 14 (eegnet): source=0.700 t3a=0.690 lame=0.600 tent=0.730 rctta=0.650 rctta+t3a=0.680
+[fold 4] target 16 (eegnet): source=0.850 t3a=0.790 lame=0.710 tent=0.820 rctta=0.850 rctta+t3a=0.810
+[fold 4] target 17 (eegnet): source=0.830 t3a=0.730 lame=0.580 tent=0.830 rctta=0.820 rctta+t3a=0.690
+[fold 4] target 21 (eegnet): source=1.000 t3a=0.990 lame=0.980 tent=0.970 rctta=1.000 rctta+t3a=0.990
+[fold 4] target 33 (eegnet): source=0.980 t3a=0.980 lame=0.990 tent=0.980 rctta=0.980 rctta+t3a=0.980
+[fold 4] target 34 (eegnet): source=0.660 t3a=0.580 lame=0.570 tent=0.720 rctta=0.570 rctta+t3a=0.600
+[fold 4] target 38 (eegnet): source=0.780 t3a=0.760 lame=0.500 tent=0.790 rctta=0.810 rctta+t3a=0.760
