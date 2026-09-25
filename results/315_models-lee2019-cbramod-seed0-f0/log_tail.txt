@@ -1,0 +1,9 @@
+total 37408
+drwxrwxrwx 2 root root  2003175 Sep 25 22:04 .
+drwxrwxrwx 7 root root  3006243 Sep 25 22:07 ..
+-rw-rw-rw- 1 root root 33295358 Sep 25 22:04 lee2019_mi_cbramod_s0_kfold6_f0.pt
+total 35251
+drwxrwxrwx 2 root root  2002964 Sep 25 22:07 .
+drwxrwxrwx 7 root root  3006245 Sep 25 22:07 ..
+-rw-rw-rw- 1 root root 31086592 Sep 25 22:07 models-lee2019-cbramod-seed0-f0.zip
+uploaded models-lee2019-cbramod-seed0-f0.zip 31086592 bytes sha256 1d7d8a7c40ee1292ce453a38625767f3ef73cbf1458e89735323afd5d5e658e8
