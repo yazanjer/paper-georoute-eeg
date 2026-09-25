@@ -75,5 +75,5 @@ if __name__ == "__main__":
     ap.add_argument("cmd", choices=["create", "upload"])
     ap.add_argument("--state", default="zenodo/deposition.json")
     ap.add_argument("files", nargs="*")
-    a = ap.parse_args()
+    a = ap.parse_intermixed_args()
     create(a.state) if a.cmd == "create" else upload(a.state, a.files)
