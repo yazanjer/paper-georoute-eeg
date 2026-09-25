@@ -1,0 +1,26 @@
+total 225742
+drwxrwxrwx 2 root root  2021565 Sep 25 20:35 .
+drwxrwxrwx 7 root root  3000201 Sep 25 20:36 ..
+-rw-rw-rw- 1 root root 25105406 Sep 25 19:20 bnci2014_001_cbramod_s0_loso_f0.pt
+-rw-rw-rw- 1 root root 25105406 Sep 25 19:24 bnci2014_001_cbramod_s0_loso_f1.pt
+-rw-rw-rw- 1 root root 25105406 Sep 25 19:27 bnci2014_001_cbramod_s0_loso_f2.pt
+-rw-rw-rw- 1 root root 25105406 Sep 25 19:32 bnci2014_001_cbramod_s0_loso_f3.pt
+-rw-rw-rw- 1 root root 25105406 Sep 25 19:37 bnci2014_001_cbramod_s0_loso_f4.pt
+-rw-rw-rw- 1 root root 25105406 Sep 25 19:42 bnci2014_001_cbramod_s0_loso_f5.pt
+-rw-rw-rw- 1 root root 25105406 Sep 25 19:47 bnci2014_001_cbramod_s0_loso_f6.pt
+-rw-rw-rw- 1 root root 25105406 Sep 25 19:52 bnci2014_001_cbramod_s0_loso_f7.pt
+-rw-rw-rw- 1 root root 25105406 Sep 25 19:57 bnci2014_001_cbramod_s0_loso_f8.pt
+-rw-rw-rw- 1 root root    20694 Sep 25 20:02 bnci2014_001_eegnet_s0_loso_f0.pt
+-rw-rw-rw- 1 root root    20694 Sep 25 20:05 bnci2014_001_eegnet_s0_loso_f1.pt
+-rw-rw-rw- 1 root root    20694 Sep 25 20:09 bnci2014_001_eegnet_s0_loso_f2.pt
+-rw-rw-rw- 1 root root    20694 Sep 25 20:14 bnci2014_001_eegnet_s0_loso_f3.pt
+-rw-rw-rw- 1 root root    20694 Sep 25 20:19 bnci2014_001_eegnet_s0_loso_f4.pt
+-rw-rw-rw- 1 root root    20694 Sep 25 20:22 bnci2014_001_eegnet_s0_loso_f5.pt
+-rw-rw-rw- 1 root root    20694 Sep 25 20:27 bnci2014_001_eegnet_s0_loso_f6.pt
+-rw-rw-rw- 1 root root    20694 Sep 25 20:31 bnci2014_001_eegnet_s0_loso_f7.pt
+-rw-rw-rw- 1 root root    20694 Sep 25 20:35 bnci2014_001_eegnet_s0_loso_f8.pt
+total 211416
+drwxrwxrwx 2 root root   2020167 Sep 25 20:36 .
+drwxrwxrwx 7 root root   3000220 Sep 25 20:36 ..
+-rw-rw-rw- 1 root root 211468310 Sep 25 20:36 models-bnci2a-seed0.zip
+uploaded models-bnci2a-seed0.zip 211468310 bytes sha256 bb1fb4eff2a5acbba066830f88800732c3653e2fed93aea9e9870d08a477aa15
