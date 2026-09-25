@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Export seed-0 source checkpoints of Lee2019-MI cbramod, folds 1,2 (written by job 306 to /workspace/ckpt_s0log) to the staging GitHub release for Zenodo.
+# worker: U
+set -eo pipefail
+cd "$(dirname "$0")/../.."
+python -c "import requests" 2>/dev/null || pip install -q requests
+mkdir -p /workspace/zen && cd /workspace/ckpt_s0log
+ls -la
+sha256sum *.pt > SHA256SUMS.txt
+python -c "import zipfile,glob; z=zipfile.ZipFile('/workspace/zen/models-lee2019-cbramod-seed0-f12.zip','w',zipfile.ZIP_DEFLATED); [z.write(p) for p in sorted(glob.glob('*.pt'))+['SHA256SUMS.txt']]; z.close()"
+ls -la /workspace/zen
+cd - >/dev/null
+cp /workspace/ckpt_s0log/SHA256SUMS.txt "$RESULTS_DIR/SHA256SUMS.txt"
+python scripts/release_assets.py upload --release-id 396901040 /workspace/zen/models-lee2019-cbramod-seed0-f12.zip | tee "$RESULTS_DIR/upload.txt"

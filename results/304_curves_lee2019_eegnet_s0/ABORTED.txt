@@ -1,0 +1,1 @@
+Aborted 2026-09-25 21:05 UTC: the pod's CPU ran the backprop-free methods ~50x slower (1500-1800 s per target vs 30-40 s elsewhere). Superseded by jobs 307-309. Partial per-subject files kept for transparency; not used.
