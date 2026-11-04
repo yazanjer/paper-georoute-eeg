@@ -2,22 +2,6 @@ hint: to the same ref. You may want to first integrate the remote changes
 hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 To https://github.com/yazanjer/paper-georoute-eeg.git
- ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-To https://github.com/yazanjer/paper-georoute-eeg.git
- ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-To https://github.com/yazanjer/paper-georoute-eeg.git
  ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 99cadc66f038d077c70e33fb92a9e4611b6cdcd5 but expected 08ce7f8cb4994c70764cbd4ea1fc51e61a10d6e2)
 error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
 To https://github.com/yazanjer/paper-georoute-eeg.git
@@ -50,6 +34,22 @@ hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 Updating files:  56% (22/39)Updating files:  58% (23/39)Updating files:  61% (24/39)Updating files:  64% (25/39)Updating files:  66% (26/39)Updating files:  69% (27/39)Updating files:  71% (28/39)Updating files:  74% (29/39)Updating files:  76% (30/39)Updating files:  79% (31/39)Updating files:  82% (32/39)Updating files:  84% (33/39)Updating files:  87% (34/39)Updating files:  89% (35/39)Updating files:  92% (36/39)Updating files:  94% (37/39)Updating files:  97% (38/39)Updating files: 100% (39/39)Updating files: 100% (39/39), done.
 Updating files:  95% (23/24)Updating files: 100% (24/24)Updating files: 100% (24/24), done.
+To https://github.com/yazanjer/paper-georoute-eeg.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+To https://github.com/yazanjer/paper-georoute-eeg.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 To https://github.com/yazanjer/paper-georoute-eeg.git
  ! [rejected]        main -> main (fetch first)
 error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
