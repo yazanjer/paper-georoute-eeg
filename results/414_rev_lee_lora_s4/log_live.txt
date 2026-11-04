@@ -1,12 +1,3 @@
-  warnings.warn(
-This is nemar-py 0.3.3.
-Preparing to download nm000338 from https://data.nemar.org/
-Retrying after failure when retrieving NEMAR index for nm000338 (5 retries remain).
-Retrying after failure when retrieving NEMAR index for nm000338 (4 retries remain).
-Retrying after failure when retrieving NEMAR index for nm000338 (3 retries remain).
-Retrying after failure when retrieving NEMAR index for nm000338 (2 retries remain).
-Retrying after failure when retrieving NEMAR index for nm000338 (1 retries remain).
-This is nemar-py 0.3.3.
 Preparing to download nm000338 from https://data.nemar.org/
 Retrying after failure when retrieving NEMAR index for nm000338 (5 retries remain).
 Retrying after failure when retrieving NEMAR index for nm000338 (4 retries remain).
@@ -148,3 +139,12 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 2] target 27 (cbramod): source=0.900 t3a=0.910 lame=0.880 tent=0.910
 [fold 2] target 28 (cbramod): source=0.900 t3a=0.940 lame=0.910 tent=0.920
 [fold 2] target 40 (cbramod): source=0.810 t3a=0.840 lame=0.800 tent=0.800
+[fold 3] target 15 (cbramod): source=0.770 t3a=0.800 lame=0.760 tent=0.850
+[fold 3] target 23 (cbramod): source=0.790 t3a=0.860 lame=0.840 tent=0.790
+[fold 3] target 30 (cbramod): source=0.850 t3a=0.850 lame=0.850 tent=0.880
+[fold 3] target 35 (cbramod): source=0.730 t3a=0.830 lame=0.700 tent=0.680
+[fold 3] target 36 (cbramod): source=0.960 t3a=0.980 lame=0.990 tent=0.960
+[fold 3] target 37 (cbramod): source=0.920 t3a=0.910 lame=0.890 tent=0.910
+[fold 3] target 39 (cbramod): source=0.860 t3a=0.870 lame=0.860 tent=0.860
+[fold 3] target 51 (cbramod): source=0.770 t3a=0.740 lame=0.740 tent=0.780
+[fold 3] target 53 (cbramod): source=0.780 t3a=0.780 lame=0.720 tent=0.780
