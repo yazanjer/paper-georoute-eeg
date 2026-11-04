@@ -1,0 +1,150 @@
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = make_standard_montage("standard_1020")
+[fold 0] target 1 (eegnet): source=0.400 t3a=0.400 lame=0.325 tent=0.400 rctta=0.400 rctta+t3a=0.475
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = make_standard_montage("standard_1020")
+[fold 0] target 1 (eegnet): source=0.325 t3a=0.350 lame=0.300 tent=0.375 rctta=0.300 rctta+t3a=0.275
+{
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:source": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.325
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:t3a": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.35
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:lame": {
+  "pred_differences": 0,
+  "acc_true": 0.325,
+  "acc_permuted": 0.3
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:rctta": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.3
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:rctta+t3a": {
+  "pred_differences": 0,
+  "acc_true": 0.475,
+  "acc_permuted": 0.275
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:rctta_offline": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.3
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:tent": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.375
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:tent@1e-4": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.375
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:shot_im": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.275
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:shot_im@1e-5": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.3
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:shot_past": {
+  "pred_differences": 0,
+  "acc_true": 0.375,
+  "acc_permuted": 0.325
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:geo_src": {
+  "pred_differences": 0,
+  "acc_true": 0.1,
+  "acc_permuted": 0.3
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:labels_were_permuted": true
+}
+LABEL ISOLATION: PASSED (identical predictions with permuted target labels)
+Choosing from all possible events
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = make_standard_montage("standard_1020")
+[fold 0] target 1 (eegnet): source=0.403 t3a=0.479 lame=0.243 tent=0.576 rctta=0.448 rctta+t3a=0.500
+Choosing from all possible events
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = make_standard_montage("standard_1020")
+[fold 0] target 1 (eegnet): source=0.226 t3a=0.257 lame=0.215 tent=0.229 rctta=0.233 rctta+t3a=0.264
+{
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:source": {
+  "pred_differences": 0,
+  "acc_true": 0.4027777777777778,
+  "acc_permuted": 0.22569444444444445
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:t3a": {
+  "pred_differences": 0,
+  "acc_true": 0.4791666666666667,
+  "acc_permuted": 0.2569444444444444
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:lame": {
+  "pred_differences": 0,
+  "acc_true": 0.24305555555555555,
+  "acc_permuted": 0.2152777777777778
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:rctta": {
+  "pred_differences": 0,
+  "acc_true": 0.4479166666666667,
+  "acc_permuted": 0.2326388888888889
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:rctta+t3a": {
+  "pred_differences": 0,
+  "acc_true": 0.5,
+  "acc_permuted": 0.2638888888888889
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:rctta_offline": {
+  "pred_differences": 0,
+  "acc_true": 0.4722222222222222,
+  "acc_permuted": 0.2222222222222222
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:tent": {
+  "pred_differences": 0,
+  "acc_true": 0.5763888888888888,
+  "acc_permuted": 0.22916666666666666
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:tent@1e-4": {
+  "pred_differences": 0,
+  "acc_true": 0.5763888888888888,
+  "acc_permuted": 0.22916666666666666
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:shot_im": {
+  "pred_differences": 0,
+  "acc_true": 0.5902777777777778,
+  "acc_permuted": 0.2604166666666667
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:shot_im@1e-5": {
+  "pred_differences": 0,
+  "acc_true": 0.5729166666666666,
+  "acc_permuted": 0.24305555555555555
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:shot_past": {
+  "pred_differences": 0,
+  "acc_true": 0.5555555555555556,
+  "acc_permuted": 0.23958333333333334
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:geo_src": {
+  "pred_differences": 0,
+  "acc_true": 0.5763888888888888,
+  "acc_permuted": 0.22569444444444445
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:labels_were_permuted": true
+}
+LABEL ISOLATION: PASSED (identical predictions with permuted target labels)

@@ -1,0 +1,66 @@
+[fold 0] target 1 (eegnet): source=0.400 t3a=0.400 lame=0.325 tent=0.400 rctta=0.400 rctta+t3a=0.475
+[fold 0] target 1 (eegnet): source=0.325 t3a=0.350 lame=0.300 tent=0.375 rctta=0.300 rctta+t3a=0.275
+{
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:source": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.325
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:t3a": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.35
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:lame": {
+  "pred_differences": 0,
+  "acc_true": 0.325,
+  "acc_permuted": 0.3
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:rctta": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.3
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:rctta+t3a": {
+  "pred_differences": 0,
+  "acc_true": 0.475,
+  "acc_permuted": 0.275
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:rctta_offline": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.3
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:tent": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.375
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:tent@1e-4": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.375
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:shot_im": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.275
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:shot_im@1e-5": {
+  "pred_differences": 0,
+  "acc_true": 0.4,
+  "acc_permuted": 0.3
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:shot_past": {
+  "pred_differences": 0,
+  "acc_true": 0.375,
+  "acc_permuted": 0.325
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:geo_src": {
+  "pred_differences": 0,
+  "acc_true": 0.1,
+  "acc_permuted": 0.3
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:labels_were_permuted": true
+}
+LABEL ISOLATION: PASSED (identical predictions with permuted target labels)
