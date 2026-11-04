@@ -1,20 +1,3 @@
-Finished downloading nm000338 v1.0.5.
-[data] purged 1.2 GB of lee2019_mi raw files; 264629.9 GB free
-[data] lee2019_mi subject 52: X(200, 62, 800)
-This is nemar-py 0.3.3.
-Preparing to download nm000338 from https://data.nemar.org/
-Retrieving 6 of 1955 manifest files (16 concurrent downloads).
-S3:   0%|          | 0.00/1.07G [00:00<?, ?B/s]S3:   0%|          | 1.00M/1.07G [00:02<48:20, 396kB/s]S3:   0%|          | 3.00M/1.07G [00:02<13:16, 1.44MB/s]S3:   1%|          | 8.00M/1.07G [00:02<03:54, 4.87MB/s]S3:   2%|▏         | 25.0M/1.07G [00:02<00:55, 20.1MB/s]S3:   4%|▍         | 48.0M/1.07G [00:03<00:24, 44.5MB/s]S3:   7%|▋         | 72.0M/1.07G [00:03<00:14, 72.7MB/s]S3:   7%|▋         | 73.0M/1.07G [00:03<00:10, 103MB/s] S3:  10%|█         | 111M/1.07G [00:03<00:06, 159MB/s] S3:  14%|█▍        | 157M/1.07G [00:03<00:04, 226MB/s]S3:  19%|█▊        | 204M/1.07G [00:03<00:03, 287MB/s]S3:  22%|██▏       | 240M/1.07G [00:03<00:03, 290MB/s]S3:  25%|██▍       | 274M/1.07G [00:03<00:03, 227MB/s]S3:  28%|██▊       | 302M/1.07G [00:03<00:03, 224MB/s]S3:  31%|███       | 335M/1.07G [00:04<00:03, 251MB/s]S3:  35%|███▍      | 381M/1.07G [00:04<00:02, 304MB/s]S3:  39%|███▉      | 427M/1.07G [00:04<00:02, 345MB/s]S3:  42%|████▏     | 464M/1.07G [00:04<00:01, 347MB/s]S3:  46%|████▌     | 500M/1.07G [00:04<00:01, 319MB/s]S3:  49%|████▊     | 533M/1.07G [00:04<00:02, 287MB/s]S3:  51%|█████▏    | 563M/1.07G [00:04<00:02, 273MB/s]S3:  54%|█████▍    | 591M/1.07G [00:04<00:01, 268MB/s]S3:  57%|█████▋    | 629M/1.07G [00:05<00:01, 298MB/s]S3:  61%|██████    | 664M/1.07G [00:05<00:01, 313MB/s]S3:  64%|██████▍   | 707M/1.07G [00:05<00:01, 348MB/s]S3:  68%|██████▊   | 745M/1.07G [00:05<00:01, 361MB/s]S3:  71%|███████   | 781M/1.07G [00:05<00:01, 330MB/s]S3:  74%|███████▍  | 814M/1.07G [00:05<00:00, 306MB/s]S3:  77%|███████▋  | 847M/1.07G [00:05<00:00, 313MB/s]S3:  80%|████████  | 882M/1.07G [00:05<00:00, 316MB/s]S3:  83%|████████▎ | 916M/1.07G [00:05<00:00, 323MB/s]S3:  84%|████████▎ | 917M/1.07G [00:05<00:00, 332MB/s]S3:  86%|████████▋ | 949M/1.07G [00:06<00:00, 325MB/s]S3:  89%|████████▉ | 981M/1.07G [00:06<00:00, 327MB/s]S3:  92%|█████████▏| 0.99G/1.07G [00:06<00:00, 308MB/s]S3:  95%|█████████▌| 1.02G/1.07G [00:06<00:00, 260MB/s]S3:  98%|█████████▊| 1.04G/1.07G [00:06<00:00, 234MB/s]S3: 100%|█████████▉| 1.07G/1.07G [00:06<00:00, 143MB/s]S3: 100%|██████████| 1.07G/1.07G [00:07<00:00, 162MB/s]
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-Finished downloading nm000338 v1.0.5.
-[data] purged 1.1 GB of lee2019_mi raw files; 264626.8 GB free
-[data] lee2019_mi subject 53: X(200, 62, 800)
-This is nemar-py 0.3.3.
-Preparing to download nm000338 from https://data.nemar.org/
-Retrieving 6 of 1955 manifest files (16 concurrent downloads).
 S3:   0%|          | 0.00/1.16G [00:00<?, ?B/s]S3:   0%|          | 1.00M/1.16G [00:02<44:14, 467kB/s]S3:   1%|          | 6.00M/1.16G [00:02<05:47, 3.55MB/s]S3:   2%|▏         | 18.0M/1.16G [00:02<01:33, 13.1MB/s]S3:   3%|▎         | 37.0M/1.16G [00:02<00:37, 31.6MB/s]S3:   6%|▌         | 68.0M/1.16G [00:02<00:17, 68.2MB/s]S3:   9%|▉         | 112M/1.16G [00:02<00:08, 127MB/s]  S3:  13%|█▎        | 159M/1.16G [00:02<00:05, 192MB/s]S3:  14%|█▎        | 160M/1.16G [00:02<00:04, 253MB/s]S3:  17%|█▋        | 204M/1.16G [00:02<00:03, 298MB/s]S3:  21%|██        | 244M/1.16G [00:03<00:03, 305MB/s]S3:  24%|██▍       | 281M/1.16G [00:03<00:03, 252MB/s]S3:  27%|██▋       | 319M/1.16G [00:03<00:03, 283MB/s]S3:  27%|██▋       | 320M/1.16G [00:03<00:02, 312MB/s]S3:  30%|███       | 360M/1.16G [00:03<00:02, 338MB/s]S3:  35%|███▍      | 409M/1.16G [00:03<00:02, 382MB/s]S3:  38%|███▊      | 449M/1.16G [00:03<00:02, 381MB/s]S3:  41%|████▏     | 488M/1.16G [00:03<00:02, 342MB/s]S3:  44%|████▍     | 523M/1.16G [00:04<00:02, 301MB/s]S3:  47%|████▋     | 554M/1.16G [00:04<00:02, 294MB/s]S3:  50%|████▉     | 586M/1.16G [00:04<00:02, 300MB/s]S3:  53%|█████▎    | 627M/1.16G [00:04<00:01, 332MB/s]S3:  56%|█████▌    | 660M/1.16G [00:04<00:01, 334MB/s]S3:  59%|█████▊    | 693M/1.16G [00:04<00:01, 307MB/s]S3:  59%|█████▊    | 694M/1.16G [00:04<00:01, 293MB/s]S3:  61%|██████▏   | 727M/1.16G [00:04<00:01, 298MB/s]S3:  65%|██████▌   | 769M/1.16G [00:04<00:01, 335MB/s]S3:  68%|██████▊   | 805M/1.16G [00:04<00:01, 345MB/s]S3:  71%|███████   | 839M/1.16G [00:05<00:01, 328MB/s]S3:  74%|███████▍  | 875M/1.16G [00:05<00:00, 339MB/s]S3:  77%|███████▋  | 908M/1.16G [00:05<00:00, 338MB/s]S3:  80%|███████▉  | 941M/1.16G [00:05<00:00, 326MB/s]S3:  83%|████████▎ | 982M/1.16G [00:05<00:00, 343MB/s]S3:  86%|████████▋ | 1.00G/1.16G [00:05<00:00, 353MB/s]S3:  90%|████████▉ | 1.03G/1.16G [00:05<00:00, 354MB/s]S3:  92%|█████████▏| 1.07G/1.16G [00:05<00:00, 331MB/s]S3:  95%|█████████▌| 1.10G/1.16G [00:05<00:00, 317MB/s]S3:  98%|█████████▊| 1.13G/1.16G [00:06<00:00, 274MB/s]S3: 100%|██████████| 1.16G/1.16G [00:06<00:00, 190MB/s]
 /usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
   montage = make_standard_montage("standard_1005")
@@ -148,3 +131,20 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
   model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
 [fold 5] target 3 (cbramod): source=0.970 t3a=0.960 tent=0.970
 [fold 5] target 11 (cbramod): source=0.650 t3a=0.750 tent=0.600
+[fold 5] target 18 (cbramod): source=0.890 t3a=0.900 tent=0.860
+[fold 5] target 26 (cbramod): source=0.840 t3a=0.850 tent=0.830
+[fold 5] target 31 (cbramod): source=0.910 t3a=0.920 tent=0.590
+[fold 5] target 32 (cbramod): source=0.920 t3a=0.940 tent=0.880
+[fold 5] target 46 (cbramod): source=0.780 t3a=0.760 tent=0.580
+[fold 5] target 48 (cbramod): source=0.660 t3a=0.650 tent=0.420
+[fold 5] target 52 (cbramod): source=0.750 t3a=0.770 tent=0.610
+Choosing from all possible events
+[data] purged 0.0 GB of lee2019_mi raw files; 263597.6 GB free
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = make_standard_montage("standard_1020")
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
+[fold 0] target 1 (cbramod): source=0.850 t3a=0.850 tent=0.790
