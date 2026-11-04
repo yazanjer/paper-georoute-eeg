@@ -1,0 +1,60 @@
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': No space left on device
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': No space left on device
+fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
+fatal: fetch-pack: invalid index-pack output
+[agent] pull failed
