@@ -1,16 +1,60 @@
-To https://github.com/yazanjer/paper-georoute-eeg.git
- ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-To https://github.com/yazanjer/paper-georoute-eeg.git
- ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/422_rev_lee_eegnet_s2/finished: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 75: results/422_rev_lee_eegnet_s2/status: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': Disk quota exceeded
+error: unable to create temporary file: Disk quota exceeded
+fatal: failed to write object
+fatal: unpack-objects failed
+[agent] pull failed
+mkdir: cannot create directory 'results/422_rev_lee_eegnet_s2': Disk quota exceeded
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/422_rev_lee_eegnet_s2/status: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/422_rev_lee_eegnet_s2/commit: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/422_rev_lee_eegnet_s2/started: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': Disk quota exceeded
+/workspace/georoute-eeg/runner/agent.sh: line 61: /workspace/logs_422_rev_lee_eegnet_s2.txt: Disk quota exceeded
+/workspace/georoute-eeg/runner/agent.sh: line 73: results/422_rev_lee_eegnet_s2/log_tail.txt: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/422_rev_lee_eegnet_s2/exit_code: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/422_rev_lee_eegnet_s2/finished: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 75: results/422_rev_lee_eegnet_s2/status: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': Disk quota exceeded
+error: unable to create temporary file: Disk quota exceeded
+fatal: failed to write object
+fatal: unpack-objects failed
+[agent] pull failed
+mkdir: cannot create directory 'results/422_rev_lee_eegnet_s2': Disk quota exceeded
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/422_rev_lee_eegnet_s2/status: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/422_rev_lee_eegnet_s2/commit: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/422_rev_lee_eegnet_s2/started: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': Disk quota exceeded
+/workspace/georoute-eeg/runner/agent.sh: line 61: /workspace/logs_422_rev_lee_eegnet_s2.txt: Disk quota exceeded
+/workspace/georoute-eeg/runner/agent.sh: line 73: results/422_rev_lee_eegnet_s2/log_tail.txt: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/422_rev_lee_eegnet_s2/exit_code: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/422_rev_lee_eegnet_s2/finished: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 75: results/422_rev_lee_eegnet_s2/status: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': Disk quota exceeded
+error: unable to create temporary file: Disk quota exceeded
+fatal: failed to write object
+fatal: unpack-objects failed
+[agent] pull failed
+mkdir: cannot create directory 'results/422_rev_lee_eegnet_s2': Disk quota exceeded
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/422_rev_lee_eegnet_s2/status: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/422_rev_lee_eegnet_s2/commit: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/422_rev_lee_eegnet_s2/started: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': Disk quota exceeded
+/workspace/georoute-eeg/runner/agent.sh: line 61: /workspace/logs_422_rev_lee_eegnet_s2.txt: Disk quota exceeded
+/workspace/georoute-eeg/runner/agent.sh: line 73: results/422_rev_lee_eegnet_s2/log_tail.txt: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/422_rev_lee_eegnet_s2/exit_code: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/422_rev_lee_eegnet_s2/finished: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 75: results/422_rev_lee_eegnet_s2/status: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': Disk quota exceeded
+error: unable to create temporary file: Disk quota exceeded
+fatal: failed to write object
+fatal: unpack-objects failed
+[agent] pull failed
+mkdir: cannot create directory 'results/422_rev_lee_eegnet_s2': Disk quota exceeded
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/422_rev_lee_eegnet_s2/status: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/422_rev_lee_eegnet_s2/commit: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/422_rev_lee_eegnet_s2/started: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': Disk quota exceeded
+/workspace/georoute-eeg/runner/agent.sh: line 61: /workspace/logs_422_rev_lee_eegnet_s2.txt: Disk quota exceeded
+/workspace/georoute-eeg/runner/agent.sh: line 73: results/422_rev_lee_eegnet_s2/log_tail.txt: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/422_rev_lee_eegnet_s2/exit_code: No such file or di
