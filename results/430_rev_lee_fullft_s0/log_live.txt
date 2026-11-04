@@ -1,11 +1,3 @@
-constraints:
-torch==2.4.1+cu124
-torchaudio==2.4.1+cu124
-torchvision==0.19.1+cu124
-WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-
-[notice] A new release of pip is available: 24.2 -> 26.3
-[notice] To update, run: python -m pip install --upgrade pip
 /usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
   montage = mne.channels.make_standard_montage("standard_1020")
 /usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
@@ -147,3 +139,12 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 2] target 27 (cbramod): source=0.910 t3a=0.920 lame=0.910 tent=0.920
 [fold 2] target 28 (cbramod): source=0.890 t3a=0.920 lame=0.910 tent=0.890
 [fold 2] target 40 (cbramod): source=0.890 t3a=0.880 lame=0.860 tent=0.900
+[fold 3] target 15 (cbramod): source=0.810 t3a=0.810 lame=0.800 tent=0.810
+[fold 3] target 23 (cbramod): source=0.820 t3a=0.800 lame=0.810 tent=0.820
+[fold 3] target 30 (cbramod): source=0.950 t3a=0.940 lame=0.940 tent=0.930
+[fold 3] target 35 (cbramod): source=0.890 t3a=0.880 lame=0.860 tent=0.880
+[fold 3] target 36 (cbramod): source=0.980 t3a=0.980 lame=0.990 tent=0.980
+[fold 3] target 37 (cbramod): source=0.910 t3a=0.920 lame=0.880 tent=0.910
+[fold 3] target 39 (cbramod): source=0.850 t3a=0.850 lame=0.830 tent=0.840
+[fold 3] target 51 (cbramod): source=0.790 t3a=0.790 lame=0.770 tent=0.780
+[fold 3] target 53 (cbramod): source=0.830 t3a=0.810 lame=0.790 tent=0.790
