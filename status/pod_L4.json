@@ -1,1 +1,1 @@
-{"time": "2026-11-04T19:22:23Z", "pod": "fan6wrudhtpq7c", "gpu": "NVIDIA L40S, 529 MiB, 46068 MiB, 4 %", "state": "running 423_rev_lee_eegnet_s3", "agent_pid": 90}
+{"time": "2026-11-04T19:25:26Z", "pod": "fan6wrudhtpq7c", "gpu": "NVIDIA L40S, 1 MiB, 46068 MiB, 0 %", "state": "idle", "agent_pid": 90}
