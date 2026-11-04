@@ -1,0 +1,3 @@
+To https://github.com/yazanjer/paper-georoute-eeg.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 8f8ec5e3f313f152f99de8e8bdc5feee1f512fbc but expected 9432c81bae77b1ba1190c4b69eeb4c5105c4fead)
+error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
