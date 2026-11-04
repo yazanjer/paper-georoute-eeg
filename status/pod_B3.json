@@ -1,1 +1,1 @@
-{"time": "2026-11-04T16:36:39Z", "pod": "9f3hovnyos8yfe", "gpu": "NVIDIA A40, 737 MiB, 46068 MiB, 0 %", "state": "running 402_rev_bnci2a_s2", "agent_pid": 125}
+{"time": "2026-11-04T16:40:26Z", "pod": "9f3hovnyos8yfe", "gpu": "NVIDIA A40, 0 MiB, 46068 MiB, 0 %", "state": "idle", "agent_pid": 125}
