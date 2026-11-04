@@ -1,20 +1,3 @@
-  self._prefetch_nemar_sourcedata(
-This is nemar-py 0.3.3.
-Preparing to download nm000338 from https://data.nemar.org/
-Retrying after failure when retrieving NEMAR index for nm000338 (5 retries remain).
-Retrying after failure when retrieving NEMAR index for nm000338 (4 retries remain).
-Retrying after failure when retrieving NEMAR index for nm000338 (3 retries remain).
-Retrying after failure when retrieving NEMAR index for nm000338 (2 retries remain).
-Retrying after failure when retrieving NEMAR index for nm000338 (1 retries remain).
-This is nemar-py 0.3.3.
-Preparing to download nm000338 from https://data.nemar.org/
-Retrying after failure when retrieving NEMAR index for nm000338 (5 retries remain).
-Retrying after failure when retrieving NEMAR index for nm000338 (4 retries remain).
-Retrying after failure when retrieving NEMAR index for nm000338 (3 retries remain).
-Retrying after failure when retrieving NEMAR index for nm000338 (2 retries remain).
-Retrieving 5 of 1955 manifest files (16 concurrent downloads).
-Overall:   0%|          | 0.00/33.5k [00:00<?, ?B/s]Overall:   2%|▏         | 843/33.5k [00:00<00:31, 1.06kB/s]Overall:  22%|██▏       | 7.29k/33.5k [00:01<00:04, 6.40kB/s]Overall:  41%|████      | 13.7k/33.5k [00:01<00:02, 9.49kB/s]Overall:  42%|████▏     | 14.1k/33.5k [00:02<00:03, 6.13kB/s]
-Finished downloading nm000338 v1.0.5.
 This is nemar-py 0.3.3.
 Preparing to download nm000338 from https://data.nemar.org/
 Retrieving 6 of 1955 manifest files (16 concurrent downloads).
@@ -148,3 +131,20 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 5] target 26 (cbramod): source=0.860 t3a=0.850 lame=0.860 tent=0.870
 [fold 5] target 31 (cbramod): source=0.910 t3a=0.920 lame=0.870 tent=0.900
 [fold 5] target 32 (cbramod): source=0.910 t3a=0.920 lame=0.870 tent=0.920
+[fold 5] target 46 (cbramod): source=0.760 t3a=0.760 lame=0.770 tent=0.770
+[fold 5] target 48 (cbramod): source=0.670 t3a=0.640 lame=0.660 tent=0.640
+[fold 5] target 52 (cbramod): source=0.790 t3a=0.830 lame=0.760 tent=0.800
+Choosing from all possible events
+[data] purged 0.0 GB of lee2019_mi raw files; 263823.0 GB free
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = make_standard_montage("standard_1020")
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
+[fold 0] target 1 (cbramod): source=0.800 t3a=0.810 tent=0.500
+[fold 0] target 7 (cbramod): source=0.810 t3a=0.860 tent=0.630
+[fold 0] target 29 (cbramod): source=0.680 t3a=0.680 tent=0.510
+[fold 0] target 41 (cbramod): source=0.880 t3a=0.850 tent=0.780
+[fold 0] target 42 (cbramod): source=0.790 t3a=0.770 tent=0.610
