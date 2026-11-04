@@ -1,10 +1,3 @@
-/workspace/georoute-eeg/runner/agent.sh: line 73: results/421_rev_lee_eegnet_s1/log_tail.txt: No such file or directory
-/workspace/georoute-eeg/runner/agent.sh: line 74: results/421_rev_lee_eegnet_s1/exit_code: No such file or directory
-/workspace/georoute-eeg/runner/agent.sh: line 74: results/421_rev_lee_eegnet_s1/finished: No such file or directory
-/workspace/georoute-eeg/runner/agent.sh: line 75: results/421_rev_lee_eegnet_s1/status: No such file or directory
-fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': No space left on device
-fatal: Unable to create temporary file '/workspace/georoute-eeg/.git/objects/pack/tmp_pack_XXXXXX': No space left on device
-fatal: fetch-pack: invalid index-pack output
 [agent] pull failed
 mkdir: cannot create directory 'results/421_rev_lee_eegnet_s1': No space left on device
 /workspace/georoute-eeg/runner/agent.sh: line 58: results/421_rev_lee_eegnet_s1/status: No such file or directory
@@ -57,4 +50,11 @@ fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': No space left
 /workspace/georoute-eeg/runner/agent.sh: line 73: results/421_rev_lee_eegnet_s1/log_tail.txt: No such file or directory
 /workspace/georoute-eeg/runner/agent.sh: line 74: results/421_rev_lee_eegnet_s1/exit_code: No such file or directory
 /workspace/georoute-eeg/runner/agent.sh: line 74: results/421_rev_lee_eegnet_s1/finished: No such file or directory
-/workspace/georo
+/workspace/georoTo https://github.com/yazanjer/paper-georoute-eeg.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
