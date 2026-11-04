@@ -1,13 +1,3 @@
-[data] lee2019_mi subject 48: X(200, 62, 800)
-This is nemar-py 0.3.3.
-Preparing to download nm000338 from https://data.nemar.org/
-Retrieving 6 of 1955 manifest files (16 concurrent downloads).
-S3:   0%|          | 0.00/1.08G [00:00<?, ?B/s]S3:   0%|          | 1.00M/1.08G [00:02<42:05, 460kB/s]S3:   0%|          | 3.00M/1.08G [00:02<11:39, 1.66MB/s]S3:   1%|▏         | 16.0M/1.08G [00:02<01:35, 12.0MB/s]S3:   3%|▎         | 31.0M/1.08G [00:02<00:43, 26.1MB/s]S3:   5%|▌         | 57.0M/1.08G [00:02<00:19, 56.1MB/s]S3:   8%|▊         | 84.0M/1.08G [00:02<00:12, 89.4MB/s]S3:  12%|█▏        | 129M/1.08G [00:02<00:06, 156MB/s]  S3:  15%|█▌        | 169M/1.08G [00:03<00:04, 208MB/s]S3:  18%|█▊        | 203M/1.08G [00:03<00:03, 238MB/s]S3:  22%|██▏       | 240M/1.08G [00:03<00:03, 273MB/s]S3:  25%|██▍       | 274M/1.08G [00:03<00:04, 217MB/s]S3:  27%|██▋       | 302M/1.08G [00:03<00:03, 228MB/s]S3:  31%|███       | 343M/1.08G [00:03<00:02, 271MB/s]S3:  35%|███▍      | 384M/1.08G [00:03<00:02, 305MB/s]S3:  38%|███▊      | 421M/1.08G [00:03<00:02, 323MB/s]S3:  41%|████      | 455M/1.08G [00:03<00:02, 326MB/s]S3:  44%|████▍     | 489M/1.08G [00:04<00:02, 315MB/s]S3:  47%|████▋     | 521M/1.08G [00:04<00:02, 278MB/s]S3:  50%|████▉     | 550M/1.08G [00:04<00:02, 281MB/s]S3:  50%|████▉     | 551M/1.08G [00:04<00:02, 286MB/s]S3:  52%|█████▏    | 580M/1.08G [00:04<00:01, 280MB/s]S3:  55%|█████▍    | 609M/1.08G [00:04<00:01, 285MB/s]S3:  55%|█████▍    | 610M/1.08G [00:04<00:01, 290MB/s]S3:  59%|█████▊    | 650M/1.08G [00:04<00:01, 324MB/s]S3:  63%|██████▎   | 695M/1.08G [00:04<00:01, 364MB/s]S3:  63%|██████▎   | 696M/1.08G [00:04<00:01, 396MB/s]S3:  66%|██████▌   | 735M/1.08G [00:04<00:01, 368MB/s]S3:  69%|██████▉   | 771M/1.08G [00:05<00:01, 330MB/s]S3:  72%|███████▏  | 804M/1.08G [00:05<00:01, 314MB/s]S3:  75%|███████▌  | 835M/1.08G [00:05<00:00, 307MB/s]S3:  79%|███████▊  | 873M/1.08G [00:05<00:00, 329MB/s]S3:  82%|████████▏ | 913M/1.08G [00:05<00:00, 354MB/s]S3:  85%|████████▌ | 948M/1.08G [00:05<00:00, 349MB/s]S3:  86%|████████▌ | 949M/1.08G [00:05<00:00, 348MB/s]S3:  89%|████████▊ | 983M/1.08G [00:05<00:00, 320MB/s]S3:  91%|█████████▏| 0.99G/1.08G [00:05<00:00, 298MB/s]S3:  94%|█████████▍| 1.02G/1.08G [00:06<00:00, 277MB/s]S3:  97%|█████████▋| 1.05G/1.08G [00:06<00:00, 262MB/s]S3:  99%|█████████▉| 1.07G/1.08G [00:06<00:00, 240MB/s]S3: 100%|██████████| 1.08G/1.08G [00:06<00:00, 180MB/s]
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-Finished downloading nm000338 v1.0.5.
 [data] purged 1.1 GB of lee2019_mi raw files; 62534.5 GB free
 [data] lee2019_mi subject 49: X(200, 62, 800)
 This is nemar-py 0.3.3.
@@ -148,3 +138,13 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 1] target 5 (cbramod): source=0.690 t3a=0.690 tent=0.620
 [fold 1] target 6 (cbramod): source=0.800 t3a=0.820 tent=0.710
 [fold 1] target 13 (cbramod): source=0.710 t3a=0.730 tent=0.490
+[fold 1] target 20 (cbramod): source=0.910 t3a=0.930 tent=0.660
+[fold 1] target 25 (cbramod): source=0.940 t3a=0.950 tent=0.820
+[fold 1] target 43 (cbramod): source=0.880 t3a=0.890 tent=0.630
+[fold 1] target 49 (cbramod): source=0.800 t3a=0.820 tent=0.610
+[fold 1] target 50 (cbramod): source=0.540 t3a=0.620 tent=0.590
+/workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
+[fold 2] target 9 (cbramod): source=0.740 t3a=0.680 tent=0.660
+[fold 2] target 10 (cbramod): source=0.760 t3a=0.770 tent=0.450
+[fold 2] target 12 (cbramod): source=0.800 t3a=0.770 tent=0.700
