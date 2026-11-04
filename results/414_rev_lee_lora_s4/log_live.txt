@@ -1,9 +1,3 @@
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-[data] subject 48: MatReadError: Mat file appears to be truncated; wiping raw files and retrying
-[data] wiped /workspace/mne_data/MNE-lee2019-mi-data
-[data] wiped /workspace/mne_data/NEMAR/nm000338
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/base.py:890: RuntimeWarning: Could not fetch Lee2019-MI subject 48 sourcedata from NEMAR (nm000338); its load will use the dataset's own downloader. Original error: Could not fetch the sourcedata manifest for nm000338: Retryable error when retrieving NEMAR index for nm000338: HTTP 500
   self._prefetch_nemar_sourcedata(
 This is nemar-py 0.3.3.
 Preparing to download nm000338 from https://data.nemar.org/
@@ -148,3 +142,9 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 4] target 33 (cbramod): source=0.980 t3a=0.980 lame=0.960 tent=0.980
 [fold 4] target 34 (cbramod): source=0.730 t3a=0.720 lame=0.730 tent=0.750
 [fold 4] target 38 (cbramod): source=0.740 t3a=0.810 lame=0.700 tent=0.730
+[fold 5] target 3 (cbramod): source=0.960 t3a=0.960 lame=0.950 tent=0.960
+[fold 5] target 11 (cbramod): source=0.670 t3a=0.740 lame=0.590 tent=0.680
+[fold 5] target 18 (cbramod): source=0.900 t3a=0.900 lame=0.820 tent=0.880
+[fold 5] target 26 (cbramod): source=0.860 t3a=0.850 lame=0.860 tent=0.870
+[fold 5] target 31 (cbramod): source=0.910 t3a=0.920 lame=0.870 tent=0.900
+[fold 5] target 32 (cbramod): source=0.910 t3a=0.920 lame=0.870 tent=0.920
