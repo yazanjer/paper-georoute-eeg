@@ -5,3 +5,5 @@ Choosing from all possible events
   montage = make_standard_montage("standard_1020")
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 [fold 0] target 1 (cbramod): source=0.740 t3a=0.788 lame=0.715 tent=0.319
+[fold 1] target 2 (cbramod): source=0.462 t3a=0.476 lame=0.288 tent=0.333
+[fold 2] target 3 (cbramod): source=0.785 t3a=0.826 lame=0.812 tent=0.486
