@@ -1,28 +1,3 @@
-S3:   0%|          | 0.00/1.16G [00:00<?, ?B/s]S3:   0%|          | 1.00M/1.16G [00:02<44:14, 467kB/s]S3:   1%|          | 6.00M/1.16G [00:02<05:47, 3.55MB/s]S3:   2%|▏         | 18.0M/1.16G [00:02<01:33, 13.1MB/s]S3:   3%|▎         | 37.0M/1.16G [00:02<00:37, 31.6MB/s]S3:   6%|▌         | 68.0M/1.16G [00:02<00:17, 68.2MB/s]S3:   9%|▉         | 112M/1.16G [00:02<00:08, 127MB/s]  S3:  13%|█▎        | 159M/1.16G [00:02<00:05, 192MB/s]S3:  14%|█▎        | 160M/1.16G [00:02<00:04, 253MB/s]S3:  17%|█▋        | 204M/1.16G [00:02<00:03, 298MB/s]S3:  21%|██        | 244M/1.16G [00:03<00:03, 305MB/s]S3:  24%|██▍       | 281M/1.16G [00:03<00:03, 252MB/s]S3:  27%|██▋       | 319M/1.16G [00:03<00:03, 283MB/s]S3:  27%|██▋       | 320M/1.16G [00:03<00:02, 312MB/s]S3:  30%|███       | 360M/1.16G [00:03<00:02, 338MB/s]S3:  35%|███▍      | 409M/1.16G [00:03<00:02, 382MB/s]S3:  38%|███▊      | 449M/1.16G [00:03<00:02, 381MB/s]S3:  41%|████▏     | 488M/1.16G [00:03<00:02, 342MB/s]S3:  44%|████▍     | 523M/1.16G [00:04<00:02, 301MB/s]S3:  47%|████▋     | 554M/1.16G [00:04<00:02, 294MB/s]S3:  50%|████▉     | 586M/1.16G [00:04<00:02, 300MB/s]S3:  53%|█████▎    | 627M/1.16G [00:04<00:01, 332MB/s]S3:  56%|█████▌    | 660M/1.16G [00:04<00:01, 334MB/s]S3:  59%|█████▊    | 693M/1.16G [00:04<00:01, 307MB/s]S3:  59%|█████▊    | 694M/1.16G [00:04<00:01, 293MB/s]S3:  61%|██████▏   | 727M/1.16G [00:04<00:01, 298MB/s]S3:  65%|██████▌   | 769M/1.16G [00:04<00:01, 335MB/s]S3:  68%|██████▊   | 805M/1.16G [00:04<00:01, 345MB/s]S3:  71%|███████   | 839M/1.16G [00:05<00:01, 328MB/s]S3:  74%|███████▍  | 875M/1.16G [00:05<00:00, 339MB/s]S3:  77%|███████▋  | 908M/1.16G [00:05<00:00, 338MB/s]S3:  80%|███████▉  | 941M/1.16G [00:05<00:00, 326MB/s]S3:  83%|████████▎ | 982M/1.16G [00:05<00:00, 343MB/s]S3:  86%|████████▋ | 1.00G/1.16G [00:05<00:00, 353MB/s]S3:  90%|████████▉ | 1.03G/1.16G [00:05<00:00, 354MB/s]S3:  92%|█████████▏| 1.07G/1.16G [00:05<00:00, 331MB/s]S3:  95%|█████████▌| 1.10G/1.16G [00:05<00:00, 317MB/s]S3:  98%|█████████▊| 1.13G/1.16G [00:06<00:00, 274MB/s]S3: 100%|██████████| 1.16G/1.16G [00:06<00:00, 190MB/s]
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-Finished downloading nm000338 v1.0.5.
-[data] purged 1.2 GB of lee2019_mi raw files; 264641.6 GB free
-[data] lee2019_mi subject 54: X(200, 62, 800)
-/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
-  montage = mne.channels.make_standard_montage("standard_1020")
-/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
-  montage = make_standard_montage("standard_1020")
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-[fold 0] target 1 (cbramod): source=0.810 t3a=0.830 lame=0.820 tent=0.790
-[fold 0] target 7 (cbramod): source=0.820 t3a=0.830 lame=0.750 tent=0.800
-[fold 0] target 29 (cbramod): source=0.670 t3a=0.680 lame=0.590 tent=0.660
-[fold 0] target 41 (cbramod): source=0.890 t3a=0.860 lame=0.820 tent=0.860
-[fold 0] target 42 (cbramod): source=0.780 t3a=0.770 lame=0.740 tent=0.760
-[fold 0] target 44 (cbramod): source=0.900 t3a=0.920 lame=0.850 tent=0.910
-[fold 0] target 45 (cbramod): source=0.910 t3a=0.900 lame=0.900 tent=0.910
-[fold 0] target 47 (cbramod): source=0.900 t3a=0.900 lame=0.860 tent=0.910
-[fold 0] target 54 (cbramod): source=0.770 t3a=0.780 lame=0.780 tent=0.740
-[fold 1] target 4 (cbramod): source=0.700 t3a=0.730 lame=0.750 tent=0.690
-[fold 1] target 5 (cbramod): source=0.760 t3a=0.800 lame=0.760 tent=0.760
-[fold 1] target 6 (cbramod): source=0.730 t3a=0.840 lame=0.700 tent=0.730
 [fold 1] target 13 (cbramod): source=0.690 t3a=0.750 lame=0.650 tent=0.690
 [fold 1] target 20 (cbramod): source=0.900 t3a=0.930 lame=0.910 tent=0.900
 [fold 1] target 25 (cbramod): source=0.910 t3a=0.930 lame=0.890 tent=0.900
@@ -148,3 +123,28 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 /workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
   model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
 [fold 0] target 1 (cbramod): source=0.850 t3a=0.850 tent=0.790
+[fold 0] target 7 (cbramod): source=0.840 t3a=0.850 tent=0.800
+[fold 0] target 29 (cbramod): source=0.680 t3a=0.620 tent=0.740
+[fold 0] target 41 (cbramod): source=0.880 t3a=0.890 tent=0.670
+[fold 0] target 42 (cbramod): source=0.770 t3a=0.770 tent=0.690
+[fold 0] target 44 (cbramod): source=0.900 t3a=0.910 tent=0.900
+[fold 0] target 45 (cbramod): source=0.900 t3a=0.920 tent=0.830
+[fold 0] target 47 (cbramod): source=0.930 t3a=0.930 tent=0.860
+[fold 0] target 54 (cbramod): source=0.780 t3a=0.820 tent=0.750
+/workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
+[fold 1] target 4 (cbramod): source=0.700 t3a=0.720 tent=0.680
+[fold 1] target 5 (cbramod): source=0.810 t3a=0.850 tent=0.750
+[fold 1] target 6 (cbramod): source=0.740 t3a=0.840 tent=0.810
+[fold 1] target 13 (cbramod): source=0.740 t3a=0.770 tent=0.600
+[fold 1] target 20 (cbramod): source=0.960 t3a=0.950 tent=0.830
+[fold 1] target 25 (cbramod): source=0.910 t3a=0.920 tent=0.810
+[fold 1] target 43 (cbramod): source=0.840 t3a=0.850 tent=0.740
+[fold 1] target 49 (cbramod): source=0.780 t3a=0.780 tent=0.660
+[fold 1] target 50 (cbramod): source=0.660 t3a=0.660 tent=0.590
+/workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
+[fold 2] target 9 (cbramod): source=0.780 t3a=0.770 tent=0.660
+[fold 2] target 10 (cbramod): source=0.790 t3a=0.820 tent=0.610
+[fold 2] target 12 (cbramod): source=0.860 t3a=0.840 tent=0.800
+[fold 2] target 19 (cbramod): source=0.860 t3a=0.860 tent=0.800
