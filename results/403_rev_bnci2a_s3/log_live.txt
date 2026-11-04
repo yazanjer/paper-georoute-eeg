@@ -1,5 +1,3 @@
-  montage = mne.channels.make_standard_montage("standard_1020")
-/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
   montage = make_standard_montage("standard_1020")
 [fold 0] target 1 (eegnet): source=0.774 t3a=0.809 lame=0.566 tent=0.799
 [fold 1] target 2 (eegnet): source=0.458 t3a=0.493 lame=0.253 tent=0.465
@@ -148,3 +146,5 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 1] target 2 (cbramod): source=0.382 t3a=0.399 lame=0.316 tent=0.385
 [fold 2] target 3 (cbramod): source=0.767 t3a=0.861 lame=0.795 tent=0.663
 [fold 3] target 4 (cbramod): source=0.562 t3a=0.583 lame=0.455 tent=0.524
+[fold 4] target 5 (cbramod): source=0.562 t3a=0.587 lame=0.462 tent=0.587
+[fold 5] target 6 (cbramod): source=0.486 t3a=0.524 lame=0.434 tent=0.420
