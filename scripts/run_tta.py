@@ -85,27 +85,41 @@ class Decoder:
         return ps
 
 
-def train_source(kind, Xs, ys, C, n_cls, Tn, a, ckpt):
+def train_source(kind, Xs, ys, C, n_cls, Tn, a, ckpt, gs=None):
+    groups = None
     if kind == "cbramod":
         bb, _ = load_cbramod(not a.synthetic)
         model = FMClassifier(bb, C, n_cls).to(T.DEV)
-        wr = L.inject_lora(model.backbone, rank=a.rank)
-        for w in wr:
-            w.to(T.DEV)
-        for p in model.backbone.parameters():
-            p.requires_grad = False
-        ps = L.global_params(wr) + model.head_params()
-        for p in ps:
-            p.requires_grad = True
+        if a.variant == "fullft":
+            # revision: full fine-tuning under the SAME stream, seeds, epochs, stopping rule and source data
+            # as LoRA (learning rates as in the offline full-FT baseline: backbone 1e-4, head 1e-3)
+            ps = None
+            groups = [{"params": list(model.backbone.parameters()), "lr": 1e-4},
+                      {"params": model.head_params(), "lr": a.lr}]
+            for p in model.parameters():
+                p.requires_grad = True
+        else:
+            wr = L.inject_lora(model.backbone, rank=a.rank)
+            for w in wr:
+                w.to(T.DEV)
+            for p in model.backbone.parameters():
+                p.requires_grad = False
+            ps = L.global_params(wr) + model.head_params()
+            for p in ps:
+                p.requires_grad = True
     else:
         model = compact_model(kind, C, n_cls, Tn).to(T.DEV)
         ps = list(model.parameters())
+    model._nparams = (sum(p.numel() for p in model.parameters()),
+                      sum(p.numel() for p in model.parameters() if p.requires_grad))
     if os.path.exists(ckpt):
         model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
         return model
     h = T.fit(model, ps, Xs, ys, epochs=a.epochs, lr=a.lr, bs=64, seed=a.seed,
-              patience=8 if kind == "cbramod" else 15)
+              patience=8 if kind == "cbramod" else 15, param_groups=groups,
+              groups=gs if a.val_by_subject else None)
     model._hist = h["hist"]   # per-epoch (train loss, val loss); logged with --save-preds
+    model._fitinfo = {k: h[k] for k in ("epochs_run", "best_val_loss", "n_train", "n_val")}
     os.makedirs(os.path.dirname(ckpt), exist_ok=True)
     torch.save(model.state_dict(), ckpt)
     return model
@@ -140,7 +154,7 @@ def run_backpropfree(dec, Xstream, bs, n_cls, which):
         z, f = dec.forward(Xa)
         p = R.softmax(z)
         feats_all.append(f)
-        pt = next(t3a_gen)
+        pt = next(t3a_gen) if ("t3a" in which or "rctta+t3a" in which) else None
         if "source" in out: out["source"].append(p)
         if "t3a" in out: out["t3a"].append(pt)
         if "lame" in out: out["lame"].append(R.lame(p, f))
@@ -216,6 +230,38 @@ def run_shot_im(dec, Xstream, bs, epochs=10, lr=1e-4):
     return R.softmax(z)
 
 
+def run_shot_past(dec, Xstream, bs, n_past, epochs=10, lr=1e-4):
+    """Revision: SHOT-IM adapted on the unlabeled WARM-UP trials only (online-aligned), then frozen and
+    applied to the scored session. Uses no scored-session trial for adaptation (causal w.r.t. scoring)."""
+    dec2 = Decoder(dec.kind, copy.deepcopy(dec.model))
+    model = dec2.model.to(T.DEV)
+    Xa = np.concatenate([x for _, x in stream_batches(Xstream, bs)])
+    last = model.fc if dec.kind == "cbramod" else model.final_layer.conv_classifier
+    for p in model.parameters():
+        p.requires_grad = True
+    for p in last.parameters():
+        p.requires_grad = False
+    opt = torch.optim.Adam([p for p in model.parameters() if p.requires_grad], lr=lr)
+    Xt = torch.from_numpy(np.ascontiguousarray(Xa[:n_past]))
+    rng = np.random.default_rng(0)
+    for _ in range(epochs):
+        model.train()
+        for idx in np.array_split(rng.permutation(len(Xt)), max(1, len(Xt) // 32)):
+            xb = Xt[idx].to(T.DEV)
+            z = model.fc(model.embed(xb)) if dec.kind == "cbramod" else model(xb)
+            p = torch.softmax(z, 1)
+            pm = p.mean(0)
+            loss = -(p * torch.log(p + 1e-8)).sum(1).mean() + (pm * torch.log(pm + 1e-8)).sum()
+            opt.zero_grad(); loss.backward(); opt.step()
+    z, _ = dec2.forward(Xa)
+    return R.softmax(z)
+
+
+def _sync():
+    if torch.cuda.is_available():
+        torch.cuda.synchronize()
+
+
 def _recenter(C, ref):
     from scipy.linalg import fractional_matrix_power as fmp
     M = np.real(fmp(ref, -0.5))
@@ -245,6 +291,53 @@ def run_geo_src(clf, Xstream, bs):
     return np.concatenate(outs)
 
 
+def time_methods(dec, Xstream, a, n_cls, which, n_past, data, sources):
+    """Revision: wall-clock cost of each method ALONE on this target stream.
+    CUDA-synchronised before/after, repeated `timing_repeats` times, peak GPU memory per method.
+    Online methods also report the mean latency per incoming batch (total / number of batches),
+    which includes the online Euclidean alignment of that batch."""
+    import platform
+    nb = int(np.ceil(len(Xstream) / a.bs))
+    out = {"n_batches": nb, "bs": a.bs, "n_trials": int(len(Xstream)), "repeats": a.timing_repeats,
+           "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else "cpu",
+           "cpu": platform.processor() or platform.machine(), "torch_threads": torch.get_num_threads(),
+           "methods": {}}
+    try:
+        out["cpu"] = [l.split(":", 1)[1].strip() for l in open("/proc/cpuinfo") if l.startswith("model name")][0]
+    except Exception:
+        pass
+    geo = None
+    for m in which:
+        base, _, lr_s = m.partition("@")
+        if base == "shot_past" and n_past == 0:
+            continue
+        if base == "geo_src" and geo is None:
+            _sync(); t0 = time.time(); geo = fit_geo_src(data, sources); _sync()
+            out["geo_src_fit_s"] = time.time() - t0
+        ts, mem = [], 0.0
+        for _ in range(a.timing_repeats):
+            if torch.cuda.is_available():
+                torch.cuda.reset_peak_memory_stats()
+            _sync(); t0 = time.time()
+            if base == "tent":
+                run_tent(dec, Xstream, a.bs, lr=float(lr_s or 1e-3))
+            elif base == "shot_im":
+                run_shot_im(dec, Xstream, a.bs, lr=float(lr_s or 1e-4))
+            elif base == "shot_past":
+                run_shot_past(dec, Xstream, a.bs, n_past, lr=float(lr_s or 1e-4))
+            elif base == "geo_src":
+                run_geo_src(geo, Xstream, a.bs)
+            else:
+                run_backpropfree(dec, Xstream, a.bs, n_cls, [m])
+            _sync(); ts.append(time.time() - t0)
+            if torch.cuda.is_available():
+                mem = max(mem, torch.cuda.max_memory_allocated() / 2 ** 20)
+        online = base not in ("shot_im", "shot_past", "rctta_offline")
+        out["methods"][m] = {"total_s": ts, "peak_gpu_mem_mb": mem,
+                             "per_batch_ms": [1000 * t / nb for t in ts] if online else None}
+    return out
+
+
 # ------------------------------------------------------------------ main
 def main():
     ap = argparse.ArgumentParser()
@@ -261,6 +354,17 @@ def main():
     ap.add_argument("--synthetic", type=int, default=0)
     ap.add_argument("--save-preds", type=int, default=0,
                     help="1 = also store per-trial predictions of the whole stream and the source training history")
+    ap.add_argument("--variant", default="lora", choices=["lora", "fullft"],
+                    help="CBraMod adaptation recipe for the source model (revision: matched full fine-tuning)")
+    ap.add_argument("--val-by-subject", type=int, default=0,
+                    help="1 = early stopping on whole held-out SOURCE subjects instead of a random trial split")
+    ap.add_argument("--warmup", type=int, default=-1,
+                    help="-1 = whole first session as warm-up (original); N >= 0 = only the last N trials of it")
+    ap.add_argument("--tag", default="", help="suffix for output files (condition label)")
+    ap.add_argument("--timing", type=int, default=0,
+                    help="1 = time every method separately (CUDA-synchronised), peak GPU memory, repeats")
+    ap.add_argument("--timing-repeats", type=int, default=3)
+    ap.add_argument("--max-targets", type=int, default=0, help="0 = all targets of the selected folds")
     ap.add_argument("--ckpt-dir", default=os.environ.get("GEOROUTE_CKPT", "/workspace/ckpt"))
     ap.add_argument("--out", default=os.environ.get("RESULTS_DIR", "results/local"))
     a = ap.parse_args()
@@ -284,15 +388,20 @@ def main():
         T.seed_all(a.seed * 1000 + fi)
         Xs = np.concatenate([G.apply_ea(data[s]["X"], ea_W[s]) for s in sources])
         ys = np.concatenate([data[s]["y"] for s in sources])
-        fns = {t: os.path.join(a.out, f"{a.dataset}_seed{a.seed}_sub{int(t):03d}_tta_{a.backbone}.json")
+        gs = np.concatenate([np.full(len(data[s]["y"]), s) for s in sources])
+        if a.max_targets:
+            targets = targets[:a.max_targets]
+        fns = {t: os.path.join(a.out, f"{a.dataset}_seed{a.seed}_sub{int(t):03d}_tta_{a.backbone}{a.tag}.json")
                for t in targets}
         if all(os.path.exists(f) for f in fns.values()):   # resume: fold already done
             continue
         geo_clf = None
         tag = "synthetic" if a.synthetic else a.dataset
-        ckpt = os.path.join(a.ckpt_dir, f"{tag}_{a.backbone}_s{a.seed}_{a.cv.replace(':', '')}_f{fi}.pt")
+        vtag = ("_fullft" if (a.backbone == "cbramod" and a.variant == "fullft") else "") + \
+               ("_valsubj" if a.val_by_subject else "")
+        ckpt = os.path.join(a.ckpt_dir, f"{tag}_{a.backbone}{vtag}_s{a.seed}_{a.cv.replace(':', '')}_f{fi}.pt")
         t0 = time.time()
-        model = train_source(a.backbone, Xs, ys, C, n_cls, Tn, a, ckpt)
+        model = train_source(a.backbone, Xs, ys, C, n_cls, Tn, a, ckpt, gs=gs)
         dec = Decoder(a.backbone, model)
         t_train = time.time() - t0
         for t in targets:
@@ -300,13 +409,20 @@ def main():
                 continue
             d = data[t]
             r_idx, e_idx = D.split_target(d)
+            if a.warmup >= 0:                            # revision: shorter warm-up (most recent N trials)
+                r_idx = r_idx[max(0, len(r_idx) - a.warmup):] if a.warmup > 0 else r_idx[:0]
             order = np.concatenate([r_idx, e_idx])      # warm-up session, then scored session
             Xstream, ystream = d["X"][order], d["y"][order]
             scored = np.arange(len(r_idx), len(order))
             res = {"dataset": a.dataset, "seed": a.seed, "fold": fi, "target": int(t),
                    "backbone": a.backbone, "bs": a.bs, "n_warmup": int(len(r_idx)),
                    "n_scored": int(len(e_idx)), "train_time_s": t_train, "methods": {},
-                   "config": {"tag": f"_{a.backbone}"}, "time_s": {}}
+                   "config": {"tag": f"_{a.backbone}{a.tag}", "variant": a.variant if a.backbone == "cbramod" else "-",
+                              "val_by_subject": a.val_by_subject, "warmup": a.warmup, "bs": a.bs,
+                              "n_params_total": model._nparams[0], "n_params_trainable": model._nparams[1],
+                              "fit": getattr(model, "_fitinfo", None),
+                              "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else "cpu"},
+                   "time_s": {}}
             probs = {}
             t1 = time.time()
             bpf = [m for m in which if m in ("source", "t3a", "lame") or m.startswith("rctta")]
@@ -316,7 +432,12 @@ def main():
             # gradient-based baselines; "name@lr" selects a pre-specified learning rate
             for m in which:
                 base, _, lr_s = m.partition("@")
-                if base == "tent":
+                if base == "shot_past":
+                    if len(r_idx) == 0:
+                        continue
+                    t1 = time.time(); probs[m] = run_shot_past(dec, Xstream, a.bs, len(r_idx), lr=float(lr_s or 1e-4))
+                    res["time_s"][m] = time.time() - t1
+                elif base == "tent":
                     t1 = time.time(); probs[m] = run_tent(dec, Xstream, a.bs, lr=float(lr_s or 1e-3))
                     res["time_s"][m] = time.time() - t1
                 elif base == "shot_im":
@@ -330,6 +451,8 @@ def main():
                 res["time_s"]["geo_src"] = time.time() - t1
             for m, P in probs.items():
                 res["methods"][m] = T.metrics(ystream[scored], P[scored].argmax(1))
+            if a.timing:
+                res["timing"] = time_methods(dec, Xstream, a, n_cls, which, len(r_idx), data, sources)
             if a.save_preds:   # for online-accuracy and convergence curves
                 res["train_hist"] = getattr(model, "_hist", None)
                 res["y_stream"] = ystream.tolist()

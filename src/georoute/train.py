@@ -24,14 +24,26 @@ def _batches(n, bs, rng, shuffle=True):
 
 
 def fit(model: nn.Module, params, X, y, *, epochs=30, lr=1e-3, wd=1e-2, bs=64,
-        val_frac=0.1, seed=0, param_groups=None, patience=8, label_smoothing=0.1):
-    """Train `params` (others frozen by caller) with a random val split and
-    early stopping on val loss. Restores the best state. Returns history dict."""
+        val_frac=0.1, seed=0, param_groups=None, patience=8, label_smoothing=0.1, groups=None):
+    """Train `params` (others frozen by caller) with a validation split and
+    early stopping on val loss. Restores the best state. Returns history dict.
+
+    groups=None  -> random trial-level split (val_frac of the pooled source trials; original protocol)
+    groups=array -> subject-level split: ceil(val_frac * n_subjects) whole source subjects held out
+                    (revision: model selection on unseen source subjects, never on target data)"""
     rng = np.random.default_rng(seed)
     n = len(y)
-    idx = rng.permutation(n)
-    n_val = max(int(n * val_frac), 1) if val_frac > 0 else 0
-    va, tr = idx[:n_val], idx[n_val:]
+    if groups is not None and val_frac > 0:
+        subs = np.unique(groups)
+        k = max(1, int(np.ceil(val_frac * len(subs))))
+        vs = rng.choice(subs, size=k, replace=False)
+        va = np.where(np.isin(groups, vs))[0]
+        tr = np.where(~np.isin(groups, vs))[0]
+        n_val = len(va)
+    else:
+        idx = rng.permutation(n)
+        n_val = max(int(n * val_frac), 1) if val_frac > 0 else 0
+        va, tr = idx[:n_val], idx[n_val:]
     model.to(DEV)
     opt = torch.optim.AdamW(param_groups or [{"params": params, "lr": lr}], lr=lr, weight_decay=wd)
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=max(epochs, 1))
@@ -63,7 +75,8 @@ def fit(model: nn.Module, params, X, y, *, epochs=30, lr=1e-3, wd=1e-2, bs=64,
                     break
     if best_state is not None:
         model.load_state_dict(best_state)
-    return {"epochs_run": len(hist), "best_val_loss": float(best), "hist": hist}
+    return {"epochs_run": len(hist), "best_val_loss": float(best), "hist": hist,
+            "n_train": int(len(tr)), "n_val": int(len(va))}
 
 
 @torch.no_grad()
