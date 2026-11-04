@@ -1,2 +1,0 @@
-name, driver_version, memory.total [MiB]
-NVIDIA GeForce RTX 3090, 595.91.07, 24576 MiB

@@ -28,6 +28,33 @@ DATASETS = {
 
 
 DELETE_RAW = {"lee2019_mi"}  # raw files are ~0.6 GB each; drop them once a subject is cached
+RAW_MARKERS = {"lee2019_mi": ("nm000338", "lee2019", "lee_2019")}  # NeMAR mirror id and MOABB folder names
+
+
+def _purge_raw(name: str, min_mb: float = 5.0) -> None:
+    """Delete downloaded raw files of `name` (the NeMAR mirror used by MOABB>=1.7 stores them
+    outside the paths returned by data_path(), so they were never removed and filled the disk)."""
+    import shutil
+    marks = RAW_MARKERS.get(name, ())
+    roots = {os.environ.get("MNE_DATA", ""), os.path.expanduser("~/mne_data")}
+    freed = 0
+    for root in filter(None, roots):
+        for dp, _, fns in os.walk(root):
+            if not any(m in dp.lower() for m in marks):
+                continue
+            for fn in fns:
+                fp = os.path.join(dp, fn)
+                try:
+                    sz = os.path.getsize(fp)
+                    if sz >= min_mb * 2**20:
+                        os.remove(fp); freed += sz
+                except OSError:
+                    pass
+    try:
+        free = shutil.disk_usage(CACHE).free / 2**30
+    except OSError:
+        free = float("nan")
+    print(f"[data] purged {freed / 2**30:.1f} GB of {name} raw files; {free:.1f} GB free", flush=True)
 
 
 def _load_moabb(name: str, subjects=None, cache_dir=None):
@@ -40,13 +67,19 @@ def _load_moabb(name: str, subjects=None, cache_dir=None):
     paradigm = MotorImagery(n_classes=n_classes, fmin=0.5, fmax=45.0,
                             tmin=tmin, tmax=tmax, resample=SFREQ, events=events)
     out, classes = {}, None
+    if name in DELETE_RAW:
+        _purge_raw(name)
     for s in subs:
         sp = os.path.join(cache_dir, f"sub{int(s):03d}.npz") if cache_dir else None
         if sp and os.path.exists(sp):
-            z = np.load(sp, allow_pickle=True)
-            out[s] = dict(X=z["X"], y=z["y"], session=z["session"])
-            classes = list(z["classes"])
-            continue
+            try:
+                z = np.load(sp, allow_pickle=True)
+                out[s] = dict(X=z["X"], y=z["y"], session=z["session"])
+                classes = list(z["classes"])
+                continue
+            except Exception as ex:  # e.g. truncated by a full disk: rebuild it
+                print(f"[data] bad cache {sp} ({ex}); rebuilding", flush=True)
+                os.remove(sp)
         X, labels, meta = paradigm.get_data(dataset=ds, subjects=[s])
         classes = sorted(np.unique(labels))
         y = np.array([classes.index(l) for l in labels], dtype=np.int64)
@@ -68,6 +101,7 @@ def _load_moabb(name: str, subjects=None, cache_dir=None):
                         os.remove(f)
             except Exception as ex:  # never fail the run because of cleanup
                 print(f"[data] raw cleanup failed for subject {s}: {ex}")
+            _purge_raw(name)
         print(f"[data] {name} subject {s}: X{X.shape}", flush=True)
     return out, classes
 
