@@ -17,6 +17,8 @@ case $MODEL in
   valsubj_lora)   BB="--backbone cbramod --variant lora --val-by-subject 1" ;;
   valsubj_eegnet) BB="--backbone eegnet --val-by-subject 1" ;;
 esac
+mkdir -p "$OUT"; pip freeze > "$OUT/env_pip_freeze.txt" 2>/dev/null || true
+nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv > "$OUT/env_gpu.txt" 2>/dev/null || true
 COMMON="--dataset $DS --cv $CV --seed $SEED --fold-ids $FOLDS $BB --ckpt-dir $CK --out $OUT --save-preds 1"
 GRAD="tent,tent@1e-4"
 SHOTP="shot_past,shot_past@1e-5"

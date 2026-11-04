@@ -365,6 +365,8 @@ def main():
                     help="1 = time every method separately (CUDA-synchronised), peak GPU memory, repeats")
     ap.add_argument("--timing-repeats", type=int, default=3)
     ap.add_argument("--max-targets", type=int, default=0, help="0 = all targets of the selected folds")
+    ap.add_argument("--permute-scored-labels", type=int, default=0,
+                    help="1 = permute the target's scored-session labels (audit: predictions must be identical)")
     ap.add_argument("--ckpt-dir", default=os.environ.get("GEOROUTE_CKPT", "/workspace/ckpt"))
     ap.add_argument("--out", default=os.environ.get("RESULTS_DIR", "results/local"))
     a = ap.parse_args()
@@ -413,6 +415,10 @@ def main():
                 r_idx = r_idx[max(0, len(r_idx) - a.warmup):] if a.warmup > 0 else r_idx[:0]
             order = np.concatenate([r_idx, e_idx])      # warm-up session, then scored session
             Xstream, ystream = d["X"][order], d["y"][order]
+            if a.permute_scored_labels:   # label-isolation check: predictions must not change
+                ystream = ystream.copy()
+                sc = np.arange(len(r_idx), len(order))
+                ystream[sc] = np.random.default_rng(12345).permutation(ystream[sc])
             scored = np.arange(len(r_idx), len(order))
             res = {"dataset": a.dataset, "seed": a.seed, "fold": fi, "target": int(t),
                    "backbone": a.backbone, "bs": a.bs, "n_warmup": int(len(r_idx)),
@@ -456,8 +462,12 @@ def main():
             if a.save_preds:   # for online-accuracy and convergence curves
                 res["train_hist"] = getattr(model, "_hist", None)
                 res["y_stream"] = ystream.tolist()
+                # order metadata: original within-subject trial index, session label, batch index, scored flag
+                res["stream_meta"] = {"trial_index": order.tolist(), "session": [str(x) for x in d["session"][order]],
+                                      "batch": (np.arange(len(order)) // a.bs).tolist(),
+                                      "scored": [bool(i >= len(r_idx)) for i in range(len(order))]}
                 res["preds"] = {m: P.argmax(1).tolist() for m, P in probs.items()}
-            fn = os.path.join(a.out, f"{a.dataset}_seed{a.seed}_sub{int(t):03d}_tta_{a.backbone}.json")
+            fn = fns[t]
             json.dump(res, open(fn, "w"), indent=1)
             mm = res["methods"]
             print(f"[fold {fi}] target {t} ({a.backbone}): " + " ".join(
