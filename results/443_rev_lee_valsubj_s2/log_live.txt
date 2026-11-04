@@ -46,3 +46,22 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 4] target 14 (cbramod): source=0.680 t3a=0.680 lame=0.650 tent=0.670
 [fold 4] target 16 (cbramod): source=0.840 t3a=0.850 lame=0.840 tent=0.830
 [fold 4] target 17 (cbramod): source=0.790 t3a=0.760 lame=0.760 tent=0.780
+[fold 4] target 21 (cbramod): source=0.980 t3a=0.980 lame=0.970 tent=0.990
+[fold 4] target 33 (cbramod): source=0.990 t3a=0.980 lame=0.940 tent=0.970
+[fold 4] target 34 (cbramod): source=0.680 t3a=0.690 lame=0.610 tent=0.710
+[fold 4] target 38 (cbramod): source=0.750 t3a=0.790 lame=0.770 tent=0.770
+[fold 5] target 3 (cbramod): source=0.970 t3a=0.970 lame=0.930 tent=0.970
+[fold 5] target 11 (cbramod): source=0.630 t3a=0.640 lame=0.610 tent=0.640
+[fold 5] target 18 (cbramod): source=0.820 t3a=0.800 lame=0.790 tent=0.820
+[fold 5] target 26 (cbramod): source=0.850 t3a=0.880 lame=0.850 tent=0.850
+[fold 5] target 31 (cbramod): source=0.880 t3a=0.890 lame=0.840 tent=0.870
+[fold 5] target 32 (cbramod): source=0.890 t3a=0.900 lame=0.870 tent=0.890
+[fold 5] target 46 (cbramod): source=0.680 t3a=0.690 lame=0.710 tent=0.700
+[fold 5] target 48 (cbramod): source=0.610 t3a=0.600 lame=0.570 tent=0.580
+[fold 5] target 52 (cbramod): source=0.790 t3a=0.830 lame=0.770 tent=0.820
+Choosing from all possible events
+[data] purged 0.0 GB of lee2019_mi raw files; 127.5 GB free
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = make_standard_montage("standard_1020")
