@@ -1,1 +1,1 @@
-{"time": "2026-11-04T18:14:35Z", "pod": "uq5scaigjd1z91", "gpu": "NVIDIA GeForce RTX 4090, 802 MiB, 24564 MiB, 100 %", "state": "running 422_rev_lee_eegnet_s2", "agent_pid": 88}
+{"time": "2026-11-04T18:53:35Z", "pod": "06hctgbnxdbmtb", "gpu": "NVIDIA GeForce RTX 4090, 1 MiB, 24564 MiB, 0 %", "state": "running 412_rev_lee_lora_s2", "agent_pid": 126}
