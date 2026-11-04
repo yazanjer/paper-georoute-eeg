@@ -1,5 +1,3 @@
-/workspace/georoute-eeg/runner/agent.sh: line 74: results/422_rev_lee_eegnet_s2/finished: No such file or directory
-/workspace/georoute-eeg/runner/agent.sh: line 75: results/422_rev_lee_eegnet_s2/status: No such file or directory
 fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': Disk quota exceeded
 error: unable to create temporary file: Disk quota exceeded
 fatal: failed to write object
@@ -57,4 +55,6 @@ mkdir: cannot create directory 'results/422_rev_lee_eegnet_s2': Disk quota excee
 fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': Disk quota exceeded
 /workspace/georoute-eeg/runner/agent.sh: line 61: /workspace/logs_422_rev_lee_eegnet_s2.txt: Disk quota exceeded
 /workspace/georoute-eeg/runner/agent.sh: line 73: results/422_rev_lee_eegnet_s2/log_tail.txt: No such file or directory
-/workspace/georoute-eeg/runner/agent.sh: line 74: results/422_rev_lee_eegnet_s2/exit_code: No such file or di
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/422_rev_lee_eegnet_s2/exit_code: No such file or diTo https://github.com/yazanjer/paper-georoute-eeg.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 265470c2cbaa5b77d6966d51249243e8778ec4eb but expected 220342e535cdcaa7343903c031505e36ab209d62)
+error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
