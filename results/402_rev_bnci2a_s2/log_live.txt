@@ -1,5 +1,3 @@
-  montage = make_standard_montage("standard_1020")
-[fold 0] target 1 (eegnet): source=0.750 t3a=0.771 lame=0.583 tent=0.757
 [fold 1] target 2 (eegnet): source=0.444 t3a=0.510 lame=0.267 tent=0.451
 [fold 2] target 3 (eegnet): source=0.708 t3a=0.823 lame=0.399 tent=0.757
 [fold 3] target 4 (eegnet): source=0.552 t3a=0.580 lame=0.250 tent=0.576
@@ -148,3 +146,5 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 3] target 4 (cbramod): source=0.569 t3a=0.615 lame=0.438 tent=0.552
 [fold 4] target 5 (cbramod): source=0.500 t3a=0.587 lame=0.441 tent=0.556
 [fold 5] target 6 (cbramod): source=0.524 t3a=0.507 lame=0.403 tent=0.299
+[fold 6] target 7 (cbramod): source=0.632 t3a=0.698 lame=0.653 tent=0.639
+[fold 7] target 8 (cbramod): source=0.715 t3a=0.753 lame=0.649 tent=0.733
