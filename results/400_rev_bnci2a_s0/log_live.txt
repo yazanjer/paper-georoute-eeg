@@ -1,5 +1,3 @@
-/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
-  montage = make_standard_montage("standard_1020")
 /workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
   model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
 [fold 0] target 1 (eegnet): source=0.740 t3a=0.771 tent=0.458
@@ -148,3 +146,5 @@ Choosing from all possible events
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 [fold 0] target 1 (cbramod): source=0.670 t3a=0.753 lame=0.677 tent=0.323
 [fold 1] target 2 (cbramod): source=0.378 t3a=0.378 lame=0.285 tent=0.330
+[fold 2] target 3 (cbramod): source=0.785 t3a=0.840 lame=0.740 tent=0.531
+[fold 3] target 4 (cbramod): source=0.503 t3a=0.573 lame=0.347 tent=0.271
