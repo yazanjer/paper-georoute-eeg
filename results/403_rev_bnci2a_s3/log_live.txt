@@ -1,16 +1,3 @@
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-Finished downloading nm000139 v1.0.3.
-[data] bnci2014_001 subject 6: X(576, 22, 800)
-This is nemar-py 0.3.3.
 Preparing to download nm000139 from https://data.nemar.org/
 Retrieving 6 of 769 manifest files (16 concurrent downloads).
 S3:   0%|          | 0.00/81.1M [00:00<?, ?B/s]S3:   1%|          | 1.00M/81.1M [00:00<00:30, 2.78MB/s]S3:  16%|█▌        | 13.0M/81.1M [00:00<00:01, 35.7MB/s]S3:  42%|████▏     | 34.0M/81.1M [00:00<00:00, 85.9MB/s]S3:  70%|███████   | 57.0M/81.1M [00:00<00:00, 128MB/s] S3:  92%|█████████▏| 74.3M/81.1M [00:00<00:00, 118MB/s]S3: 100%|██████████| 81.1M/81.1M [00:00<00:00, 85.9MB/s]
@@ -148,3 +135,16 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 4] target 5 (cbramod): source=0.483 t3a=0.490 lame=0.399 tent=0.490
 [fold 5] target 6 (cbramod): source=0.431 t3a=0.410 lame=0.323 tent=0.344
 [fold 6] target 7 (cbramod): source=0.566 t3a=0.670 lame=0.628 tent=0.573
+[fold 7] target 8 (cbramod): source=0.785 t3a=0.771 lame=0.701 tent=0.458
+[fold 8] target 9 (cbramod): source=0.670 t3a=0.708 lame=0.670 tent=0.319
+Choosing from all possible events
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = make_standard_montage("standard_1020")
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
+[fold 0] target 1 (cbramod): source=0.708 t3a=0.740 tent=0.250
+/workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
