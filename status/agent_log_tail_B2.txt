@@ -1,0 +1,19 @@
+To https://github.com/yazanjer/paper-georoute-eeg.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 01b5509883000b2fd944c5551c781d74194f4a7b but expected e41f564cfb34719fcfb428f0406d255d97ad9ed4)
+error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
+To https://github.com/yazanjer/paper-georoute-eeg.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+To https://github.com/yazanjer/paper-georoute-eeg.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
