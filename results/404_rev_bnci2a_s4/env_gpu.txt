@@ -1,0 +1,2 @@
+name, driver_version, memory.total [MiB]
+NVIDIA RTX A4500, 550.144.03, 20470 MiB
