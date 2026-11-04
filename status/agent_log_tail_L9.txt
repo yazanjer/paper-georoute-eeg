@@ -39,14 +39,6 @@ hint: to the same ref. You may want to first integrate the remote changes
 hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 To https://github.com/yazanjer/paper-georoute-eeg.git
- ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-To https://github.com/yazanjer/paper-georoute-eeg.git
  ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 560c7f0918723d0dc80dea7d136dba1e20295838 but expected a837716e9cb9d1ddc86617130282d061278787cf)
 error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
 To https://github.com/yazanjer/paper-georoute-eeg.git
@@ -58,3 +50,11 @@ hint: to the same ref. You may want to first integrate the remote changes
 hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [agent] push failed: progress 441_rev_lee_valsubj_s1
+To https://github.com/yazanjer/paper-georoute-eeg.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
