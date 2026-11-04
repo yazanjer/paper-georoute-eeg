@@ -1,4 +1,3 @@
-Preparing to download nm000338 from https://data.nemar.org/
 Retrying after failure when retrieving NEMAR index for nm000338 (5 retries remain).
 Retrying after failure when retrieving NEMAR index for nm000338 (4 retries remain).
 Retrying after failure when retrieving NEMAR index for nm000338 (3 retries remain).
@@ -148,3 +147,4 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 3] target 39 (cbramod): source=0.860 t3a=0.870 lame=0.860 tent=0.860
 [fold 3] target 51 (cbramod): source=0.770 t3a=0.740 lame=0.740 tent=0.780
 [fold 3] target 53 (cbramod): source=0.780 t3a=0.780 lame=0.720 tent=0.780
+[fold 4] target 2 (cbramod): source=0.790 t3a=0.800 lame=0.760 tent=0.800
