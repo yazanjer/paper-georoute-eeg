@@ -19,20 +19,21 @@ case $MODEL in
 esac
 mkdir -p "$OUT"; pip freeze > "$OUT/env_pip_freeze.txt" 2>/dev/null || true
 nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv > "$OUT/env_gpu.txt" 2>/dev/null || true
+TP=""; [[ $MODEL == fullft ]] && TP="_fullft"   # distinct output names: full FT shares the backbone name with LoRA
 COMMON="--dataset $DS --cv $CV --seed $SEED --fold-ids $FOLDS $BB --ckpt-dir $CK --out $OUT --save-preds 1"
 GRAD="tent,tent@1e-4"
 SHOTP="shot_past,shot_past@1e-5"
 if [[ $MODEL == valsubj_* ]]; then
-  python scripts/run_tta.py $COMMON --bs 32 --tag _valsubj_c1 \
+  python scripts/run_tta.py $COMMON --bs 32 --tag ${TP}_valsubj_c1 \
     --methods source,t3a,lame,$GRAD,shot_im,shot_im@1e-5,$SHOTP
   exit 0
 fi
-python scripts/run_tta.py $COMMON --bs 32 --tag _c1 --methods source,t3a,lame,$GRAD,shot_im,shot_im@1e-5,$SHOTP
-python scripts/run_tta.py $COMMON --bs 1 --tag _bs1   --methods source,t3a,$GRAD,$SHOTP
-python scripts/run_tta.py $COMMON --bs 1 --tag _bs1w0 --warmup 0 --methods source,t3a,$GRAD
+python scripts/run_tta.py $COMMON --bs 32 --tag ${TP}_c1 --methods source,t3a,lame,$GRAD,shot_im,shot_im@1e-5,$SHOTP
+python scripts/run_tta.py $COMMON --bs 1 --tag ${TP}_bs1   --methods source,t3a,$GRAD,$SHOTP
+python scripts/run_tta.py $COMMON --bs 1 --tag ${TP}_bs1w0 --warmup 0 --methods source,t3a,$GRAD
 if [[ $MODEL != fullft ]]; then
-  python scripts/run_tta.py $COMMON --bs 1 --tag _bs1w32 --warmup 32 --methods source,t3a,$GRAD,$SHOTP
+  python scripts/run_tta.py $COMMON --bs 1 --tag ${TP}_bs1w32 --warmup 32 --methods source,t3a,$GRAD,$SHOTP
   if [[ $DS == bnci2014_001 ]]; then
-    python scripts/run_tta.py $COMMON --bs 1 --tag _bs1w96 --warmup 96 --methods source,t3a,$GRAD,$SHOTP
+    python scripts/run_tta.py $COMMON --bs 1 --tag ${TP}_bs1w96 --warmup 96 --methods source,t3a,$GRAD,$SHOTP
   fi
 fi
