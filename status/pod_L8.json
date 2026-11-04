@@ -1,1 +1,1 @@
-{"time": "2026-11-04T19:08:07Z", "pod": "i1zrjkewvbmwyl", "gpu": "NVIDIA GeForce RTX 3090, 1436 MiB, 24576 MiB, 0 %", "state": "running 422_rev_lee_eegnet_s2", "agent_pid": 124}
+{"time": "2026-11-04T19:13:13Z", "pod": "i1zrjkewvbmwyl", "gpu": "NVIDIA GeForce RTX 3090, 1438 MiB, 24576 MiB, 92 %", "state": "running 422_rev_lee_eegnet_s2", "agent_pid": 124}
