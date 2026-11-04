@@ -51,3 +51,12 @@ Finished downloading nm000338 v1.0.5.
 /usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
   montage = make_standard_montage("standard_1020")
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[fold 0] target 1 (cbramod): source=0.840 t3a=0.810 lame=0.820 tent=0.830
+[fold 0] target 7 (cbramod): source=0.830 t3a=0.840 lame=0.790 tent=0.830
+[fold 0] target 29 (cbramod): source=0.740 t3a=0.810 lame=0.790 tent=0.750
+[fold 0] target 41 (cbramod): source=0.820 t3a=0.850 lame=0.820 tent=0.840
+[fold 0] target 42 (cbramod): source=0.800 t3a=0.820 lame=0.750 tent=0.780
+[fold 0] target 44 (cbramod): source=0.940 t3a=0.920 lame=0.920 tent=0.940
+[fold 0] target 45 (cbramod): source=0.910 t3a=0.910 lame=0.920 tent=0.910
+[fold 0] target 47 (cbramod): source=0.870 t3a=0.880 lame=0.850 tent=0.880
+[fold 0] target 54 (cbramod): source=0.800 t3a=0.810 lame=0.770 tent=0.800
