@@ -1,10 +1,3 @@
-Choosing from all possible events
-[data] purged 1.6 GB of lee2019_mi raw files; 436239.3 GB free
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/base.py:890: RuntimeWarning: Could not fetch Lee2019-MI subject 48 sourcedata from NEMAR (nm000338); its load will use the dataset's own downloader. Original error: Could not download sourcedata/ matching ['sourcedata/session1/s48/sess01_subj48_EEG_MI.mat', 'sourcedata/session2/s48/sess02_subj48_EEG_MI.mat'] for NEMAR dataset nm000338: Retryable error when retrieving NEMAR index for nm000338: HTTP 500
-  self._prefetch_nemar_sourcedata(
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/base.py:1456: RuntimeWarning: Could not fetch Lee2019-MI subject 48 sourcedata from NEMAR (nm000338); its load will use the dataset's own downloader. Original error: Could not download sourcedata/ matching ['sourcedata/session1/s48/sess01_subj48_EEG_MI.mat', 'sourcedata/session2/s48/sess02_subj48_EEG_MI.mat'] for NEMAR dataset nm000338: Retryable error when retrieving NEMAR index for nm000338: HTTP 500
-  self._prefetch_nemar_sourcedata([subject])
-Downloading data from 'https://s3.ap-northeast-1.wasabisys.com/gigadb-datasets/live/pub/10.5524/100001_101000/100542/session1/s48/sess01_subj48_EEG_MI.mat' to file '/workspace/mne_data/MNE-lee2019-mi-data/gigadb-datasets/live/pub/10.5524/100001_101000/100542/session1/s48/sess01_subj48_EEG_MI.mat'.
 /usr/local/lib/python3.11/dist-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 's3.ap-northeast-1.wasabisys.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
   warnings.warn(
 This is nemar-py 0.3.3.
@@ -146,3 +139,12 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 1] target 43 (cbramod): source=0.830 t3a=0.840 lame=0.780 tent=0.860
 [fold 1] target 49 (cbramod): source=0.770 t3a=0.780 lame=0.740 tent=0.780
 [fold 1] target 50 (cbramod): source=0.600 t3a=0.660 lame=0.610 tent=0.630
+[fold 2] target 9 (cbramod): source=0.740 t3a=0.730 lame=0.710 tent=0.730
+[fold 2] target 10 (cbramod): source=0.750 t3a=0.770 lame=0.750 tent=0.740
+[fold 2] target 12 (cbramod): source=0.820 t3a=0.830 lame=0.800 tent=0.820
+[fold 2] target 19 (cbramod): source=0.820 t3a=0.810 lame=0.790 tent=0.820
+[fold 2] target 22 (cbramod): source=0.660 t3a=0.680 lame=0.670 tent=0.660
+[fold 2] target 24 (cbramod): source=0.590 t3a=0.590 lame=0.530 tent=0.590
+[fold 2] target 27 (cbramod): source=0.890 t3a=0.910 lame=0.860 tent=0.910
+[fold 2] target 28 (cbramod): source=0.890 t3a=0.910 lame=0.890 tent=0.890
+[fold 2] target 40 (cbramod): source=0.810 t3a=0.810 lame=0.780 tent=0.810
