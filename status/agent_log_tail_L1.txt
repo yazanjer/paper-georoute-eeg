@@ -1,3 +1,6 @@
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+To https://github.com/yazanjer/paper-georoute-eeg.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at f26e34d12a7d5688bc92306e6ee50658bb60d405 but expected e2b59e18ba7e0d884a692b1893897e2520e8b83e)
 error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
 To https://github.com/yazanjer/paper-georoute-eeg.git
  ! [rejected]        main -> main (fetch first)
@@ -7,9 +10,6 @@ hint: not have locally. This is usually caused by another repository pushing
 hint: to the same ref. You may want to first integrate the remote changes
 hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-To https://github.com/yazanjer/paper-georoute-eeg.git
- ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at f26e34d12a7d5688bc92306e6ee50658bb60d405 but expected e2b59e18ba7e0d884a692b1893897e2520e8b83e)
-error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
 To https://github.com/yazanjer/paper-georoute-eeg.git
  ! [rejected]        main -> main (fetch first)
 error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
