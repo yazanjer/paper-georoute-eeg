@@ -1,0 +1,52 @@
+This is nemar-py 0.3.3.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 5 of 769 manifest files (16 concurrent downloads).
+Finished downloading nm000139 v1.0.3.
+This is nemar-py 0.3.3.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+Finished downloading nm000139 v1.0.3.
+[data] bnci2014_001 subject 1: X(576, 22, 800)
+This is nemar-py 0.3.3.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+Finished downloading nm000139 v1.0.3.
+[data] bnci2014_001 subject 2: X(576, 22, 800)
+This is nemar-py 0.3.3.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+Finished downloading nm000139 v1.0.3.
+[data] bnci2014_001 subject 3: X(576, 22, 800)
+This is nemar-py 0.3.3.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+Finished downloading nm000139 v1.0.3.
+[data] bnci2014_001 subject 4: X(576, 22, 800)
+This is nemar-py 0.3.3.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+Finished downloading nm000139 v1.0.3.
+[data] bnci2014_001 subject 5: X(576, 22, 800)
+This is nemar-py 0.3.3.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+Finished downloading nm000139 v1.0.3.
+[data] bnci2014_001 subject 6: X(576, 22, 800)
+This is nemar-py 0.3.3.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+Finished downloading nm000139 v1.0.3.
+[data] bnci2014_001 subject 7: X(576, 22, 800)
+This is nemar-py 0.3.3.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrying after failure when retrieving NEMAR manifest for nm000139 v1.0.3 (5 retries remain).
+Retrying after failure when retrieving NEMAR manifest for nm000139 v1.0.3 (4 retries remain).
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+Finished downloading nm000139 v1.0.3.
+[data] bnci2014_001 subject 8: X(576, 22, 800)
+This is nemar-py 0.3.3.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+Finished downloading nm000139 v1.0.3.
+[data] bnci2014_001 subject 9: X(576, 22, 800)
+[fold 0] target 1 (eegnet): source=0.403 t3a=0.479 lame=0.243 tent=0.576 rctta=0.448 rctta+t3a=0.500
