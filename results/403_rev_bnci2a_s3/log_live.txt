@@ -1,6 +1,3 @@
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
   montage = make_standard_montage("standard_1005")
 /usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
   montage = make_standard_montage("standard_1005")
@@ -148,3 +145,6 @@ Finished downloading nm000139 v1.0.3.
   montage = make_standard_montage("standard_1020")
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 [fold 0] target 1 (cbramod): source=0.719 t3a=0.729 lame=0.694 tent=0.438
+[fold 1] target 2 (cbramod): source=0.420 t3a=0.410 lame=0.323 tent=0.330
+[fold 2] target 3 (cbramod): source=0.774 t3a=0.826 lame=0.733 tent=0.587
+[fold 3] target 4 (cbramod): source=0.500 t3a=0.514 lame=0.396 tent=0.503
