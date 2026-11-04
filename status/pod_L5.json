@@ -1,1 +1,1 @@
-{"time": "2026-11-04T19:20:45Z", "pod": "lz4kbwi3fv2gii", "gpu": "NVIDIA A40, 3255 MiB, 46068 MiB, 12 %", "state": "running 414_rev_lee_lora_s4", "agent_pid": 128}
+{"time": "2026-11-04T19:25:53Z", "pod": "lz4kbwi3fv2gii", "gpu": "NVIDIA A40, 3255 MiB, 46068 MiB, 99 %", "state": "running 414_rev_lee_lora_s4", "agent_pid": 128}
