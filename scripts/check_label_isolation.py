@@ -6,6 +6,8 @@ with those labels randomly permuted, and checks that every method's per-trial pr
 
 usage: python scripts/check_label_isolation.py [--synthetic 1] [--dataset bnci2014_001 --backbone eegnet ...]
 Extra arguments are passed to run_tta.py; runs on CPU so the two passes are bit-for-bit deterministic.
+Each pass trains its own source model (separate checkpoint directories), so the random-number stream consumed
+by training and by dropout inside SHOT-IM is identical in both passes.
 """
 import glob, json, os, subprocess, sys, tempfile
 
@@ -19,7 +21,7 @@ outs = []
 for perm in (0, 1):
     out = os.path.join(tmp, f"perm{perm}")
     cmd = [sys.executable, os.path.join(here, "run_tta.py"), *extra, "--methods", methods, "--save-preds", "1",
-           "--permute-scored-labels", str(perm), "--ckpt-dir", os.path.join(tmp, "ckpt"), "--out", out]
+           "--permute-scored-labels", str(perm), "--ckpt-dir", os.path.join(tmp, f"ckpt{perm}"), "--out", out]
     subprocess.run(cmd, check=True, env=env)
     outs.append({os.path.basename(f): json.load(open(f)) for f in glob.glob(os.path.join(out, "*.json"))})
 ok, report = True, {}
