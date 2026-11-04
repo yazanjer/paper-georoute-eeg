@@ -1,6 +1,3 @@
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 To https://github.com/yazanjer/paper-georoute-eeg.git
  ! [rejected]        main -> main (fetch first)
@@ -58,3 +55,6 @@ hint: not have locally. This is usually caused by another repository pushing
 hint: to the same ref. You may want to first integrate the remote changes
 hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+To https://github.com/yazanjer/paper-georoute-eeg.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at ec0f3afacb8e2bf802c022ee47793a3118f0a4a4 but expected 9804405d0dc67e317661e949c7f924328213f0d1)
+error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
