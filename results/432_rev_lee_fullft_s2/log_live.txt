@@ -113,3 +113,12 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 1] target 43 (cbramod): source=0.900 t3a=0.900 lame=0.880 tent=0.920
 [fold 1] target 49 (cbramod): source=0.850 t3a=0.850 lame=0.840 tent=0.850
 [fold 1] target 50 (cbramod): source=0.710 t3a=0.670 lame=0.670 tent=0.690
+[fold 2] target 9 (cbramod): source=0.680 t3a=0.700 lame=0.720 tent=0.670
+[fold 2] target 10 (cbramod): source=0.840 t3a=0.850 lame=0.840 tent=0.840
+[fold 2] target 12 (cbramod): source=0.880 t3a=0.870 lame=0.840 tent=0.870
+[fold 2] target 19 (cbramod): source=0.850 t3a=0.830 lame=0.820 tent=0.820
+[fold 2] target 22 (cbramod): source=0.780 t3a=0.780 lame=0.760 tent=0.780
+[fold 2] target 24 (cbramod): source=0.740 t3a=0.770 lame=0.640 tent=0.740
+[fold 2] target 27 (cbramod): source=0.940 t3a=0.930 lame=0.930 tent=0.940
+[fold 2] target 28 (cbramod): source=0.940 t3a=0.950 lame=0.960 tent=0.940
+[fold 2] target 40 (cbramod): source=0.850 t3a=0.850 lame=0.820 tent=0.830
