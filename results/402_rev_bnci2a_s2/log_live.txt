@@ -1,5 +1,3 @@
-  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
-[fold 8] target 9 (cbramod): source=0.684 t3a=0.722 tent=0.250
 Choosing from all possible events
 /usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
   montage = mne.channels.make_standard_montage("standard_1020")
@@ -148,3 +146,5 @@ Choosing from all possible events
 /usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
   montage = make_standard_montage("standard_1020")
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[fold 0] target 1 (cbramod): source=0.726 t3a=0.799 lame=0.774 tent=0.708
+[fold 1] target 2 (cbramod): source=0.399 t3a=0.410 lame=0.312 tent=0.365
