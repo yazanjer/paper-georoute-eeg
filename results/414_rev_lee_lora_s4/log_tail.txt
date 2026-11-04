@@ -1,0 +1,66 @@
+constraints:
+torch==2.4.1+cu124
+torchaudio==2.4.1+cu124
+torchvision==0.19.1+cu124
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 24.2 -> 26.3
+[notice] To update, run: python -m pip install --upgrade pip
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = make_standard_montage("standard_1020")
+env ok 2.4.1+cu124 True 1.8.1 1.7.2
+Choosing from all possible events
+[data] purged 54.0 GB of lee2019_mi raw files; 264915.7 GB free
+This is nemar-py 0.3.3.
+Preparing to download nm000338 from https://data.nemar.org/
+Retrieving 6 of 1955 manifest files (16 concurrent downloads).
+S3:   0%|          | 0.00/1.06G [00:00<?, ?B/s]S3:   0%|          | 1.00M/1.06G [00:01<34:32, 550kB/s]S3:   1%|          | 6.00M/1.06G [00:02<04:33, 4.15MB/s]S3:   2%|▏         | 18.0M/1.06G [00:02<01:14, 15.1MB/s]S3:   4%|▎         | 39.0M/1.06G [00:02<00:28, 38.4MB/s]S3:   7%|▋         | 76.0M/1.06G [00:02<00:12, 87.2MB/s]S3:  11%|█         | 121M/1.06G [00:02<00:06, 150MB/s]  S3:  15%|█▌        | 167M/1.06G [00:02<00:04, 212MB/s]S3:  18%|█▊        | 201M/1.06G [00:02<00:03, 242MB/s]S3:  19%|█▊        | 202M/1.06G [00:02<00:03, 270MB/s]S3:  22%|██▏       | 238M/1.06G [00:02<00:03, 293MB/s]S3:  25%|██▌       | 273M/1.06G [00:02<00:03, 259MB/s]S3:  28%|██▊       | 303M/1.06G [00:03<00:03, 269MB/s]S3:  31%|███       | 338M/1.06G [00:03<00:02, 292MB/s]S3:  31%|███       | 339M/1.06G [00:03<00:02, 313MB/s]S3:  35%|███▌      | 384M/1.06G [00:03<00:02, 354MB/s]S3:  35%|███▌      | 385M/1.06G [00:03<00:01, 386MB/s]S3:  40%|████      | 436M/1.06G [00:03<00:01, 424MB/s]S3:  44%|████▍     | 478M/1.06G [00:03<00:01, 418MB/s]S3:  48%|████▊     | 519M/1.06G [00:03<00:01, 349MB/s]S3:  51%|█████     | 555M/1.06G [00:03<00:01, 330MB/s]S3:  54%|█████▍    | 589M/1.06G [00:03<00:01, 336MB/s]S3:  57%|█████▋    | 623M/1.06G [00:03<00:01, 335MB/s]S3:  57%|█████▋    | 624M/1.06G [00:03<00:01, 337MB/s]S3:  62%|██████▏   | 670M/1.06G [00:04<00:01, 365MB/s]S3:  65%|██████▌   | 707M/1.06G [00:04<00:01, 367MB/s]S3:  68%|██████▊   | 743M/1.06G [00:04<00:01, 341MB/s]S3:  71%|███████▏  | 777M/1.06G [00:04<00:00, 338MB/s]S3:  72%|███████▏  | 778M/1.06G [00:04<00:00, 338MB/s]S3:  75%|███████▍  | 815M/1.06G [00:04<00:00, 342MB/s]S3:  78%|███████▊  | 849M/1.06G [00:04<00:00, 345MB/s]S3:  78%|███████▊  | 851M/1.06G [00:04<00:00, 354MB/s]S3:  78%|███████▊  | 851M/1.06G [00:04<00:00, 354MB/s]S3:  81%|████████▏ | 886M/1.06G [00:04<00:00, 357MB/s]S3:  85%|████████▍ | 923M/1.06G [00:04<00:00, 365MB/s]S3:  88%|████████▊ | 958M/1.06G [00:04<00:00, 353MB/s]S3:  91%|█████████ | 992M/1.06G [00:05<00:00, 338MB/s]S3:  91%|█████████▏| 993M/1.06G [00:05<00:00, 330MB/s]S3:  94%|█████████▍| 1.00G/1.06G [00:05<00:00, 314MB/s]S3:  97%|█████████▋| 1.03G/1.06G [00:05<00:00, 245MB/s]S3:  99%|█████████▉| 1.06G/1.06G [00:05<00:00, 194MB/s]S3: 100%|██████████| 1.06G/1.06G [00:05<00:00, 199MB/s]
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Finished downloading nm000338 v1.0.5.
+Traceback (most recent call last):
+  File "/workspace/georoute-eeg/scripts/run_tta.py", line 481, in <module>
+    main()
+  File "/workspace/georoute-eeg/scripts/run_tta.py", line 379, in main
+    data, classes = D.synthetic() if a.synthetic else D.load(a.dataset)
+                                                      ^^^^^^^^^^^^^^^^^
+  File "/workspace/georoute-eeg/scripts/../src/georoute/data.py", line 118, in load
+    return _load_moabb(name, None, sub_dir)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/georoute-eeg/scripts/../src/georoute/data.py", line 83, in _load_moabb
+    X, labels, meta = paradigm.get_data(dataset=ds, subjects=[s])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/moabb/paradigms/base.py", line 502, in get_data
+    data = [
+           ^
+  File "/usr/local/lib/python3.11/dist-packages/moabb/paradigms/base.py", line 503, in <listcomp>
+    dataset.get_data(
+  File "/usr/local/lib/python3.11/dist-packages/moabb/datasets/base.py", line 894, in get_data
+    results = Parallel(n_jobs=n_jobs)(
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/joblib/parallel.py", line 2012, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/joblib/parallel.py", line 1940, in _get_sequential_output
+    res = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/moabb/datasets/base.py", line 914, in _get_selected_subject_data
+    subject_data = self._get_single_subject_data_using_cache(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/moabb/datasets/base.py", line 1458, in _get_single_subject_data_using_cache
+    sessions_data = self._get_single_subject_data(subject)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py", line 220, in _get_single_subject_data
+    mat = loadmat(file_path_list[self.sessions.index(session)])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/scipy/io/matlab/_mio.py", line 235, in loadmat
+    MR, _ = mat_reader_factory(f, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/scipy/io/matlab/_mio.py", line 74, in mat_reader_factory
+    mjv, mnv = _get_matfile_version(byte_stream)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/scipy/io/matlab/_miobase.py", line 236, in _get_matfile_version
+    raise MatReadError("Mat file appears to be truncated")
+scipy.io.matlab._miobase.MatReadError: Mat file appears to be truncated
