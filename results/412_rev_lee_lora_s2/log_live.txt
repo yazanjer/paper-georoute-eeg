@@ -1,26 +1,3 @@
-[fold 2] target 24 (cbramod): source=0.680 t3a=0.680 lame=0.580 tent=0.660
-[fold 2] target 27 (cbramod): source=0.870 t3a=0.930 lame=0.890 tent=0.870
-[fold 2] target 28 (cbramod): source=0.900 t3a=0.870 lame=0.840 tent=0.900
-[fold 2] target 40 (cbramod): source=0.830 t3a=0.850 lame=0.830 tent=0.830
-[fold 3] target 15 (cbramod): source=0.720 t3a=0.760 lame=0.760 tent=0.790
-[fold 3] target 23 (cbramod): source=0.800 t3a=0.840 lame=0.830 tent=0.800
-[fold 3] target 30 (cbramod): source=0.880 t3a=0.870 lame=0.840 tent=0.890
-[fold 3] target 35 (cbramod): source=0.780 t3a=0.860 lame=0.820 tent=0.780
-[fold 3] target 36 (cbramod): source=0.960 t3a=0.980 lame=0.980 tent=0.960
-[fold 3] target 37 (cbramod): source=0.910 t3a=0.910 lame=0.900 tent=0.930
-[fold 3] target 39 (cbramod): source=0.830 t3a=0.820 lame=0.780 tent=0.830
-[fold 3] target 51 (cbramod): source=0.730 t3a=0.750 lame=0.760 tent=0.760
-[fold 3] target 53 (cbramod): source=0.750 t3a=0.770 lame=0.780 tent=0.760
-[fold 4] target 2 (cbramod): source=0.810 t3a=0.830 lame=0.790 tent=0.810
-[fold 4] target 8 (cbramod): source=0.880 t3a=0.870 lame=0.810 tent=0.880
-[fold 4] target 14 (cbramod): source=0.760 t3a=0.740 lame=0.710 tent=0.750
-[fold 4] target 16 (cbramod): source=0.820 t3a=0.860 lame=0.840 tent=0.800
-[fold 4] target 17 (cbramod): source=0.770 t3a=0.770 lame=0.730 tent=0.760
-[fold 4] target 21 (cbramod): source=0.980 t3a=0.970 lame=0.930 tent=0.980
-[fold 4] target 33 (cbramod): source=0.970 t3a=0.970 lame=0.930 tent=0.970
-[fold 4] target 34 (cbramod): source=0.730 t3a=0.710 lame=0.680 tent=0.720
-[fold 4] target 38 (cbramod): source=0.700 t3a=0.810 lame=0.670 tent=0.710
-[fold 5] target 3 (cbramod): source=0.980 t3a=0.970 lame=0.980 tent=0.990
 [fold 5] target 11 (cbramod): source=0.690 t3a=0.690 lame=0.640 tent=0.680
 [fold 5] target 18 (cbramod): source=0.920 t3a=0.900 lame=0.890 tent=0.920
 [fold 5] target 26 (cbramod): source=0.870 t3a=0.870 lame=0.870 tent=0.850
@@ -148,3 +125,26 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 3] target 23 (cbramod): source=0.820 t3a=0.860 tent=0.700
 [fold 3] target 30 (cbramod): source=0.880 t3a=0.870 tent=0.690
 [fold 3] target 35 (cbramod): source=0.800 t3a=0.870 tent=0.720
+[fold 3] target 36 (cbramod): source=0.950 t3a=0.970 tent=0.940
+[fold 3] target 37 (cbramod): source=0.920 t3a=0.910 tent=0.810
+[fold 3] target 39 (cbramod): source=0.860 t3a=0.870 tent=0.610
+[fold 3] target 51 (cbramod): source=0.700 t3a=0.730 tent=0.660
+[fold 3] target 53 (cbramod): source=0.730 t3a=0.760 tent=0.670
+/workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
+[fold 4] target 2 (cbramod): source=0.830 t3a=0.830 tent=0.720
+[fold 4] target 8 (cbramod): source=0.870 t3a=0.870 tent=0.640
+[fold 4] target 14 (cbramod): source=0.680 t3a=0.780 tent=0.570
+[fold 4] target 16 (cbramod): source=0.850 t3a=0.840 tent=0.800
+[fold 4] target 17 (cbramod): source=0.780 t3a=0.750 tent=0.670
+[fold 4] target 21 (cbramod): source=0.970 t3a=0.970 tent=0.990
+[fold 4] target 33 (cbramod): source=0.980 t3a=0.970 tent=0.940
+[fold 4] target 34 (cbramod): source=0.770 t3a=0.780 tent=0.640
+[fold 4] target 38 (cbramod): source=0.660 t3a=0.760 tent=0.680
+/workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
+[fold 5] target 3 (cbramod): source=0.970 t3a=0.970 tent=0.960
+[fold 5] target 11 (cbramod): source=0.670 t3a=0.730 tent=0.630
+[fold 5] target 18 (cbramod): source=0.880 t3a=0.870 tent=0.700
+[fold 5] target 26 (cbramod): source=0.860 t3a=0.880 tent=0.790
+[fold 5] target 31 (cbramod): source=0.890 t3a=0.910 tent=0.860
