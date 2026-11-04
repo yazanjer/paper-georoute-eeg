@@ -1,3 +1,88 @@
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Finished downloading nm000139 v1.0.3.
+[data] bnci2014_001 subject 4: X(576, 22, 800)
+This is nemar-py 0.3.3.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+S3:   0%|          | 0.00/82.8M [00:00<?, ?B/s]S3:   1%|          | 1.00M/82.8M [00:01<01:44, 819kB/s]S3:   4%|▎         | 3.00M/82.8M [00:01<00:30, 2.77MB/s]S3:   6%|▌         | 5.00M/82.8M [00:01<00:16, 4.93MB/s]S3:  11%|█         | 9.00M/82.8M [00:01<00:08, 8.77MB/s]S3:  17%|█▋        | 14.0M/82.8M [00:01<00:04, 15.3MB/s]S3:  21%|██        | 17.0M/82.8M [00:02<00:05, 13.8MB/s]S3:  24%|██▍       | 20.0M/82.8M [00:02<00:04, 16.1MB/s]S3:  28%|██▊       | 23.0M/82.8M [00:02<00:04, 13.3MB/s]S3:  34%|███▍      | 28.0M/82.8M [00:02<00:03, 17.3MB/s]S3:  37%|███▋      | 31.0M/82.8M [00:02<00:03, 16.1MB/s]S3:  42%|████▏     | 35.0M/82.8M [00:03<00:02, 19.9MB/s]S3:  46%|████▌     | 38.0M/82.8M [00:03<00:02, 19.8MB/s]S3:  50%|████▉     | 41.0M/82.8M [00:03<00:02, 20.9MB/s]S3:  53%|█████▎    | 44.0M/82.8M [00:03<00:02, 17.4MB/s]S3:  58%|█████▊    | 48.0M/82.8M [00:03<00:01, 19.3MB/s]S3:  62%|██████▏   | 51.0M/82.8M [00:03<00:01, 19.5MB/s]S3:  65%|██████▌   | 54.0M/82.8M [00:04<00:01, 18.1MB/s]S3:  68%|██████▊   | 56.0M/82.8M [00:04<00:01, 17.8MB/s]S3:  70%|███████   | 58.0M/82.8M [00:04<00:01, 18.1MB/s]S3:  74%|███████▎  | 61.0M/82.8M [00:04<00:01, 18.9MB/s]S3:  76%|███████▌  | 63.0M/82.8M [00:04<00:01, 18.7MB/s]S3:  78%|███████▊  | 65.0M/82.8M [00:04<00:01, 18.2MB/s]S3:  81%|████████  | 67.0M/82.8M [00:04<00:00, 17.4MB/s]S3:  83%|████████▎ | 69.0M/82.8M [00:05<00:00, 18.0MB/s]S3:  86%|████████▌ | 71.0M/82.8M [00:05<00:00, 18.3MB/s]S3:  89%|████████▊ | 73.5M/82.8M [00:05<00:00, 16.6MB/s]S3:  91%|█████████ | 75.5M/82.8M [00:05<00:00, 12.7MB/s]S3:  94%|█████████▎| 77.5M/82.8M [00:05<00:00, 10.8MB/s]S3:  96%|█████████▌| 79.5M/82.8M [00:06<00:00, 9.76MB/s]S3:  98%|█████████▊| 81.5M/82.8M [00:06<00:00, 7.80MB/s]S3: 100%|█████████▉| 82.5M/82.8M [00:06<00:00, 5.93MB/s]S3: 100%|██████████| 82.8M/82.8M [00:06<00:00, 12.5MB/s]
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+Finished downloading nm000139 v1.0.3.
+[data] bnci2014_001 subject 5: X(576, 22, 800)
+This is nemar-py 0.3.3.
+Preparing to download nm000139 from https://data.nemar.org/
+Retrieving 6 of 769 manifest files (16 concurrent downloads).
+S3:   0%|          | 0.00/83.9M [00:00<?, ?B/s]S3:   1%|          | 1.00M/83.9M [00:01<01:42, 848kB/s]S3:   2%|▏         | 2.00M/83.9M [00:01<00:47, 1.81MB/s]S3:   5%|▍         | 4.00M/83.9M [00:01<00:20, 4.17MB/s]S3:  11%|█         | 9.00M/83.9M [00:01<00:07, 10.6MB/s]S3:  13%|█▎        | 11.0M/83.9M [00:01<00:06, 11.4MB/s]S3:  17%|█▋        | 14.0M/83.9M [00:01<00:05, 14.4MB/s]S3:  19%|█▉        | 16.0M/83.9M [00:02<00:05, 12.3MB/s]S3:  21%|██▏       | 18.0M/83.9M [00:02<00:08, 8.33MB/s]S3:  24%|██▍       | 20.0M/83.9M [00:02<00:06, 9.73MB/s]S3:  26%|██▌       | 22.0M/83.9M [00:03<00:12, 5.26MB/s]S3:  29%|██▊       | 24.0M/83.9M [00:03<00:10, 6.04MB/s]S3:  30%|██▉       | 25.0M/83.9M [00:03<00:09, 6.43MB/s]S3:  31%|███       | 26.0M/83.9M [00:04<00:12, 4.85MB/s]S3:  32%|███▏      | 27.0M/83.9M [00:04<00:13, 4.30MB/s]S3:  35%|███▍      | 29.0M/83.9M [00:05<00:12, 4.66MB/s]S3:  38%|███▊      | 32.0M/83.9M [00:05<00:07, 7.46MB/s]S3:  42%|████▏     | 35.0M/83.9M [00:05<00:05, 10.2MB/s]S3:  44%|████▍     | 37.0M/83.9M [00:05<00:04, 11.4MB/s]S3:  46%|████▋     | 39.0M/83.9M [00:05<00:03, 12.6MB/s]S3:  49%|████▉     | 41.0M/83.9M [00:05<00:03, 13.6MB/s]S3:  51%|█████▏    | 43.0M/83.9M [00:05<00:02, 14.5MB/s]S3:  54%|█████▎    | 45.0M/83.9M [00:05<00:02, 15.6MB/s]S3:  58%|█████▊    | 49.0M/83.9M [00:06<00:01, 20.3MB/s]S3:  62%|██████▏   | 52.0M/83.9M [00:06<00:01, 22.0MB/s]S3:  66%|██████▌   | 55.0M/83.9M [00:06<00:01, 21.9MB/s]S3:  69%|██████▊   | 57.5M/83.9M [00:06<00:01, 22.4MB/s]S3:  72%|███████▏  | 60.5M/83.9M [00:06<00:01, 12.8MB/s]S3:  75%|███████▍  | 62.5M/83.9M [00:07<00:01, 11.5MB/s]S3:  77%|███████▋  | 64.5M/83.9M [00:07<00:01, 12.3MB/s]S3:  79%|███████▉  | 66.5M/83.9M [00:07<00:01, 13.1MB/s]S3:  82%|████████▏ | 68.5M/83.9M [00:07<00:01, 13.8MB/s]S3:  84%|████████▍ | 70.5M/83.9M [00:07<00:00, 14.7MB/s]S3:  86%|████████▋ | 72.5M/83.9M [00:07<00:00, 15.2MB/s]S3:  89%|████████▉ | 74.5M/83.9M [00:07<00:00, 15.7MB/s]S3:  91%|█████████ | 76.5M/83.9M [00:08<00:00, 16.0MB/s]S3:  94%|█████████▎| 78.5M/83.9M [00:08<00:00, 16.1MB/s]S3:  96%|█████████▌| 80.5M/83.9M [00:08<00:00, 16.1MB/s]S3:  98%|█████████▊| 82.5M/83.9M [00:08<00:00, 14.1MB/s]S3: 100%|██████████| 83.9M/83.9M [00:08<00:00, 10.3MB/s]
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
+/usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
+  montage = make_standard_montage("standard_1005")
 /usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
   montage = make_standard_montage("standard_1005")
 /usr/local/lib/python3.11/dist-packages/moabb/datasets/bnci/base.py:456: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
@@ -148,3 +233,68 @@ Choosing from all possible events
   montage = make_standard_montage("standard_1020")
 /workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
   model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
+[fold 0] target 1 (eegnet): source=0.226 t3a=0.257 lame=0.215 tent=0.229 rctta=0.233 rctta+t3a=0.264
+{
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:source": {
+  "pred_differences": 0,
+  "acc_true": 0.4027777777777778,
+  "acc_permuted": 0.22569444444444445
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:t3a": {
+  "pred_differences": 0,
+  "acc_true": 0.4791666666666667,
+  "acc_permuted": 0.2569444444444444
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:lame": {
+  "pred_differences": 0,
+  "acc_true": 0.24305555555555555,
+  "acc_permuted": 0.2152777777777778
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:rctta": {
+  "pred_differences": 0,
+  "acc_true": 0.4479166666666667,
+  "acc_permuted": 0.2326388888888889
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:rctta+t3a": {
+  "pred_differences": 0,
+  "acc_true": 0.5,
+  "acc_permuted": 0.2638888888888889
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:rctta_offline": {
+  "pred_differences": 0,
+  "acc_true": 0.4722222222222222,
+  "acc_permuted": 0.2222222222222222
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:tent": {
+  "pred_differences": 0,
+  "acc_true": 0.5763888888888888,
+  "acc_permuted": 0.22916666666666666
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:tent@1e-4": {
+  "pred_differences": 0,
+  "acc_true": 0.5763888888888888,
+  "acc_permuted": 0.22916666666666666
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:shot_im": {
+  "pred_differences": 4,
+  "acc_true": 0.5902777777777778,
+  "acc_permuted": 0.2638888888888889
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:shot_im@1e-5": {
+  "pred_differences": 0,
+  "acc_true": 0.5729166666666666,
+  "acc_permuted": 0.24305555555555555
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:shot_past": {
+  "pred_differences": 6,
+  "acc_true": 0.5555555555555556,
+  "acc_permuted": 0.2361111111111111
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:geo_src": {
+  "pred_differences": 0,
+  "acc_true": 0.5763888888888888,
+  "acc_permuted": 0.22569444444444445
+ },
+ "bnci2014_001_seed0_sub001_tta_eegnet.json:labels_were_permuted": true
+}
+LABEL ISOLATION: FAILED
