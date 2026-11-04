@@ -1,1 +1,1 @@
-{"time": "2026-11-04T14:01:46Z", "pod": "v5nobvvy8gpih9", "gpu": "NVIDIA RTX A4500, 1 MiB, 20470 MiB, 0 %", "state": "running 399_rev_smoke", "agent_pid": 126}
+{"time": "2026-11-04T14:05:00Z", "pod": "v5nobvvy8gpih9", "gpu": "NVIDIA RTX A4500, 1 MiB, 20470 MiB, 0 %", "state": "idle", "agent_pid": 126}
