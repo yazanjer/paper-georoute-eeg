@@ -31,6 +31,19 @@ DELETE_RAW = {"lee2019_mi"}  # raw files are ~0.6 GB each; drop them once a subj
 RAW_MARKERS = {"lee2019_mi": ("nm000338", "lee2019", "lee_2019")}  # NeMAR mirror id and MOABB folder names
 
 
+def _wipe_raw(name: str) -> None:
+    """Remove every downloaded directory of `name` (used after a truncated/corrupt download)."""
+    import shutil
+    marks = RAW_MARKERS.get(name, ())
+    for root in filter(None, {os.environ.get("MNE_DATA", ""), os.path.expanduser("~/mne_data")}):
+        for dp, dns, _ in os.walk(root):
+            for dn in list(dns):
+                if any(m in dn.lower() for m in marks):
+                    shutil.rmtree(os.path.join(dp, dn), ignore_errors=True)
+                    print(f"[data] wiped {os.path.join(dp, dn)}", flush=True)
+                    dns.remove(dn)
+
+
 def _purge_raw(name: str, min_mb: float = 5.0) -> None:
     """Delete downloaded raw files of `name` (the NeMAR mirror used by MOABB>=1.7 stores them
     outside the paths returned by data_path(), so they were never removed and filled the disk)."""
@@ -80,7 +93,15 @@ def _load_moabb(name: str, subjects=None, cache_dir=None):
             except Exception as ex:  # e.g. truncated by a full disk: rebuild it
                 print(f"[data] bad cache {sp} ({ex}); rebuilding", flush=True)
                 os.remove(sp)
-        X, labels, meta = paradigm.get_data(dataset=ds, subjects=[s])
+        for attempt in range(3):
+            try:
+                X, labels, meta = paradigm.get_data(dataset=ds, subjects=[s])
+                break
+            except Exception as ex:  # truncated file left by an interrupted download: wipe and fetch again
+                if name not in DELETE_RAW or attempt == 2:
+                    raise
+                print(f"[data] subject {s}: {type(ex).__name__}: {ex}; wiping raw files and retrying", flush=True)
+                _wipe_raw(name)
         classes = sorted(np.unique(labels))
         y = np.array([classes.index(l) for l in labels], dtype=np.int64)
         X = X.astype(np.float64)

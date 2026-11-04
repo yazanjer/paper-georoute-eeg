@@ -1,2 +1,0 @@
-name, driver_version, memory.total [MiB]
-NVIDIA A40, 595.91.07, 46068 MiB

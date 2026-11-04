@@ -1,66 +1,0 @@
-constraints:
-torch==2.4.1+cu124
-torchaudio==2.4.1+cu124
-torchvision==0.19.1+cu124
-WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
-
-[notice] A new release of pip is available: 24.2 -> 26.3
-[notice] To update, run: python -m pip install --upgrade pip
-/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
-  montage = mne.channels.make_standard_montage("standard_1020")
-/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
-  montage = make_standard_montage("standard_1020")
-env ok 2.4.1+cu124 True 1.8.1 1.7.2
-Choosing from all possible events
-[data] purged 54.0 GB of lee2019_mi raw files; 436621.6 GB free
-This is nemar-py 0.3.3.
-Preparing to download nm000338 from https://data.nemar.org/
-Retrieving 6 of 1955 manifest files (16 concurrent downloads).
-S3:   0%|          | 0.00/1.06G [00:00<?, ?B/s]S3:   0%|          | 1.00M/1.06G [00:02<39:27, 481kB/s]S3:   1%|          | 8.00M/1.06G [00:02<03:47, 4.97MB/s]S3:   2%|▏         | 18.0M/1.06G [00:02<01:27, 12.8MB/s]S3:   3%|▎         | 29.0M/1.06G [00:02<00:48, 23.1MB/s]S3:   3%|▎         | 37.0M/1.06G [00:02<00:36, 30.1MB/s]S3:   5%|▍         | 53.0M/1.06G [00:02<00:21, 50.6MB/s]S3:   7%|▋         | 77.0M/1.06G [00:02<00:12, 84.8MB/s]S3:   8%|▊         | 92.0M/1.06G [00:02<00:11, 88.9MB/s]S3:  10%|▉         | 105M/1.06G [00:03<00:10, 94.0MB/s] S3:  12%|█▏        | 131M/1.06G [00:03<00:07, 129MB/s] S3:  14%|█▎        | 147M/1.06G [00:03<00:09, 101MB/s]S3:  15%|█▌        | 168M/1.06G [00:03<00:07, 123MB/s]S3:  17%|█▋        | 183M/1.06G [00:03<00:09, 105MB/s]S3:  18%|█▊        | 196M/1.06G [00:03<00:08, 111MB/s]S3:  19%|█▉        | 209M/1.06G [00:04<00:08, 103MB/s]S3:  20%|██        | 221M/1.06G [00:04<00:09, 93.9MB/s]S3:  21%|██        | 231M/1.06G [00:04<00:10, 85.0MB/s]S3:  22%|██▏       | 240M/1.06G [00:04<00:11, 79.9MB/s]S3:  23%|██▎       | 249M/1.06G [00:04<00:10, 81.1MB/s]S3:  24%|██▎       | 258M/1.06G [00:04<00:10, 79.9MB/s]S3:  25%|██▍       | 267M/1.06G [00:04<00:10, 78.4MB/s]S3:  25%|██▌       | 276M/1.06G [00:05<00:10, 82.0MB/s]S3:  27%|██▋       | 290M/1.06G [00:05<00:08, 94.2MB/s]S3:  28%|██▊       | 300M/1.06G [00:05<00:09, 87.6MB/s]S3:  28%|██▊       | 309M/1.06G [00:05<00:10, 79.5MB/s]S3:  30%|██▉       | 324M/1.06G [00:05<00:08, 95.8MB/s]S3:  31%|███       | 334M/1.06G [00:05<00:08, 96.2MB/s]S3:  32%|███▏      | 344M/1.06G [00:05<00:08, 92.3MB/s]S3:  33%|███▎      | 356M/1.06G [00:05<00:07, 97.1MB/s]S3:  34%|███▎      | 366M/1.06G [00:06<00:08, 90.4MB/s]S3:  34%|███▍      | 375M/1.06G [00:06<00:08, 83.5MB/s]S3:  36%|███▌      | 388M/1.06G [00:06<00:07, 93.7MB/s]S3:  37%|███▋      | 398M/1.06G [00:06<00:07, 92.4MB/s]S3:  38%|███▊      | 409M/1.06G [00:06<00:07, 94.4MB/s]S3:  39%|███▊      | 419M/1.06G [00:06<00:08, 83.9MB/s]S3:  39%|███▉      | 428M/1.06G [00:06<00:08, 78.2MB/s]S3:  40%|████      | 437M/1.06G [00:06<00:08, 81.2MB/s]S3:  41%|████▏     | 449M/1.06G [00:07<00:07, 92.2MB/s]S3:  42%|████▏     | 459M/1.06G [00:07<00:07, 86.8MB/s]S3:  43%|████▎     | 469M/1.06G [00:07<00:07, 88.8MB/s]S3:  44%|████▍     | 478M/1.06G [00:07<00:07, 85.9MB/s]S3:  45%|████▍     | 488M/1.06G [00:07<00:07, 83.9MB/s]S3:  46%|████▌     | 497M/1.06G [00:07<00:07, 81.9MB/s]S3:  47%|████▋     | 508M/1.06G [00:07<00:07, 84.7MB/s]S3:  48%|████▊     | 518M/1.06G [00:07<00:07, 84.1MB/s]S3:  48%|████▊     | 527M/1.06G [00:07<00:06, 85.9MB/s]S3:  49%|████▉     | 538M/1.06G [00:08<00:06, 89.9MB/s]S3:  51%|█████     | 551M/1.06G [00:08<00:05, 94.9MB/s]S3:  52%|█████▏    | 561M/1.06G [00:08<00:05, 93.3MB/s]S3:  53%|█████▎    | 572M/1.06G [00:08<00:05, 95.7MB/s]S3:  54%|█████▎    | 582M/1.06G [00:08<00:05, 97.2MB/s]S3:  54%|█████▍    | 592M/1.06G [00:08<00:05, 90.5MB/s]S3:  55%|█████▌    | 601M/1.06G [00:08<00:06, 83.9MB/s]S3:  56%|█████▌    | 611M/1.06G [00:08<00:05, 88.4MB/s]S3:  57%|█████▋    | 620M/1.06G [00:09<00:05, 87.2MB/s]S3:  58%|█████▊    | 631M/1.06G [00:09<00:05, 89.6MB/s]S3:  59%|█████▉    | 640M/1.06G [00:09<00:05, 88.4MB/s]S3:  60%|█████▉    | 652M/1.06G [00:09<00:04, 96.3MB/s]S3:  61%|██████    | 662M/1.06G [00:09<00:05, 84.9MB/s]S3:  62%|██████▏   | 671M/1.06G [00:09<00:05, 86.8MB/s]S3:  63%|██████▎   | 684M/1.06G [00:09<00:04, 92.7MB/s]S3:  64%|██████▍   | 694M/1.06G [00:09<00:04, 89.4MB/s]S3:  65%|██████▍   | 703M/1.06G [00:10<00:04, 88.7MB/s]S3:  65%|██████▌   | 712M/1.06G [00:10<00:04, 86.4MB/s]S3:  66%|██████▋   | 722M/1.06G [00:10<00:04, 91.2MB/s]S3:  67%|██████▋   | 731M/1.06G [00:10<00:04, 86.9MB/s]S3:  68%|██████▊   | 740M/1.06G [00:10<00:04, 87.4MB/s]S3:  69%|██████▉   | 751M/1.06G [00:10<00:03, 93.8MB/s]S3:  70%|███████   | 763M/1.06G [00:10<00:03, 94.1MB/s]S3:  71%|███████   | 773M/1.06G [00:10<00:03, 92.7MB/s]S3:  72%|███████▏  | 785M/1.06G [00:10<00:03, 95.5MB/s]S3:  73%|███████▎  | 795M/1.06G [00:11<00:03, 90.9MB/s]S3:  74%|███████▍  | 804M/1.06G [00:11<00:03, 91.5MB/s]S3:  75%|███████▍  | 813M/1.06G [00:11<00:03, 83.7MB/s]S3:  76%|███████▌  | 822M/1.06G [00:11<00:03, 83.8MB/s]S3:  77%|███████▋  | 832M/1.06G [00:11<00:03, 88.4MB/s]S3:  77%|███████▋  | 842M/1.06G [00:11<00:02, 88.0MB/s]S3:  78%|███████▊  | 852M/1.06G [00:11<00:02, 87.2MB/s]S3:  79%|███████▉  | 861M/1.06G [00:11<00:02, 87.2MB/s]S3:  80%|████████  | 872M/1.06G [00:11<00:02, 93.3MB/s]S3:  81%|████████  | 881M/1.06G [00:12<00:02, 93.5MB/s]S3:  82%|████████▏ | 890M/1.06G [00:12<00:02, 91.1MB/s]S3:  83%|████████▎ | 901M/1.06G [00:12<00:02, 97.2MB/s]S3:  83%|████████▎ | 902M/1.06G [00:12<00:01, 104MB/s] S3:  84%|████████▍ | 913M/1.06G [00:12<00:01, 104MB/s]S3:  85%|████████▍ | 923M/1.06G [00:12<00:01, 96.8MB/s]S3:  86%|████████▌ | 933M/1.06G [00:12<00:01, 98.3MB/s]S3:  87%|████████▋ | 946M/1.06G [00:12<00:01, 106MB/s] S3:  88%|████████▊ | 956M/1.06G [00:12<00:01, 100MB/s]S3:  89%|████████▉ | 966M/1.06G [00:13<00:01, 75.7MB/s]S3:  90%|████████▉ | 975M/1.06G [00:13<00:01, 73.4MB/s]S3:  90%|█████████ | 983M/1.06G [00:13<00:01, 64.8MB/s]S3:  91%|█████████ | 990M/1.06G [00:13<00:01, 59.3MB/s]S3:  92%|█████████▏| 997M/1.06G [00:13<00:01, 54.5MB/s]S3:  92%|█████████▏| 0.98G/1.06G [00:13<00:01, 52.0MB/s]S3:  93%|█████████▎| 0.99G/1.06G [00:13<00:01, 51.8MB/s]S3:  93%|█████████▎| 0.99G/1.06G [00:14<00:01, 49.7MB/s]S3:  94%|█████████▍| 1.00G/1.06G [00:14<00:01, 51.9MB/s]S3:  94%|█████████▍| 1.00G/1.06G [00:14<00:01, 51.0MB/s]S3:  95%|█████████▌| 1.01G/1.06G [00:14<00:01, 54.5MB/s]S3:  96%|█████████▌| 1.02G/1.06G [00:14<00:01, 45.0MB/s]S3:  96%|█████████▋| 1.02G/1.06G [00:14<00:00, 47.8MB/s]S3:  97%|█████████▋| 1.03G/1.06G [00:14<00:00, 43.2MB/s]S3:  97%|█████████▋| 1.03G/1.06G [00:15<00:00, 46.4MB/s]S3:  98%|█████████▊| 1.04G/1.06G [00:15<00:01, 22.2MB/s]S3:  98%|█████████▊| 1.04G/1.06G [00:15<00:01, 19.4MB/s]S3:  98%|█████████▊| 1.05G/1.06G [00:16<00:01, 17.1MB/s]S3:  99%|█████████▊| 1.05G/1.06G [00:16<00:01, 14.5MB/s]S3:  99%|█████████▉| 1.05G/1.06G [00:16<00:00, 14.2MB/s]S3:  99%|█████████▉| 1.05G/1.06G [00:17<00:01, 10.3MB/s]S3:  99%|█████████▉| 1.05G/1.06G [00:17<00:00, 10.3MB/s]S3:  99%|█████████▉| 1.06G/1.06G [00:17<00:00, 10.1MB/s]S3: 100%|█████████▉| 1.06G/1.06G [00:17<00:00, 8.47MB/s]S3: 100%|█████████▉| 1.06G/1.06G [00:18<00:00, 7.96MB/s]S3: 100%|█████████▉| 1.06G/1.06G [00:18<00:00, 7.55MB/s]S3: 100%|█████████▉| 1.06G/1.06G [00:18<00:00, 4.53MB/s]S3: 100%|██████████| 1.06G/1.06G [00:19<00:00, 2.99MB/s]S3: 100%|██████████| 1.06G/1.06G [00:19<00:00, 57.8MB/s]
-/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py:168: FutureWarning: Montage name 'standard_1005' is deprecated and will be removed in MNE 1.14. Use 'colin27_1005' instead.
-  montage = make_standard_montage("standard_1005")
-Finished downloading nm000338 v1.0.5.
-Traceback (most recent call last):
-  File "/workspace/georoute-eeg/scripts/run_tta.py", line 481, in <module>
-    main()
-  File "/workspace/georoute-eeg/scripts/run_tta.py", line 379, in main
-    data, classes = D.synthetic() if a.synthetic else D.load(a.dataset)
-                                                      ^^^^^^^^^^^^^^^^^
-  File "/workspace/georoute-eeg/scripts/../src/georoute/data.py", line 118, in load
-    return _load_moabb(name, None, sub_dir)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/georoute-eeg/scripts/../src/georoute/data.py", line 83, in _load_moabb
-    X, labels, meta = paradigm.get_data(dataset=ds, subjects=[s])
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/dist-packages/moabb/paradigms/base.py", line 502, in get_data
-    data = [
-           ^
-  File "/usr/local/lib/python3.11/dist-packages/moabb/paradigms/base.py", line 503, in <listcomp>
-    dataset.get_data(
-  File "/usr/local/lib/python3.11/dist-packages/moabb/datasets/base.py", line 894, in get_data
-    results = Parallel(n_jobs=n_jobs)(
-              ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/dist-packages/joblib/parallel.py", line 2012, in __call__
-    return output if self.return_generator else list(output)
-                                                ^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/dist-packages/joblib/parallel.py", line 1940, in _get_sequential_output
-    res = func(*args, **kwargs)
-          ^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/dist-packages/moabb/datasets/base.py", line 914, in _get_selected_subject_data
-    subject_data = self._get_single_subject_data_using_cache(
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/dist-packages/moabb/datasets/base.py", line 1458, in _get_single_subject_data_using_cache
-    sessions_data = self._get_single_subject_data(subject)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/dist-packages/moabb/datasets/Lee2019.py", line 220, in _get_single_subject_data
-    mat = loadmat(file_path_list[self.sessions.index(session)])
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/dist-packages/scipy/io/matlab/_mio.py", line 235, in loadmat
-    MR, _ = mat_reader_factory(f, **kwargs)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/dist-packages/scipy/io/matlab/_mio.py", line 74, in mat_reader_factory
-    mjv, mnv = _get_matfile_version(byte_stream)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.11/dist-packages/scipy/io/matlab/_miobase.py", line 236, in _get_matfile_version
-    raise MatReadError("Mat file appears to be truncated")
-scipy.io.matlab._miobase.MatReadError: Mat file appears to be truncated
