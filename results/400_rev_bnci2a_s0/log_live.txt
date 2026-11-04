@@ -1,16 +1,3 @@
-  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
-[fold 1] target 2 (eegnet): source=0.441 t3a=0.444 tent=0.434
-/workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
-[fold 2] target 3 (eegnet): source=0.830 t3a=0.903 tent=0.389
-/workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
-[fold 3] target 4 (eegnet): source=0.615 t3a=0.663 tent=0.368
-/workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
-[fold 4] target 5 (eegnet): source=0.590 t3a=0.573 tent=0.458
-/workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
-  model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
 [fold 5] target 6 (eegnet): source=0.542 t3a=0.500 tent=0.486
 /workspace/georoute-eeg/scripts/run_tta.py:116: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
   model.load_state_dict(torch.load(ckpt, map_location=T.DEV))
@@ -148,3 +135,16 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 [fold 5] target 6 (cbramod): source=0.472 t3a=0.451 lame=0.372 tent=0.253
 [fold 6] target 7 (cbramod): source=0.622 t3a=0.722 lame=0.646 tent=0.566
 [fold 7] target 8 (cbramod): source=0.743 t3a=0.736 lame=0.694 tent=0.670
+[fold 8] target 9 (cbramod): source=0.635 t3a=0.684 lame=0.622 tent=0.410
+Choosing from all possible events
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:497: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = mne.channels.make_standard_montage("standard_1020")
+/usr/local/lib/python3.11/dist-packages/braindecode/models/eegpt.py:1452: FutureWarning: Montage name 'standard_1020' is deprecated and will be removed in MNE 1.14. Use 'colin27_1020' instead.
+  montage = make_standard_montage("standard_1020")
+[fold 0] target 1 (eegnet): source=0.767 t3a=0.767 lame=0.552 tent=0.774
+[fold 1] target 2 (eegnet): source=0.431 t3a=0.469 lame=0.288 tent=0.441
+[fold 2] target 3 (eegnet): source=0.767 t3a=0.858 lame=0.528 tent=0.785
+[fold 3] target 4 (eegnet): source=0.562 t3a=0.552 lame=0.333 tent=0.590
+[fold 4] target 5 (eegnet): source=0.597 t3a=0.552 lame=0.354 tent=0.618
+[fold 5] target 6 (eegnet): source=0.580 t3a=0.521 lame=0.330 tent=0.587
+[fold 6] target 7 (eegnet): source=0.719 t3a=0.788 lame=0.545 tent=0.715
