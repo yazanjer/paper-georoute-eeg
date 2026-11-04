@@ -1,3 +1,60 @@
-To https://github.com/yazanjer/paper-georoute-eeg.git
- ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at b27151591c02eaaf75c829f7489742adb961e20d but expected 4b835cb2b91e827f60136d8fc4b114850cf0b168)
-error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
+/workspace/georoute-eeg/runner/agent.sh: line 61: /workspace/logs_423_rev_lee_eegnet_s3.txt: No space left on device
+/workspace/georoute-eeg/runner/agent.sh: line 73: results/423_rev_lee_eegnet_s3/log_tail.txt: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/423_rev_lee_eegnet_s3/exit_code: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/423_rev_lee_eegnet_s3/finished: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 75: results/423_rev_lee_eegnet_s3/status: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': No space left on device
+error: unable to create temporary file: No space left on device
+fatal: failed to write object
+fatal: unpack-objects failed
+[agent] pull failed
+mkdir: cannot create directory 'results/423_rev_lee_eegnet_s3': No space left on device
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/423_rev_lee_eegnet_s3/status: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/423_rev_lee_eegnet_s3/commit: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/423_rev_lee_eegnet_s3/started: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': No space left on device
+/workspace/georoute-eeg/runner/agent.sh: line 61: /workspace/logs_423_rev_lee_eegnet_s3.txt: No space left on device
+/workspace/georoute-eeg/runner/agent.sh: line 73: results/423_rev_lee_eegnet_s3/log_tail.txt: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/423_rev_lee_eegnet_s3/exit_code: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/423_rev_lee_eegnet_s3/finished: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 75: results/423_rev_lee_eegnet_s3/status: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': No space left on device
+error: unable to create temporary file: No space left on device
+fatal: failed to write object
+fatal: unpack-objects failed
+[agent] pull failed
+mkdir: cannot create directory 'results/423_rev_lee_eegnet_s3': No space left on device
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/423_rev_lee_eegnet_s3/status: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/423_rev_lee_eegnet_s3/commit: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/423_rev_lee_eegnet_s3/started: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': No space left on device
+/workspace/georoute-eeg/runner/agent.sh: line 61: /workspace/logs_423_rev_lee_eegnet_s3.txt: No space left on device
+/workspace/georoute-eeg/runner/agent.sh: line 73: results/423_rev_lee_eegnet_s3/log_tail.txt: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/423_rev_lee_eegnet_s3/exit_code: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/423_rev_lee_eegnet_s3/finished: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 75: results/423_rev_lee_eegnet_s3/status: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': No space left on device
+error: unable to create temporary file: No space left on device
+fatal: failed to write object
+fatal: unpack-objects failed
+[agent] pull failed
+mkdir: cannot create directory 'results/423_rev_lee_eegnet_s3': No space left on device
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/423_rev_lee_eegnet_s3/status: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/423_rev_lee_eegnet_s3/commit: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/423_rev_lee_eegnet_s3/started: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': No space left on device
+/workspace/georoute-eeg/runner/agent.sh: line 61: /workspace/logs_423_rev_lee_eegnet_s3.txt: No space left on device
+/workspace/georoute-eeg/runner/agent.sh: line 73: results/423_rev_lee_eegnet_s3/log_tail.txt: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/423_rev_lee_eegnet_s3/exit_code: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 74: results/423_rev_lee_eegnet_s3/finished: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 75: results/423_rev_lee_eegnet_s3/status: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg/.git/index.lock': No space left on device
+error: unable to create temporary file: No space left on device
+fatal: failed to write object
+fatal: unpack-objects failed
+[agent] pull failed
+mkdir: cannot create directory 'results/423_rev_lee_eegnet_s3': No space left on device
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/423_rev_lee_eegnet_s3/status: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/423_rev_lee_eegnet_s3/commit: No such file or directory
+/workspace/georoute-eeg/runner/agent.sh: line 58: results/423_rev_lee_eegnet_s3/started: No such file or directory
+fatal: Unable to create '/workspace/georoute-eeg
