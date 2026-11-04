@@ -1,1 +1,9 @@
 Updating files:  43% (25/58)Updating files:  44% (26/58)Updating files:  46% (27/58)Updating files:  48% (28/58)Updating files:  50% (29/58)Updating files:  51% (30/58)Updating files:  53% (31/58)Updating files:  55% (32/58)Updating files:  56% (33/58)Updating files:  58% (34/58)Updating files:  60% (35/58)Updating files:  62% (36/58)Updating files:  63% (37/58)Updating files:  65% (38/58)Updating files:  67% (39/58)Updating files:  68% (40/58)Updating files:  70% (41/58)Updating files:  72% (42/58)Updating files:  74% (43/58)Updating files:  75% (44/58)Updating files:  77% (45/58)Updating files:  79% (46/58)Updating files:  81% (47/58)Updating files:  82% (48/58)Updating files:  84% (49/58)Updating files:  86% (50/58)Updating files:  87% (51/58)Updating files:  89% (52/58)Updating files:  91% (53/58)Updating files:  93% (54/58)Updating files:  94% (55/58)Updating files:  96% (56/58)Updating files:  98% (57/58)Updating files: 100% (58/58)Updating files: 100% (58/58), done.
+To https://github.com/yazanjer/paper-georoute-eeg.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/yazanjer/paper-georoute-eeg.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
