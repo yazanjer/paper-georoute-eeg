@@ -1,0 +1,13 @@
+\input{pre}
+\begin{tikzpicture}[node distance=0.32cm]
+\node[trn, text width=3.3cm] (s1) {Stage 1: global LoRA $\Delta W_0$ and head on all $K$ sources};
+\node[trn, text width=3.3cm, below=of s1] (s2) {Stage 2: adapter $\Delta W_k$ per source subject $k$};
+\node[frz, text width=3.3cm, right=0.5cm of s1] (tm) {Target session 1 (unlabelled): Riemannian mean $\bar C_t$};
+\node[frz, text width=3.3cm, below=of tm] (d) {Distances $d_k=\delta_R(\bar C_t,\bar C_k)$};
+\node[frz, text width=3.3cm, below=of d] (w) {Top $\lceil\sqrt K\rceil$, weights $w_k\propto e^{-d_k/\tau}$};
+\node[trn, text width=3.3cm, below=of w] (m) {Merge $\Delta W_0+\sum_k w_k\Delta W_k$ or ensemble $\sum_k w_k p_k$};
+\draw[arr] (s1)--(s2); \draw[arr] (tm)--(d); \draw[arr] (d)--(w); \draw[arr] (w)--(m);
+\draw[arr] (s2.south) |- (m.west);
+\node[note, below=0.2cm of s2, text width=3.2cm] {adapter bank};
+\end{tikzpicture}
+\end{document}

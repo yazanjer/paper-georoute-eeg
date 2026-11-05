@@ -1,0 +1,692 @@
+\documentclass[preprint,12pt]{elsarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc,fit,decorations.pathreplacing}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\usepackage{pifont}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{microtype}
+\usepackage{adjustbox}
+\usepackage{caption}
+\captionsetup[table]{position=top,skip=6pt}
+\usepackage{lineno}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[section]{placeins}   % floats never drift past the next \section
+\setcounter{topnumber}{3}\setcounter{bottomnumber}{2}\setcounter{totalnumber}{5}
+\renewcommand{\topfraction}{0.9}\renewcommand{\bottomfraction}{0.6}\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.75}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
+
+\definecolor{fmblue}{HTML}{2A78D6}
+\definecolor{cnnorange}{HTML}{EB6834}
+\definecolor{inkgray}{HTML}{52514E}
+\definecolor{lightfill}{HTML}{F1F0EC}
+
+\newcommand{\pp}{\,pp}
+\newcommand{\below}{$\downarrow$}
+\newcommand{\sci}[2]{#1{\times}10^{#2}}
+
+\journal{International Journal of Intelligent Engineering and Systems}
+
+\setlength{\emergencystretch}{2em}
+% TikZ diagrams were laid out for a 10-pt body; use 10-pt sizes inside them
+\newcommand{\tikztenpt}{\renewcommand\tiny{\fontsize{5}{6}\selectfont}\renewcommand\scriptsize{\fontsize{7}{8}\selectfont}%
+\renewcommand\footnotesize{\fontsize{8}{9.5}\selectfont}\renewcommand\small{\fontsize{9}{11}\selectfont}%
+\renewcommand\normalsize{\fontsize{10}{12}\selectfont}\normalsize}
+\newcommand{\rev}[1]{#1}
+\newcommand{\revfloat}{}
+\newcommand{\FFsummary}{}\newcommand{\FFconclusion}{}\newcommand{\REConline}{}
+\begin{document}
+\begin{frontmatter}
+\title{Supplementary Material\\[4pt]\large A Compact Aligned Decoder Versus a LoRA-Adapted CBraMod Foundation Model for Calibration-Free Motor-Imagery Decoding: A Test-Time Adaptation Benchmark}
+\author{Rafeef Fauzi Najim Alshammari, Muhammed E. Abd Alkhalec Tharwat and Yazan Aljeroudi}
+\end{frontmatter}
+\suppressfloats[t]
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thealgorithm}{S\arabic{algorithm}}
+\renewcommand{\theequation}{S\arabic{equation}}
+\section{Source Models, Stream and Methods}\label{sec:supp1}
+\subsection{Source Models}
+Each model is trained only on the source subjects of a fold, each Euclidean-aligned with its own mean covariance~\cite{he2020ea}. Fig.~\ref{fig:models_fm} and Fig.~\ref{fig:models_cnn} show both architectures and the parameters each TTA method is allowed to change\rev{; Table~\ref{tab:settings} lists every training setting}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_models_fm.pdf}
+\caption{\rev{CBraMod-LoRA source model} and where each TTA method acts. Shaded grey blocks are frozen during source training; coloured blocks are trained on the source subjects. T3A re-estimates class prototypes from the penultimate features $z$ and the last linear layer; LAME refines the output class probabilities (posteriors) with a $k$-nearest-neighbour graph on $z$; Tent updates online only the scale and shift (affine) parameters of the normalisation layers; SHOT-IM updates every layer except the classifier (for CBraMod this includes the pretrained encoder weights); RCTTA uses only the posteriors $p$ and the raw aligned trials (Algorithm~\ref{alg:rctta}).}
+\label{fig:models_fm}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_models_cnn.pdf}
+\caption{\rev{EEGNet source model ($F_1=8$, $D=2$, $F_2=16$) and where each TTA method acts; colours and method roles as in Fig.~\ref{fig:models_fm}.}}
+\label{fig:models_cnn}
+\end{figure}
+
+\begin{itemize}
+\item \textbf{CBraMod-LoRA}: the pretrained CBraMod encoder~\cite{wang2025cbramod} (public pretrained checkpoint) is frozen. Rank-8 LoRA adapters~\cite{hu2022lora} are added to every feed-forward layer and the output projection, followed by a two-layer multilayer perceptron (MLP) head. It is trained for \rev{at most} 30 epochs with AdamW~\cite{loshchilov2019adamw} (lr $10^{-3}$, cosine schedule, label smoothing 0.1) and early stopping on a 10\,\% source validation split. \rev{The 4-s trial is cut into four 1-s patches of 200 samples. Channels are passed in the dataset's native order without remapping to the pretraining montage: CBraMod's convolutional positional encoding accepts any number of channels, but no channel identity is supplied.}
+\item \textbf{EEGNet}~\cite{lawhern2018eegnet}: trained from scratch for \rev{at most} 100 epochs with the same optimiser and early-stopping rule.
+\item \textbf{Reference source models (no TTA)}: CSP with linear discriminant analysis (CSP+LDA, with EA)~\cite{blankertz2008csp}, MDM and tangent-space logistic regression (TS+LR), both with Riemannian alignment (RA)~\cite{barachant2012mdm,barachant2013ts,zanini2018ra}, EEGNet without EA, ShallowConvNet~\cite{schirrmeister2017deep} (EA), EEG-Conformer~\cite{song2023conformer} (EA), a CBraMod linear probe (only a linear classifier trained on the frozen pretrained features, EA) and CBraMod full fine-tuning (EA).
+\end{itemize}
+
+\rev{\textbf{Model selection.} The validation split is drawn at the trial level from the pooled source trials of the fold (460 of 4608 trials on BCI IV-2a, 900 of 9000 on Lee2019-MI), so validation trials come from the same source subjects as the training trials. After every epoch the validation loss is computed; the state with the lowest validation loss (improvement threshold $10^{-4}$) is restored at the end, and training stops after 8 (CBraMod) or 15 (EEGNet) epochs without improvement. Because a trial-level split cannot show whether the stopping point transfers to subjects outside the training set, Section 4.5 of the main text repeats the main cells with whole source subjects held out for validation (one subject on BCI IV-2a, five on Lee2019-MI). No target data are used for selection in either case.}
+
+\begin{table}[!htbp]
+\centering
+\caption{\rev{Source-model and baseline settings (braindecode 1.8.1 defaults unless stated).}}
+\label{tab:settings}
+\revfloat
+\setlength{\tabcolsep}{3pt}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{9.8cm}@{}}
+\toprule
+Model & Settings \\
+\midrule
+All deep models & AdamW, weight decay $10^{-2}$, batch 64, cosine schedule over the maximum epochs, label smoothing 0.1, gradient-norm clip 5, early stopping on the trial-level 10\,\% source validation split (best state restored) \\
+CBraMod-LoRA & 12 layers, 8 heads, embedding 200, feed-forward 800, patch 200 samples; LoRA rank 8, scale 2 on the feed-forward and output projections; head: mean over patches, Linear($200C\to256$), ELU, dropout 0.3, Linear($256\to K$); lr $10^{-3}$; at most 30 epochs, patience 8 \\
+CBraMod full FT & as above without LoRA; all weights trained, lr $10^{-4}$ (encoder) and $10^{-3}$ (head) \\
+CBraMod linear probe & encoder frozen; head only, lr $10^{-3}$ \\
+EEGNet & $F_1=8$, $D=2$, $F_2=16$, temporal kernel 64, depthwise kernel 16, pooling 4 and 8, dropout 0.25, max-norm 1; lr $10^{-3}$; at most 100 epochs, patience 15 \\
+ShallowConvNet & 40 temporal (length 25) and 40 spatial filters, square, mean pooling 75/15, log, dropout 0.5; training as EEGNet \\
+EEG-Conformer & 40 filters (length 25), pooling 75/15, 6 transformer layers, 10 heads, dropout 0.5; training as EEGNet \\
+CSP+LDA & OAS covariances of the 0.5--45\,Hz signal, 8 CSP filters, log-variance, LDA (scikit-learn defaults) \\
+MDM, TS+LR & OAS covariances, per-subject Riemannian re-centring; MDM (pyRiemann); tangent space at the Riemannian mean + logistic regression (max.\ 2000 iterations) \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+
+\subsection{Online Target Stream \rev{and Information Access}}\label{sec:stream}
+\rev{\textbf{Intended use.} The scenario is a new user who sits down with a decoder trained on other people and provides no labelled trials. The target's first session plays the role of an unlabelled warm-up, for example a free run before feedback starts; its trials are processed and adapted on, but not scored. Accuracy is measured on the user's last session. Section~\ref{sec:warmup} relaxes this by shortening the warm-up to 96, 32 or 0 trials (cold start).}
+
+Every TTA method sees the same stream (Fig.~\ref{fig:protocol}). Session~1 of the target subject is played first as an unscored warm-up, then the scored session, in chronological order and in batches of 32 trials. \rev{The order of the target stream is fixed by the recording order; it never changes across seeds, methods or backbones. The seed changes only the source model: its initialisation, the trial-level validation split and the order of source mini-batches. The mini-batch order inside SHOT-IM uses a fixed generator (seed 0) and is identical for every run.} Euclidean alignment of the stream is computed online from all past and current trials, using shrinkage covariance estimates (Oracle Approximating Shrinkage, OAS~\cite{chen2010oas}). No target label is ever used\rev{; this was verified by re-running the pipeline with the scored labels randomly permuted, which leaves every prediction unchanged (Data Availability)}. Algorithm~\ref{alg:stream} states the procedure exactly as implemented.
+
+\rev{\textbf{Information access and latency.} Table~\ref{tab:access} lists, for each method, which unlabelled target trials can influence the prediction of a trial. With batches of 32, the alignment reference, the T3A support set, the LAME graph and the RCTTA prototypes all include the current batch before its predictions are returned, so a prediction can depend on up to 31 later trials of the same batch. Predictions are therefore issued once per batch, i.e.\ after about 4 minutes of recording on BCI IV-2a ($\approx$8\,s per trial) and about 7 minutes on Lee2019-MI ($\approx$13\,s per trial); we call this setting \emph{batch-causal}. Tent returns the predictions computed before its gradient step, but its normalisation layers use statistics of the current batch (EEGNet's batch normalisation; CBraMod uses layer normalisation, which is computed per trial). SHOT-IM and RCTTA offline are \emph{transductive}: they adapt on all trials of both sessions and then re-predict the scored session, so their predictions depend on future trials of that session; they are an upper reference, not a deployable online decoder. A \emph{sample-causal} decoder, whose prediction for a trial depends only on that trial and earlier ones, is obtained by running the same code with batches of one trial (Section 4.2 of the main text).}
+
+\rev{\textbf{Session boundary.} On BCI IV-2a the warm-up session has 288 trials, a multiple of 32, so no batch mixes sessions. On Lee2019-MI the warm-up has 100 trials, so the fourth batch holds the last 4 warm-up and the first 28 scored trials; it is processed as one batch and only its 28 scored trials are scored. With batches of one trial no batch crosses the boundary.}
+
+\begin{table}[!htbp]
+\centering
+\caption{\rev{Information available to each method when it predicts a target trial (batch size $B=32$ unless stated). ``Current batch'' means that the prediction of a trial can depend on later trials of the same batch.}}
+\label{tab:access}
+\revfloat
+\setlength{\tabcolsep}{3pt}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{2.6cm}@{}}
+\toprule
+Method & Target trials used for a prediction & Retained prediction & Setting \\
+\midrule
+Source & past + current batch (alignment) & forward pass & batch-causal \\
+T3A, LAME & past + current batch & after adding the batch & batch-causal \\
+Tent & past + current batch (alignment, batch statistics) & before the gradient step & batch-causal \\
+RCTTA, RCTTA+T3A, MDM-RC & past + current batch & after the EM update & batch-causal \\
+SHOT-IM, RCTTA offline & all trials of both sessions & re-prediction after adaptation & transductive \\
+SHOT-IM (warm-up only) & warm-up session only for adaptation; past + current batch for alignment & after adaptation on warm-up & batch-causal \\
+Any method with $B=1$ & past + current trial & as above & sample-causal \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\begin{algorithm}[!htbp]
+\caption{Online calibration-free evaluation stream (identical for every TTA method)}
+\label{alg:stream}
+\begin{algorithmic}[1]
+\Require source model $f_\theta$ trained on EA-aligned source subjects; target sessions $S_1$ (warm-up), $S_{\mathrm{last}}$ (scored); TTA method $\mathcal{A}$; batch size $B=32$ \rev{(or $B=1$)}
+\Ensure accuracy on $S_{\mathrm{last}}$
+\State $\Sigma \gets 0$, $n\gets 0$; initialise $\mathcal{A}$ from $f_\theta$ \Comment{no target labels are used}
+\For{each batch $X_b$ of $S_1 \Vert S_{\mathrm{last}}$ in chronological order}
+  \State $\Sigma \gets \Sigma + \sum_{i\in b} \mathrm{OAS}(X_i)$;\ \ $n \gets n + |b|$
+  \State $R \gets (\Sigma/n)^{-1/2}$;\ \ $\tilde X_b \gets R\,X_b$ \Comment{online EA, includes batch $b$}
+  \State \rev{$\hat p_b \gets \mathcal{A}.\textsc{Step}(\tilde X_b)$} \Comment{\rev{predictions of batch $b$ (Table~\ref{tab:access})}}
+  \State store $\arg\max \hat p_i$ for every $i\in b$ that belongs to $S_{\mathrm{last}}$ \rev{(a batch may contain both sessions)}
+\EndFor
+\State \textbf{if} $\mathcal{A}$ is transductive (SHOT-IM, RCTTA offline) \textbf{then} adapt on all aligned trials $\tilde X_{S_1\Vert S_{\mathrm{last}}}$ and re-predict $S_{\mathrm{last}}$
+\State \Return accuracy, balanced accuracy and $\kappa$ of stored predictions
+\end{algorithmic}
+\end{algorithm}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_protocol.pdf}
+\caption{Benchmark protocol. A source model is trained on labelled source subjects only. The target subject's sessions are then streamed without labels: session~1 is an unscored warm-up and the last session is scored. Alignment is estimated online, \rev{and each online method returns its predictions for a batch at the point listed in Table~\ref{tab:access}}. The same stream is used for all methods, backbones and seeds.}
+\label{fig:protocol}
+\end{figure}
+
+
+\subsection{Test-Time Adaptation Methods}
+Table~\ref{tab:tta} lists the pre-specified method set. Fig.~\ref{fig:models_fm} and Fig.~\ref{fig:models_cnn} mark where each method acts on the two backbones. Two learning rates are reported for each gradient method. Without target labels there is no honest way to select one, so we expose the sensitivity instead of hiding it. MDM-RC is a classical Riemannian reference that needs no neural network: target covariances are re-centred at their running Riemannian mean (RC) and classified by minimum distance to the source class means (MDM). Algorithm~\ref{alg:tta} gives the update rules of the three generic methods exactly as implemented, including which parameters each one touches on each backbone. \rev{We also report one variant that is not in the pre-specified set: SHOT-IM adapted on the warm-up session only and then frozen, which makes the information-maximisation method usable without access to the scored session.}
+
+\begin{table}[!htbp]
+\centering
+\caption{Test-time adaptation methods (pre-specified set\rev{, plus one exploratory variant}).}
+\label{tab:tta}
+\setlength{\tabcolsep}{3pt}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.8cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{4.4cm}@{}}
+\toprule
+Method & Family & Updates & Setting \\
+\midrule
+Source & none & -- & -- \\
+T3A~\cite{iwasawa2021t3a} & gradient-free, \rev{batch-causal} & last-layer prototypes & 20 supports/class \\
+LAME~\cite{boudiaf2022lame} & gradient-free, \rev{batch-causal} & output posteriors & 5-NN graph, 10 iter. \\
+Tent~\cite{wang2021tent} & gradient, \rev{batch-causal} & normalisation scale/shift & SGD, mom.\ 0.9, lr $10^{-3}$, $10^{-4}$ \\
+SHOT-IM~\cite{liang2020shot} & gradient, \rev{transductive} & all but last layer & Adam, 10 epochs, lr $10^{-4}$, $10^{-5}$ \\
+\rev{SHOT-IM (warm-up only)} & \rev{gradient, batch-causal} & \rev{all but last layer} & \rev{as SHOT-IM, warm-up trials only} \\
+MDM-RC & Riemannian, \rev{batch-causal} & target re-centring & MDM, 8--30\,Hz \\
+RCTTA (\S\ref{sec:rctta}) & gradient-free, \rev{batch-causal} & target Riemannian prototypes & $\lambda=1$, $n_0=20$ \\
+RCTTA+T3A & gradient-free, \rev{batch-causal} & both & as above \\
+\rev{RCTTA offline} & \rev{gradient-free, transductive} & \rev{as RCTTA, final EM pass} & \rev{as above} \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\begin{algorithm}[!htbp]
+\caption{T3A, Tent and SHOT-IM as run in the benchmark (plug-ins for $\mathcal{A}$ in Algorithm~\ref{alg:stream})}
+\label{alg:tta}
+\begin{algorithmic}[1]
+\Require source model $f_\theta = h_{W,b}\circ g_\phi$ (feature extractor $g_\phi$, linear head $h$); aligned batch $\tilde X_b$; $C$ classes
+\Statex \textbf{T3A} (gradient-free; $M=20$, $\tau=0.1$)
+\State \textbf{init:} support set $\mathcal{S}_c \gets \{\bar w_c\}$ (normalised head row $c$), entropy $0$
+\State $z_i \gets g_\phi(\tilde x_i)$;\ \ $p_i \gets \mathrm{softmax}(W z_i + b)$;\ \ $H_i \gets -\sum_c p_{ic}\log p_{ic}$
+\State add $(\bar z_i, H_i)$ of \rev{every trial of the batch} to $\mathcal{S}_{\arg\max p_i}$; keep the $M$ lowest-entropy supports per class
+\State $\mu_c \gets \mathrm{mean}(\mathcal{S}_c)$;\ \ \Return $\hat p_{ic} \propto \exp(\langle \bar z_i, \bar\mu_c\rangle/\tau)$ \Comment{\rev{uses the updated supports}}
+\Statex \textbf{Tent} (gradient; SGD, momentum 0.9, lr $\eta\in\{10^{-3},10^{-4}\}$)
+\State \textbf{init:} trainable $\psi \gets$ affine params of all LayerNorm (CBraMod) / BatchNorm (EEGNet) layers; freeze the rest
+\State normalisation layers use current-batch statistics; dropout off
+\State $\hat p_b \gets \mathrm{softmax}(f_\theta(\tilde X_b))$ \Comment{\rev{returned before the update}}
+\State $\psi \gets \psi - \eta\,\nabla_\psi \tfrac{1}{|b|}\sum_i H(\hat p_i)$ \Comment{one step per batch, never reset}
+\Statex \textbf{SHOT-IM} (gradient, \rev{transductive}; Adam, 10 epochs, mini-batch 32, lr $\eta\in\{10^{-4},10^{-5}\}$)
+\State trainable: all parameters except the linear head (CBraMod: frozen encoder \emph{and} LoRA, plus MLP pre-head)
+\State \rev{use the trials exactly as aligned online in Algorithm~\ref{alg:stream} (each with the reference available at its batch)}
+\For{epoch $=1..10$, mini-batch $B$ \rev{of the adaptation set}}
+  \State $\mathcal{L} \gets \frac{1}{|B|}\sum_i H(p_i) - H\!\big(\frac{1}{|B|}\sum_i p_i\big)$ \Comment{confident but diverse}
+  \State $\theta \gets \mathrm{Adam}(\theta, \nabla\mathcal{L})$
+\EndFor
+\State \Return $\mathrm{softmax}(f_\theta(\tilde X_{S_{\mathrm{last}}}))$ \Comment{\rev{adaptation set: both sessions, or warm-up only}}
+\end{algorithmic}
+\end{algorithm}
+
+
+\section{Two Geometry-Based Methods, Pre-Specified and Rejected}\label{sec:negative}
+Both methods failed their criteria, which were committed before the first real-data run. We report them because they \rev{test two plausible design ideas} and explain part of the benchmark design. \rev{Fig.~\ref{fig:georoute_arch} and Fig.~\ref{fig:rctta_arch} show their architectures and Algorithms~\ref{alg:georoute} and~\ref{alg:rctta} give their pseudocode.}
+
+\rev{\textbf{Two stages of criteria.} Each method first had to pass a development gate on a seed-0 pilot of BCI IV-2a, with a criterion fixed before that pilot (stated below for each method); this gate decided whether a method was worth developing further, and both failed it. The benchmark hypothesis H4 is a separate, later prediction about the full benchmark (all seeds, both datasets): that neither method adds 1.5\,pp or more over the best geometry-free alternative. Failing the development gate means that the method did not show a useful gain in the pilot; it does not show that no useful effect exists, which is why Section~\ref{sec:georoute} reports confidence intervals against both margins.}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_georoute_arch.pdf}
+\caption{\rev{GeoRoute: a bank of subject-specific LoRA adapters is weighted for a new user by the Riemannian distance between covariance means (Algorithm~\ref{alg:georoute}).} It failed its criteria (Section~\ref{sec:negative}, Table~\ref{tab:georoute}).}
+\label{fig:georoute_arch}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_rctta_arch.pdf}
+\caption{\rev{RCTTA: a target-specific tangent-space classifier is built from the unlabelled stream and fused with the frozen decoder, trusting geometry more as trials accumulate; the fused posteriors of all trials seen so far serve as the responsibilities of the EM step (Algorithm~\ref{alg:rctta}).} It failed its criteria (Section~\ref{sec:negative}).}
+\label{fig:rctta_arch}
+\end{figure}
+
+\begin{algorithm}[!htbp]
+\caption{GeoRoute: covariance-distance routing of subject adapters}
+\label{alg:georoute}
+\begin{algorithmic}[1]
+\Require source subjects $\{(X_k,y_k)\}_{k=1}^K$; pretrained CBraMod $g$; unlabelled target session $S_1$; target trials $X_t$
+\State \textbf{Stage 1:} train global LoRA $\Delta W_0$ and head on $\bigcup_k \mathrm{EA}(X_k)$ ($g$ frozen)
+\For{$k=1,\dots,K$} \Comment{Stage 2}
+  \State train subject adapter $\Delta W_k$ on $\mathrm{EA}(X_k)$ with $\Delta W_0$ and head frozen
+  \State $\bar C_k \gets \mathrm{RiemannianMean}(\{\mathrm{OAS}(x)\}_{x\in X_k})$
+\EndFor
+\State $\bar C_t \gets \mathrm{RiemannianMean}(\{\mathrm{OAS}(x)\}_{x\in S_1})$
+\State $d_k \gets \delta_R(\bar C_t,\bar C_k)$ for $k=1,\dots,K$ \Comment{affine-invariant distance}
+\State $\mathcal{N} \gets$ indices of the $\lceil\sqrt K\rceil$ smallest $d_k$;\ \ $\tau \gets \mathrm{median}_{k\in\mathcal N}\, d_k$
+\State $w_k \gets e^{-d_k/\tau}\big/\sum_{j\in\mathcal N}e^{-d_j/\tau}$ for $k\in\mathcal N$, else $w_k\gets 0$
+\State $\tilde X_t \gets \mathrm{EA}_{S_1}(X_t)$ \Comment{alignment from session 1}
+\State \textbf{merge:} $\hat y \gets \arg\max f\big(\tilde X_t;\,\Delta W_0+\textstyle\sum_k w_k\Delta W_k\big)$
+\State \textbf{ensemble:} $\hat y \gets \arg\max \textstyle\sum_k w_k\, p_k(\tilde X_t)$
+\State \textbf{controls:} uniform $w_k=1/K$; random permutation of $d$; oracle best single $k$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[!htbp]
+\caption{RCTTA: Riemannian co-training at test time (one online step)}
+\label{alg:rctta}
+\begin{algorithmic}[1]
+\Require aligned batch $\tilde X_b$; decoder posteriors $p^{\mathrm{dec}}_b$ (source or T3A); memory $\mathcal{C}$ (covariances) and $\mathcal{P}$ (decoder posteriors); $N_c$ classes; $\lambda=1$, $n_0=20$, 5 EM iterations
+\Ensure fused posteriors $q_b$
+\State $\mathcal{C} \gets \mathcal{C}\cup\{\mathrm{OAS}(\mathrm{BP}_{8\text{--}30}(x)) : x\in\tilde X_b\}$;\ \ $\mathcal P \gets \mathcal P \cup p^{\mathrm{dec}}_b$;\ \ $n\gets|\mathcal C|$
+\State \textbf{if} $n < 2N_c$ \textbf{then return} $p^{\mathrm{dec}}_b$
+\State $M \gets \mathrm{RiemannianMean}(\mathcal C)$;\ \ $t_i \gets \mathrm{Log}_M(C_i)$ for $C_i\in\mathcal C$, scaled to unit mean norm
+\State $\lambda_{\mathrm{eff}} \gets \lambda\, n/(n+n_0)$;\ \ $q \gets \mathcal P$
+\For{5 iterations} \Comment{soft EM on the whole stream so far}
+  \State $\omega_{ic} \gets q_{ic}\max_c q_{ic}$ \Comment{confidence-weighted responsibilities}
+  \State $\mu_c \gets \sum_i \omega_{ic} t_i / \sum_i \omega_{ic}$;\ \ $d^2_{ic}\gets\lVert t_i-\mu_c\rVert^2$;\ \ $\tau\gets\mathrm{median}(d^2)$
+  \State $q_i \gets \mathrm{softmax}_c\big(\log \mathcal P_{ic} + \lambda_{\mathrm{eff}} \log \mathrm{softmax}_c(-d^2_{ic}/\tau)\big)$
+\EndFor
+\State \Return $q$ restricted to the trials of batch $b$ \Comment{\rev{includes the current batch}}
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{GeoRoute: Routing Subject-Specific Adapters by Covariance Distance}
+Stage~1 trains a global LoRA adapter and head on all source subjects (Fig.~\ref{fig:georoute_arch}, Algorithm~\ref{alg:georoute}). Stage~2 trains one extra LoRA adapter per source subject on top of the frozen global adapter. For a new subject, the Riemannian mean covariance of its unlabeled session-1 trials is compared with every source subject's mean. The nearest $\lceil\sqrt{K}\rceil$ subject adapters ($K$ = number of source subjects) are merged with weights $\mathrm{softmax}(-d/\tau)$, with $\tau$ the median selected distance. Variants used output ensembling instead of weight merging, independent subject models, log-Euclidean, Euclidean and feature-space distances, and 5--288 routing trials.
+
+\textbf{\rev{Development gate.}} Routing had to beat both a uniform merge and random routing by at least 1 percentage point (Wilcoxon $p<0.05$), and the Spearman correlation between distance and single-adapter transfer accuracy had to reach 0.2.
+
+\textbf{Outcome.} In the seed-0 pilot on BCI IV-2a, routing gave 59.3\,\% versus 58.9\,\% (uniform) and 58.3\,\% (random), with $\rho=0.18$. On Lee2019 (54 subjects, 45 candidate sources per target), routing gave 75.5\,\% versus 75.6\,\% and 75.4\,\%, with $\rho=-0.01$. The best single adapter chosen with hindsight reached 81.4\,\%, so useful source subjects exist; covariance geometry \rev{as implemented here} did not identify them.
+
+\subsection{RCTTA: Riemannian Co-Training at Test Time}\label{sec:rctta}
+RCTTA keeps the source decoder fixed (Fig.~\ref{fig:rctta_arch}, Algorithm~\ref{alg:rctta}). As trials stream in, it band-passes them to 8--30\,Hz, estimates OAS covariances~\cite{chen2010oas}, re-centres them at the running Riemannian mean of the target stream and maps them to its tangent space. Class prototypes $\mu_c$ in that space are fitted by soft expectation--maximisation, using fused posteriors as responsibilities. The fused posterior of trial $i$ is \rev{given by Eq.~(\ref{eq:fuse}) and Eq.~(\ref{eq:geo})}:
+\begin{align}
+q_i &\propto p^{\mathrm{dec}}_i \cdot \big(p^{\mathrm{geo}}_i\big)^{\lambda n/(n+n_0)}, \label{eq:fuse}\\
+p^{\mathrm{geo}}_{ic} &= \mathrm{softmax}_c\!\left(-\lVert t_i-\mu_c\rVert^2/\tau\right), \label{eq:geo}
+\end{align}
+where $t_i$ is the tangent vector, $\tau$ the median squared distance and $n$ the number of trials seen, so geometry is trusted more as evidence accumulates. RCTTA needs no gradients, source data or labels. On synthetic data where covariance carries the class signal, it raised accuracy from 66\,\% to 81\,\%.
+
+\textbf{\rev{Development gate.}} RCTTA or RCTTA+T3A had to beat each of T3A, LAME and Tent by at least 1.5\,pp, with at least 6 of 9 subject wins on BCI IV-2a with CBraMod.
+
+\textbf{Outcome.} In the seed-0 pilot, RCTTA+T3A reached 64.0\,\% versus 63.5\,\% for T3A ($+0.4$\,pp, 5/9 wins). RCTTA alone reached 60.7\,\%, below T3A. Every ablation ($\lambda$, band-pass, re-centring, confidence gating, offline EM) stayed within about 1 point. Both methods are carried into the benchmark as pre-specified negative arms.
+
+%======================================================================
+
+\section{Additional Results}
+\subsection{Per-Subject Changes}
+Fig.~\ref{fig:delta} shows the per-subject change of every method relative to the same backbone's source model.
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_delta.pdf}
+\caption{Per-subject change in accuracy relative to the same backbone's source model (seed-averaged; vertical bars mark the mean over subjects). \rev{(T) marks transductive methods.} T3A shifts CBraMod consistently to the right but not EEGNet, whereas SHOT-IM at lr $10^{-4}$ helps EEGNet and pushes many CBraMod subjects far below their source model.}
+\label{fig:delta}
+\end{figure}
+\subsection{Warm-Up Length and Cold Start}\label{sec:warmup}
+\rev{A new user may not provide a full unlabelled session before decoding starts. Table~\ref{tab:warmup} and Fig.~\ref{fig:warmup} repeat the sample-causal stream with the last 96, 32 or 0 trials of session 1 as warm-up; with no warm-up the stream starts directly with the scored session (cold start), and the first trial is aligned with its own covariance only. Without any warm-up, the source models are not less but more accurate than after the full warm-up session (+0.4 to +2.1\,pp, Table~\ref{tab:warmup}): the alignment is then estimated from the scored session itself, whereas the warm-up session was recorded on another day. Accuracy over the first trials of a cold start is already close to its final value after about 16 trials (Fig.~\ref{fig:warmup}). T3A still helps CBraMod-LoRA from a cold start (+4.8 and +1.7\,pp on BCI IV-2a and Lee2019-MI) and changes EEGNet+EA by +2.4 and $-$0.1\,pp. Shorter warm-ups of 32 or 96 trials fall between these two cases. A full unlabelled session before decoding starts is therefore not needed for these decoders; with this protocol it is even slightly harmful.}
+
+\begin{table}[!htbp]
+\centering
+\caption{Accuracy (\%) on the scored session as a function of the warm-up length, sample-causal stream ($B=1$), 5 seeds.}
+\label{tab:warmup}
+\revfloat
+\setlength{\tabcolsep}{3pt}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & \multicolumn{2}{c}{BCI IV-2a} & \multicolumn{2}{c}{Lee2019-MI} \\
+\cmidrule(lr){2-3}\cmidrule(l){4-5}
+Method & CBraMod & EEGNet & CBraMod & EEGNet \\
+\midrule
+\multicolumn{5}{l}{\textit{No warm-up (cold start)}}\\
+Source & 61.9 & 64.8 & 82.2 & 85.2 \\
+T3A & 66.7 & 67.2 & 83.9 & 85.1 \\
+Tent $10^{-4}$ & 38.8 & 55.1 & 81.2 & 78.6 \\
+\midrule
+\multicolumn{5}{l}{\textit{Last 32 warm-up trials}}\\
+Source & 61.1 & 64.9 & 81.2 & 84.3 \\
+T3A & 66.2 & 66.7 & 83.2 & 84.1 \\
+Tent $10^{-4}$ & 35.4 & 54.9 & 79.8 & 78.3 \\
+SHOT-IM-W $10^{-5}$ & 62.9 & 65.1 & 82.0 & 84.3 \\
+\midrule
+\multicolumn{5}{l}{\textit{Last 96 warm-up trials (BCI IV-2a only)}}\\
+Source & 60.4 & 64.8 & -- & -- \\
+T3A & 65.3 & 66.2 & -- & -- \\
+Tent $10^{-4}$ & 32.8 & 54.7 & -- & -- \\
+SHOT-IM-W $10^{-5}$ & 65.5 & 65.3 & -- & -- \\
+\midrule
+\multicolumn{5}{l}{\textit{Full warm-up session}}\\
+Source & 59.8 & 64.4 & 80.1 & 83.0 \\
+T3A & 63.4 & 65.0 & 81.9 & 81.9 \\
+Tent $10^{-4}$ & 30.0 & 53.8 & 77.8 & 77.7 \\
+SHOT-IM-W $10^{-5}$ & 63.8 & 64.7 & 82.2 & 83.1 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}\\[2pt]
+{\footnotesize The full warm-up is 288 trials (BCI IV-2a) or 100 trials (Lee2019-MI). SHOT-IM-W cannot run without warm-up trials. CBraMod = CBraMod-LoRA; EEGNet = EEGNet+EA.}
+\end{table}
+
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_warmup.pdf}
+\caption{\rev{Cold start (sample-causal, no warm-up): accuracy over the first $k$ scored trials, averaged over subject$\times$seed runs, for the source model and the online methods, compared with the source model after a full warm-up session (dashed).}}
+\label{fig:warmup}
+\end{figure}
+
+
+\subsection{Source-Model Baselines}
+Tables~\ref{tab:basebci} and~\ref{tab:baselee} compare decoders trained on the source subjects only, without TTA. Here the target's session~1 is used only to compute the alignment (EA or RA) of session~2, which is then classified offline.
+
+\begin{table}[!htbp]
+\centering
+\caption{BCI IV-2a source-model baselines, seeds 0--2 (classical decoders are deterministic). $\Delta$ and W/T/L vs EEGNet+EA; $p$ = Wilcoxon over 9 subjects, Holm-corrected over 8 comparisons (the smallest attainable two-sided $p$ with $n=9$ is 0.0039).}
+\label{tab:basebci}
+\revfloat
+\setlength{\tabcolsep}{2.2pt}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Decoder & Acc (\%) & Seed SD & $\Delta$ & W/T/L & $p$ (Holm) \\
+\midrule
+\textbf{EEGNet + EA} & \textbf{62.1 $\pm$ 13.5} & 1.2 & -- & -- & -- \\
+CBraMod full FT + EA & 60.0 $\pm$ 13.8 & 0.5 & $-$2.1 & 2/0/7 & 0.26 \\
+EEGNet (no EA) & 58.6 $\pm$ 9.8 & 0.9 & $-$3.5 & 2/0/7 & 0.26 \\
+ShallowConvNet + EA & 56.1 $\pm$ 14.4 & 0.9 & $-$6.0 & 2/0/7 & 0.082 \\
+EEG-Conformer + EA & 55.5 $\pm$ 15.1 & 1.3 & $-$6.6 & 0/0/9 & 0.031 \\
+TS + LR (RA) & 44.9 $\pm$ 13.1 & 0 & $-$17.2 & 0/0/9 & 0.031 \\
+CSP + LDA (EA) & 42.9 $\pm$ 14.6 & 0 & $-$19.2 & 0/0/9 & 0.031 \\
+CBraMod LP + EA & 42.6 $\pm$ 11.9 & 0.6 & $-$19.5 & 0/0/9 & 0.031 \\
+MDM (RA) & 41.2 $\pm$ 12.9 & 0 & $-$20.9 & 0/0/9 & 0.031 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+
+\begin{table}[!htbp]
+\centering
+\caption{Lee2019-MI source-model baselines, seed 0, 54 subjects. Same offline protocol and tests as Table~\ref{tab:basebci} (Holm over 6 comparisons).}
+\label{tab:baselee}
+\revfloat
+\setlength{\tabcolsep}{2.2pt}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Decoder & Acc (\%) & Seed SD & $\Delta$ & W/T/L & $p$ (Holm) \\
+\midrule
+\textbf{CBraMod full FT + EA} & \textbf{79.5 $\pm$ 11.6} & -- & +1.2 & 27/8/19 & 0.27 \\
+EEGNet + EA & 78.3 $\pm$ 12.5 & -- & -- & -- & -- \\
+ShallowConvNet + EA & 73.0 $\pm$ 13.1 & -- & $-$5.2 & 15/3/36 & $2.0{\times}10^{-4}$ \\
+TS + LR (RA) & 64.3 $\pm$ 11.8 & -- & $-$14.0 & 6/4/44 & $1.3{\times}10^{-8}$ \\
+CBraMod LP + EA & 60.3 $\pm$ 8.2 & -- & $-$18.0 & 4/1/49 & $2.7{\times}10^{-9}$ \\
+CSP + LDA (EA) & 57.9 $\pm$ 11.8 & -- & $-$20.4 & 1/1/52 & $2.7{\times}10^{-9}$ \\
+MDM (RA) & 55.6 $\pm$ 6.3 & -- & $-$22.7 & 3/0/51 & $2.2{\times}10^{-9}$ \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+
+On BCI IV-2a the frozen CBraMod representation is no better than CSP+LDA (42.6 vs 42.9\,\%). Only full fine-tuning makes the FM competitive, and it still trails EEGNet+EA by 2.1\,pp. EA itself is worth 3.5\,pp to EEGNet. \rev{The classical decoders use the broadband 0.5--45\,Hz signal of the common preprocessing, without the usual 8--30\,Hz band-pass, which partly explains their low accuracy.} On the larger dataset, full fine-tuning brings CBraMod level with EEGNet+EA ($+1.2$\,pp, not significant). The frozen representation is again weak (60.3\,\%), only slightly above CSP+LDA. Under this offline protocol every deep model scores 3--5\,pp lower than the same backbone under the online stream of Table 4 of the main text, where EA is estimated from the warm-up session plus the stream. Rankings within each protocol are what we compare. \rev{These offline baselines differ from the online benchmark in alignment, seeds (one on Lee2019-MI) and stream, so they cannot show whether LoRA is a handicap; the matched comparison follows.}
+
+
+\subsection{GeoRoute in the Benchmark}\label{sec:georoute}
+GeoRoute trains a bank of subject-specific LoRA adapters and, at test time, weights them by the Riemannian distance between the target's covariance mean and each source subject's. Table~\ref{tab:georoute} and Fig.~\ref{fig:georoute} compare it with geometry-free controls that use the same adapter bank.
+
+\begin{table}[!htbp]
+\centering
+\caption{Geometry-based methods vs matched controls: paired difference in pp with 95\,\% bootstrap CI over subjects, W/T/L and Wilcoxon $p$. GeoRoute: CBraMod, BCI IV-2a seeds 0--2 (ensemble variants seeds 1--2), Lee2019-MI seed 0; RCTTA: 5 seeds. Seeds are matched within each contrast.}
+\label{tab:georoute}
+\revfloat
+\setlength{\tabcolsep}{3pt}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{2.9cm}@{}}
+\toprule
+Comparison & BCI IV-2a & Lee2019-MI \\
+\midrule
+Routing vs shared adapter only & +0.6 [$-$1.0, 2.8], 5/0/4, $p=0.91$ & +0.3 [$-$0.4, 1.0], 25/12/17, $p=0.63$ \\
+Ensemble vs uniform ensemble & +0.1 [$-$0.7, 1.3], 2/0/7, $p=0.34$ & +0.1 [$-$0.3, 0.6], 24/13/17, $p=0.42$ \\
+Ensemble vs random routing & +0.4 [$-$0.6, 1.7], 4/0/5, $p=1.00$ & +0.1 [$-$0.3, 0.6], 28/5/21, $p=0.32$ \\
+GeoRoute+T3A vs shared+T3A & +0.0 [$-$0.8, 0.8], 4/1/4, $p=0.76$ & +0.2 [$-$0.6, 0.9], 23/13/18, $p=0.48$ \\
+Oracle best adapter vs uniform ensemble & +3.5 [2.1, 5.1], 9/0/0, $p=3.9{\times}10^{-3}$ & +5.9 [5.0, 6.8], 53/1/0, $p=2.3{\times}10^{-10}$ \\
+RCTTA+T3A vs T3A, CBraMod & +0.4 [$-$0.1, 0.8], 5/0/4, $p=0.25$ & +0.0 [$-$0.2, 0.1], 14/21/19, $p=0.25$ \\
+RCTTA+T3A vs T3A, EEGNet & +0.6 [0.0, 1.2], 6/0/3, $p=0.098$ & $-$0.3 [$-$0.6, 0.2], 16/9/29, $p=5.4{\times}10^{-3}$ \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_georoute.pdf}
+\caption{Per-subject accuracy change of GeoRoute and its controls relative to a uniform ensemble of the same subject adapters (black bars: mean). Covariance-distance routing is indistinguishable from random routing, while choosing the best adapter with hindsight (green) would help almost every subject.}
+\label{fig:georoute}
+\end{figure}
+
+\rev{Every routing contrast lies within $\pm0.6$\,pp, while an oracle that picks the best adapter with hindsight gains 3.5 and 5.9\,pp (oracle and uniform ensemble averaged over the same seeds). On Lee2019-MI every 95\,\% interval excludes a routing gain of 1.5\,pp, so the absence of a useful effect of that size is supported there; on BCI IV-2a the intervals of the routing-versus-shared and ensemble-versus-random contrasts include 1.5\,pp, so a gain of that size cannot be excluded with nine subjects. The RCTTA intervals exclude 1.5\,pp on both datasets and both backbones. The adapter bank therefore contains useful specialists; the routing signal of this implementation is what fails.} T3A adds 4--5\,pp on top of either variant, consistent with Tables 3 and 4 of the main text.
+
+\rev{\textbf{Sensitivity of GeoRoute.} Within the pre-specified variants, the result does not depend on the routing choices: across 22 variants on BCI IV-2a and 18 on Lee2019-MI (5 to 50 routing trials; Euclidean, log-Euclidean and feature-space distances; top-1 to top-8 or all source subjects; weight merging or output ensembling), the mean gain over the matched control ranges from $-2.0$ to $+1.1$\,pp on BCI IV-2a and from $-1.6$ to $+0.6$\,pp on Lee2019-MI. No variant reaches the 1.5\,pp margin on average; the upper 95\,\% bounds reach 3.2\,pp on BCI IV-2a (nine subjects) and 1.4\,pp on Lee2019-MI. Because these variants were examined together, this is a sensitivity analysis, not a search for the best variant.}
+
+
+\subsection{Per-Subject Heatmaps}
+\rev{Fig.~\ref{fig:heatbci} and Fig.~\ref{fig:heatlee}} show the change against the source model for every subject and method, and Fig.~\ref{fig:heatsum} condenses it to one cell per method and dataset. Three patterns are visible at the subject level. First, the damage done by aggressive gradient TTA to CBraMod is not confined to a few subjects: Tent at $10^{-3}$ loses 25--37\,pp on S1, S3, S8 and S9 of BCI IV-2a, and SHOT-IM at $10^{-4}$ loses accuracy on seven of nine subjects while gaining 17 on S7. Second, LAME is harmful across nearly all Lee2019 subjects for EEGNet (dark row in Fig.~\ref{fig:heatlee}), independent of the subject's source accuracy. Third, the gains of T3A and RCTTA+T3A on CBraMod are small but spread across most subjects, which is why they are significant on Lee2019 despite modest means.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_heat_bci.pdf}
+\caption{\rev{BCI IV-2a:} subject$\times$method heatmap of the accuracy change vs.\ the same backbone's source model (seed-averaged, pp; colour clipped at $\pm25$). \rev{(T) = transductive.}}
+\label{fig:heatbci}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_heat_lee.pdf}
+\caption{\rev{Lee2019-MI:} subject$\times$method heatmap of the accuracy change vs.\ the same backbone's source model, 54 subjects sorted by EEGNet+EA source accuracy (low to high); CBraMod rows above the black line, EEGNet rows below.}
+\label{fig:heatlee}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_heat_summary.pdf}
+\caption{Summary heatmap: mean accuracy of each TTA method (\%, subject mean of seed means) with the change vs.\ the source model in brackets; colour encodes the change.}
+\label{fig:heatsum}
+\end{figure}
+
+
+\subsection{Rank-Based Comparisons and Effect Sizes}
+The critical-difference diagrams in Fig.~\ref{fig:cd} rank all ten methods at once. The Friedman test rejects equal ranks in all four panels ($p\le\sci{3}{-5}$). On Lee2019 ($\mathrm{CD}=1.84$), T3A (mean rank 3.44) is significantly better ranked than the CBraMod source model (\rev{5.52}), and SHOT-IM at $10^{-4}$ (\rev{2.41}) is significantly better than the EEGNet source model (\rev{5.50}), while LAME is significantly worse than the source for EEGNet (9.20). On BCI IV-2a the critical difference is large ($\mathrm{CD}=4.52$); only SHOT-IM at $10^{-4}$ on EEGNet (2.11 vs 7.17) and the separation of RCTTA+T3A/T3A from Tent at $10^{-3}$ on CBraMod exceed it. \rev{Pairwise wins, ties and losses against the source model are given by the W/T/L columns of Tables 3 and 4 of the main text.}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_cd.pdf}
+\caption{Critical-difference diagrams (Friedman test, Nemenyi post hoc, $\alpha=0.05$). Methods are placed at their mean rank over subjects (1 = best); thick bars join methods whose rank difference is below the critical difference (CD). \rev{Src = source; Tent3/Tent4 and SHOT4/SHOT5 = learning rates $10^{-3}/10^{-4}$ and $10^{-4}/10^{-5}$; RC = RCTTA.}}
+\label{fig:cd}
+\end{figure}
+
+Fig.~\ref{fig:forest} reports the rank-biserial correlation of each method against its source model with bootstrap intervals. The backbone dependence is visible as a crossing pattern. On Lee2019, T3A has $r=+\rev{0.78}$ for CBraMod but $r=-0.25$ for EEGNet, and SHOT-IM at $10^{-4}$ has $r=+0.90$ for EEGNet but $r=-\rev{0.47}$ for CBraMod. LAME is strongly negative for both backbones on both datasets ($r\le-\rev{0.61}$). On BCI IV-2a the intervals are wide because $N=9$, but the signs agree with Lee2019 for every method whose Lee2019 interval excludes zero, except Tent at $10^{-3}$, which is harmful for CBraMod on BCI IV-2a ($r=-0.96$) and mildly helpful on Lee2019 ($r=+0.31$).
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_forest.pdf}
+\caption{Effect-size forest plot: matched-pairs rank-biserial correlation $r$ of each TTA method vs.\ the same backbone's source model ($+1$: better on every subject), with 95\,\% percentile bootstrap intervals over subjects (2000 resamples).}
+\label{fig:forest}
+\end{figure}
+
+
+\subsection{Balanced Accuracy, Cohen's $\kappa$ and Compute}
+Table~\ref{tab:kappa} gives balanced accuracy and Cohen's $\kappa$. Both datasets have balanced classes in the scored session, so balanced accuracy equals accuracy to one decimal and all orderings in Tables 3 and 4 of the main text carry over; $\kappa$ removes the chance level (25\,\% vs 50\,\%) and makes the two datasets comparable.
+
+\begin{table}[!htbp]
+\centering
+\caption{Balanced accuracy (\%) and Cohen's $\kappa$, mean $\pm$ SD over subjects (seed-averaged). Best per column in bold.}
+\label{tab:kappa}
+\setlength{\tabcolsep}{5pt}
+\footnotesize
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{}l cc cc cc cc@{}}
+\toprule
+& \multicolumn{4}{c}{BCI IV-2a} & \multicolumn{4}{c}{Lee2019-MI}\\
+\cmidrule(lr){2-5}\cmidrule(l){6-9}
+& \multicolumn{2}{c}{CBraMod} & \multicolumn{2}{c}{EEGNet} & \multicolumn{2}{c}{CBraMod} & \multicolumn{2}{c}{EEGNet}\\
+Method & BAcc & $\kappa$ & BAcc & $\kappa$ & BAcc & $\kappa$ & BAcc & $\kappa$\\
+\midrule
+Source & 60.3{\tiny$\pm$13.2} & .47{\tiny$\pm$.18} & 64.4{\tiny$\pm$11.7} & .53{\tiny$\pm$.16} & 80.7{\tiny$\pm$9.5} & .61{\tiny$\pm$.19} & 83.6{\tiny$\pm$8.7} & .67{\tiny$\pm$.17}\\
+T3A & 64.0{\tiny$\pm$14.9} & .52{\tiny$\pm$.20} & 65.1{\tiny$\pm$13.3} & .53{\tiny$\pm$.18} & 82.5{\tiny$\pm$8.7} & .65{\tiny$\pm$.18} & 82.5{\tiny$\pm$9.7} & .65{\tiny$\pm$.20}\\
+LAME & 55.1{\tiny$\pm$17.4} & .40{\tiny$\pm$.23} & 45.3{\tiny$\pm$13.7} & .27{\tiny$\pm$.18} & 79.2{\tiny$\pm$9.9} & .58{\tiny$\pm$.20} & 73.3{\tiny$\pm$13.6} & .47{\tiny$\pm$.27}\\
+Tent $10^{-3}$ & 42.8{\tiny$\pm$9.9} & .24{\tiny$\pm$.13} & \textbf{65.8}{\tiny$\pm$11.6} & .54{\tiny$\pm$.16} & 81.0{\tiny$\pm$9.3} & .62{\tiny$\pm$.19} & 84.2{\tiny$\pm$7.6} & .69{\tiny$\pm$.15}\\
+Tent $10^{-4}$ & 60.3{\tiny$\pm$12.9} & .47{\tiny$\pm$.17} & \textbf{65.8}{\tiny$\pm$11.7} & .54{\tiny$\pm$.16} & 80.7{\tiny$\pm$9.4} & .61{\tiny$\pm$.19} & 84.3{\tiny$\pm$7.5} & .69{\tiny$\pm$.15}\\
+SHOT-IM $10^{-4}$ & 49.7{\tiny$\pm$19.2} & .33{\tiny$\pm$.26} & \textbf{68.6}{\tiny$\pm$15.0} & \textbf{.58}{\tiny$\pm$.20} & 76.9{\tiny$\pm$13.9} & .54{\tiny$\pm$.28} & \textbf{85.5}{\tiny$\pm$8.5} & \textbf{.71}{\tiny$\pm$.17}\\
+SHOT-IM $10^{-5}$ & 64.2{\tiny$\pm$16.2} & .52{\tiny$\pm$.22} & 65.8{\tiny$\pm$12.4} & .55{\tiny$\pm$.17} & \textbf{83.4}{\tiny$\pm$10.3} & \textbf{.67}{\tiny$\pm$.21} & 84.2{\tiny$\pm$8.3} & .68{\tiny$\pm$.17}\\
+RCTTA & 61.2{\tiny$\pm$14.4} & .48{\tiny$\pm$.19} & 65.3{\tiny$\pm$12.8} & .54{\tiny$\pm$.17} & 80.4{\tiny$\pm$9.8} & .61{\tiny$\pm$.20} & 82.9{\tiny$\pm$9.8} & .66{\tiny$\pm$.20}\\
+RCTTA+T3A & \textbf{64.4}{\tiny$\pm$15.6} & \textbf{.53}{\tiny$\pm$.21} & 65.7{\tiny$\pm$14.0} & .54{\tiny$\pm$.19} & 82.5{\tiny$\pm$8.8} & .65{\tiny$\pm$.18} & 82.2{\tiny$\pm$10.1} & .64{\tiny$\pm$.20}\\
+RCTTA offline & 61.3{\tiny$\pm$14.4} & .48{\tiny$\pm$.19} & 65.6{\tiny$\pm$12.7} & .54{\tiny$\pm$.17} & 80.5{\tiny$\pm$9.6} & .61{\tiny$\pm$.19} & 83.1{\tiny$\pm$9.6} & .66{\tiny$\pm$.19}\\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+
+\rev{Table~\ref{tab:time} reports compute measured on one GPU per dataset, with every method run alone, CUDA-synchronised before and after, three repeats on three target subjects. Times taken from benchmark logs would mix different cloud machines; MDM-RC, for example, runs the same backbone-independent CPU code for both backbones, so any difference between its logged times reflects the machine, not the backbone. Per batch of 32 trials, the source model and the gradient-free methods take 26--39\,ms on EEGNet+EA and 43--48\,ms on CBraMod-LoRA, well below the duration of one trial; Tent roughly doubles the CBraMod latency (94\,ms), and RCTTA and MDM-RC, which run their Riemannian steps on the CPU, take 217--270\,ms. The offline SHOT-IM pass costs 1.4\,s per subject for EEGNet+EA and 17\,s for CBraMod-LoRA on BCI IV-2a. CBraMod-LoRA has 6.2--8.3 million parameters, of which 1.3--3.4 million are trained, against about 3 thousand for EEGNet; peak GPU memory is below 2.1\,GB for every method.}
+
+\begin{table}[!htbp]
+\centering
+\caption{Compute per target subject: each method run alone, CUDA-synchronised before and after, 3 repeats on 3 target subjects (seed 0, source model loaded from its checkpoint); medians over the 9 measurements.}
+\label{tab:time}
+\revfloat
+\setlength{\tabcolsep}{3pt}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & \multicolumn{2}{c}{BCI IV-2a} & \multicolumn{2}{c}{Lee2019-MI} \\
+\cmidrule(lr){2-3}\cmidrule(l){4-5}
+Quantity & CBraMod & EEGNet & CBraMod & EEGNet \\
+\midrule
+\multicolumn{5}{l}{\textit{Median latency per batch of 32 trials (ms), including online alignment}}\\
+Source & 42.9 & 26.2 & 47.8 & 38.5 \\
+T3A & 44.2 & 26.9 & 47.6 & 38.5 \\
+LAME & 44.6 & 26.4 & 47.3 & 38.5 \\
+Tent & 94.3 & 29.1 & 60.3 & 39.5 \\
+RCTTA & 269.7 & 249.3 & 323.7 & 312.0 \\
+RCTTA+T3A & 271.1 & 252.5 & 320.1 & 315.5 \\
+MDM-RC (CPU) & 218.8 & 217.1 & 483.6 & 478.7 \\
+\midrule
+\multicolumn{5}{l}{\textit{Offline adaptation, total per target subject (s)}}\\
+SHOT-IM, whole stream & 16.94 & 1.36 & 2.41 & 0.57 \\
+SHOT-IM-W, warm-up only & 9.00 & 0.90 & 1.37 & 0.42 \\
+\midrule
+\multicolumn{5}{l}{\textit{Peak GPU memory (MB) and model size}}\\
+Tent & 438 & 58 & 1265 & 155 \\
+SHOT-IM & 720 & 298 & 2077 & 653 \\
+Parameters, total & 6\,246\,884 & 3\,060 & 8\,294\,370 & 2\,898 \\
+Parameters, trainable & 1\,322\,884 & 3\,060 & 3\,370\,370 & 2\,898 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}\\[2pt]
+{\footnotesize Hardware: NVIDIA GeForce RTX 4090; NVIDIA RTX A4500 GPU; AMD EPYC 7352 24-Core Processor; AMD Ryzen 9 7950X 16-Core Processor CPU. Interquartile ranges over repeats and subjects are in the repository. CBraMod = CBraMod-LoRA.}
+\end{table}
+
+
+
+\subsection{Convergence and Online Dynamics}
+To show how the source models train and how each online method evolves along the stream, we re-ran seed~0 of every cell with the pre-specified settings and logged the per-epoch losses and every per-trial prediction (Figs.~\ref{fig:convtrain} and~\ref{fig:convonline}). This repeated run reproduces the original seed-0 source accuracy to within 0.9\,pp (BCI IV-2a: 60.7 vs 59.8\,\% for CBraMod, 65.7 vs 65.6\,\% for EEGNet; Lee2019: 79.4 and 83.3\,\% in both runs). The largest deviation is SHOT-IM at $10^{-4}$ on CBraMod (51.4 vs 44.0\,\% on BCI IV-2a), which is consistent with that method's instability.
+
+\textbf{Source training.} CBraMod-LoRA runs its full 30 epochs on BCI IV-2a with a flat validation loss after about epoch 20. On Lee2019 its validation loss reaches its minimum after 10--16 epochs and then rises while the training loss keeps falling, so early stopping ends training after 19--24 epochs and restores the best state. EEGNet+EA converges more slowly but without a visible generalisation gap on Lee2019, and stops after 36--92 epochs. The source models are therefore trained to convergence under both recipes, and the gap between backbones is not an artefact of under-training.
+
+\textbf{Online dynamics.} The gradient-free methods act from the first batch: T3A and RCTTA+T3A are above the CBraMod source model on every batch of BCI IV-2a (by 1--8\,pp, 4.8 on average), and LAME is below it from the start on both backbones (10--23\,pp below EEGNet). Tent at $10^{-3}$ on CBraMod shows the typical failure of unsupervised gradient TTA. It stays within about 2\,pp of the source model for the first 220 trials, then drifts away and ends 21\,pp below it, a collapse that accumulates over the stream rather than a poor start. At $10^{-4}$ the same method stays within 3\,pp of the source model throughout. On Lee2019, where each subject contributes only 200 streamed trials, T3A's advantage for CBraMod grows over the scored session (from $+1.4$ to $+4.1$\,pp), whereas for EEGNet T3A and RCTTA drift slightly below the source model in the scored session and Tent stays within one point of it.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_conv_train.pdf}
+\caption{Source-model training curves (seed-0 re-run): cross-entropy loss on the training split (solid) and on the 10\,\% validation split (dashed) of the source subjects, one thin line per fold and the mean over folds (bold, shown while at least half of the folds are still training). Training stops early after 8 (CBraMod) or 15 (EEGNet) epochs without validation improvement, and the best state is restored.}
+\label{fig:convtrain}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics{figures/fig_conv_online.pdf}
+\caption{Online dynamics (seed-0 re-run): per-batch accuracy of each online TTA method minus the source model on the same batch, averaged over subjects, as a function of the number of trials streamed (32 trials per batch). The shaded region is the unscored warm-up session; offline methods (SHOT-IM, RCTTA offline) have no online trajectory and are omitted. The final 8-trial batch of each Lee2019 stream is not shown.}
+\label{fig:convonline}
+\end{figure}
+
+
+
+\subsection{Pre-Specified Hypotheses}
+Table~\ref{tab:hyp} collects the verdicts. \rev{H1 and H2 are confirmed on Lee2019-MI. On BCI IV-2a both effects have the predicted sign and bootstrap intervals that exclude zero, but their pre-specified tests do not reach significance (Wilcoxon $p=0.074$; T3A, Holm-corrected $p=0.070$); with nine subjects the smallest attainable two-sided Wilcoxon $p$ is 0.0039 before correction, and percentile bootstrap intervals are optimistic for so few subjects, so we call these results directional rather than confirmed.} H3 holds only partly: the instability is specific to the adaptation method (SHOT-IM) rather than universal to gradient TTA. \rev{H4 is supported where the intervals exclude the 1.5\,pp margin (all contrasts on Lee2019-MI and RCTTA on BCI IV-2a) and inconclusive for GeoRoute on BCI IV-2a; failing to detect a geometry contribution is not by itself evidence that none exists.}
+
+\begin{table}[!htbp]
+\centering
+\caption{Verdicts on the pre-specified hypotheses. Paired differences with 95\,\% bootstrap CIs over subjects; confirmed = pre-specified test significant after the pre-specified correction.}
+\label{tab:hyp}
+\revfloat
+\setlength{\tabcolsep}{4pt}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{4.4cm}@{}}
+\toprule
+Hypothesis & BCI IV-2a & Lee2019-MI & Verdict \\
+\midrule
+H1: EEGNet+EA source $\ge$ CBraMod-LoRA source & +4.1\,pp [0.8, 7.4], 6/0/3, $p=0.074$ & +2.9\,pp [1.5, 4.3], 39/0/15, $p=1.5{\times}10^{-4}$ & \textbf{Confirmed} on Lee2019-MI; \textbf{directional} on BCI IV-2a \\
+H2: T3A improves CBraMod & +3.7\,pp [1.7, 6.1], 8/1/0, Holm $p=0.070$ & +1.8\,pp [1.1, 2.6], 40/4/10, Holm $p=8.4{\times}10^{-6}$ & \textbf{Confirmed} on Lee2019-MI; \textbf{directional} on BCI IV-2a \\
+H3: gradient TTA less stable on CBraMod (share of runs below source, aggressive lr; CBraMod $-$ EEGNet) & Tent +64.4 [51.1, 75.6]; SHOT-IM +68.9 [42.2, 93.3]\,pp & Tent $-$5.6 [$-$16.3, 5.2]; SHOT-IM +47.4 [37.0, 57.4]\,pp & \textbf{Partly supported} (descriptive): SHOT-IM on both datasets, Tent on BCI IV-2a only \\
+H4: GeoRoute / RCTTA add $<1.5$\,pp over the best geometry-free alternative & GeoRoute vs shared +0.6 [$-$1.0, 2.8]; RCTTA+T3A vs T3A +0.4 [$-$0.1, 0.8] & GeoRoute vs shared +0.3 [$-$0.4, 1.0]; RCTTA+T3A vs T3A +0.0 [$-$0.2, 0.1] & \textbf{Supported} on Lee2019-MI and for RCTTA on BCI IV-2a (CI excludes 1.5\,pp); \textbf{inconclusive} for GeoRoute on BCI IV-2a \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+
+%======================================================================
+
+\subsection{Per-Subject Results on BCI IV-2a}
+Table~\ref{tab:persub} lists seed-averaged accuracy for every subject of BCI IV-2a. \rev{Entries are rounded to one decimal from unrounded values; the mean column is computed from the unrounded values, so it can differ in the last digit from the mean of the displayed entries (for example, CBraMod SHOT-IM lr $10^{-5}$: the nine displayed entries average 64.26\,\%, while the mean of the unrounded per-subject values is 64.24\,\%, displayed as 64.2\,\%). Every entry is rounded once from the unrounded value. Unrounded per-subject, per-seed accuracies for both datasets are stored in the result files of the repository (\texttt{results/}); \texttt{scripts/revision\_stats.py} collects them into \texttt{paper/revision/unrounded\_tta.csv}.}
+
+\begin{table}[!htbp]
+\centering
+\caption{BCI IV-2a per-subject accuracy (\%), scored session 2. Last column: mean over subjects, computed from unrounded values. (T) = transductive.}
+\label{tab:persub}
+\setlength{\tabcolsep}{5pt}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{@{}l ccccccccc c@{}}
+\toprule
+Method & S1 & S2 & S3 & S4 & S5 & S6 & S7 & S8 & S9 & Mean \\
+\midrule
+\multicolumn{11}{l}{\textit{CBraMod-LoRA, online stream, mean of 5 seeds}}\\
+Source & 68.3 & 42.2 & 79.1 & 53.8 & 48.1 & 47.0 & 61.4 & 75.0 & 67.8 & 60.3 \\
+T3A & 75.2 & 43.5 & 84.8 & 56.9 & 50.1 & 47.0 & 72.6 & 75.8 & 70.3 & 64.0 \\
+LAME & 65.4 & 30.8 & 79.0 & 41.9 & 41.5 & 36.1 & 66.5 & 67.8 & 66.7 & 55.1 \\
+Tent, $10^{-3}$ & 34.9 & 33.8 & 48.7 & 46.6 & 49.4 & 32.2 & 58.3 & 50.1 & 30.8 & 42.8 \\
+Tent, $10^{-4}$ & 71.0 & 42.4 & 76.5 & 52.6 & 49.0 & 47.3 & 61.5 & 75.1 & 67.4 & 60.3 \\
+SHOT-IM, $10^{-4}$ (T) & 69.2 & 30.8 & 71.3 & 38.2 & 37.8 & 28.3 & 78.8 & 37.7 & 55.1 & 49.7 \\
+SHOT-IM, $10^{-5}$ (T) & 76.8 & 45.3 & 86.0 & 51.0 & 47.7 & 50.6 & 83.1 & 74.7 & 63.1 & 64.2 \\
+RCTTA & 71.9 & 41.6 & 81.7 & 53.8 & 46.7 & 46.9 & 63.5 & 76.0 & 68.5 & 61.2 \\
+RCTTA+T3A & 76.5 & 42.6 & 85.7 & 56.8 & 49.9 & 46.6 & 74.0 & 76.5 & 70.8 & 64.4 \\
+RCTTA offline (T) & 72.2 & 41.8 & 81.8 & 54.1 & 47.3 & 46.7 & 63.4 & 76.0 & 68.5 & 61.3 \\
+MDM-RC & 57.6 & 21.2 & 60.8 & 47.9 & 35.4 & 35.4 & 43.8 & 56.9 & 61.8 & 46.8 \\
+\midrule
+\multicolumn{11}{l}{\textit{EEGNet+EA, online stream, mean of 5 seeds}}\\
+Source & 75.5 & 44.5 & 77.7 & 60.1 & 55.3 & 54.3 & 74.0 & 74.9 & 63.3 & 64.4 \\
+T3A & 78.4 & 46.4 & 83.0 & 59.0 & 55.0 & 48.9 & 75.2 & 73.3 & 66.7 & 65.1 \\
+LAME & 57.5 & 27.2 & 55.6 & 28.5 & 33.3 & 35.6 & 57.2 & 59.5 & 53.3 & 45.3 \\
+Tent, $10^{-3}$ & 76.8 & 44.8 & 79.7 & 63.2 & 58.6 & 55.3 & 74.7 & 74.7 & 64.4 & 65.8 \\
+Tent, $10^{-4}$ & 76.9 & 44.7 & 79.7 & 63.0 & 58.4 & 55.5 & 74.7 & 74.9 & 64.4 & 65.8 \\
+SHOT-IM, $10^{-4}$ (T) & 79.7 & 48.3 & 90.5 & 66.3 & 49.2 & 54.7 & 79.2 & 78.5 & 70.7 & 68.6 \\
+SHOT-IM, $10^{-5}$ (T) & 77.2 & 45.5 & 81.5 & 64.1 & 55.4 & 54.0 & 75.7 & 75.1 & 64.0 & 65.8 \\
+RCTTA & 76.8 & 43.9 & 79.7 & 61.2 & 54.9 & 53.2 & 76.9 & 75.8 & 65.6 & 65.3 \\
+RCTTA+T3A & 79.5 & 45.7 & 84.0 & 60.7 & 54.7 & 48.3 & 76.9 & 73.8 & 67.6 & 65.7 \\
+RCTTA offline (T) & 76.7 & 44.2 & 79.8 & 61.6 & 55.0 & 53.7 & 77.0 & 75.9 & 66.2 & 65.6 \\
+MDM-RC & 57.6 & 21.2 & 60.8 & 47.9 & 35.4 & 35.4 & 43.8 & 56.9 & 61.8 & 46.8 \\
+\midrule
+\multicolumn{11}{l}{\textit{Source-model baselines, offline alignment, mean of seeds 0--2}}\\
+EEGNet + EA & 74.4 & 42.0 & 77.8 & 58.0 & 45.3 & 51.4 & 72.2 & 73.6 & 64.4 & 62.1 \\
+CBraMod full FT + EA & 73.6 & 36.8 & 76.2 & 55.8 & 51.7 & 43.8 & 62.5 & 70.4 & 69.0 & 60.0 \\
+EEGNet (no EA) & 69.8 & 51.0 & 74.0 & 53.5 & 48.1 & 46.2 & 64.5 & 63.8 & 56.4 & 58.6 \\
+ShallowConvNet + EA & 74.8 & 32.1 & 72.6 & 45.1 & 47.5 & 47.2 & 55.7 & 67.7 & 62.6 & 56.1 \\
+EEG-Conformer + EA & 71.2 & 32.4 & 77.4 & 41.4 & 42.8 & 49.1 & 58.3 & 66.3 & 60.9 & 55.5 \\
+TS + LR (RA) & 45.5 & 25.7 & 65.3 & 38.5 & 35.8 & 39.2 & 37.2 & 57.6 & 59.4 & 44.9 \\
+CSP + LDA (EA) & 50.3 & 24.3 & 63.2 & 38.5 & 23.3 & 33.7 & 39.2 & 58.0 & 55.9 & 42.9 \\
+CBraMod LP + EA & 53.6 & 23.7 & 57.6 & 42.9 & 30.9 & 34.3 & 36.3 & 50.2 & 54.2 & 42.6 \\
+MDM (RA) & 48.6 & 21.9 & 54.9 & 44.4 & 27.4 & 34.7 & 36.1 & 40.6 & 62.5 & 41.2 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+
+
+
+\bibliographystyle{elsarticle-num}
+\bibliography{refs}
+\end{document}

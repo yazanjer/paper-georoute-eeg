@@ -1,0 +1,14 @@
+\input{pre}
+\begin{tikzpicture}[node distance=0.32cm]
+\node[blk, text width=3.4cm] (x) {EA-aligned trial, $C\times800$};
+\node[trn2, text width=3.4cm, below=of x] (t1) {Temporal convolution ($F_1$ filters), BN};
+\node[trn2, text width=3.4cm, below=of t1] (t2) {Depthwise spatial convolution ($D$ per filter), BN, ELU, pooling, dropout};
+\node[trn2, text width=3.4cm, below=of t2] (t3) {Separable convolution ($F_2$), BN, ELU, pooling, dropout};
+\node[trn2, text width=3.4cm, below=of t3] (c2) {Classifier convolution $\to K$ logits};
+\node[blk, text width=3.4cm, below=of c2] (p) {Posteriors $p(y\,|\,x)$};
+\draw[arr] (x)--(t1); \draw[arr] (t1)--(t2); \draw[arr] (t2)--(t3);
+\draw[arr] (t3)--node[right, font=\fontsize{10}{12}\selectfont]{$z$}(c2); \draw[arr] (c2)--(p);
+\node[note, text width=2.9cm, right=0.45cm of t2] {Tent: BatchNorm scale and shift; SHOT-IM: all but the classifier};
+\node[note, text width=2.9cm, right=0.45cm of c2] {T3A and LAME read its input $z$};
+\end{tikzpicture}
+\end{document}

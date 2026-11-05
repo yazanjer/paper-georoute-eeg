@@ -1,0 +1,13 @@
+\input{pre}
+\begin{tikzpicture}[node distance=0.32cm]
+\node[blk, text width=3.3cm] (b) {Aligned batch $\tilde X_b$ (online EA)};
+\node[trn, text width=3.3cm, below left=0.45cm and -1.3cm of b] (dec) {Frozen decoder (with T3A): $p^{\mathrm{dec}}$};
+\node[frz, text width=3.0cm, below right=0.45cm and -1.3cm of b] (bp) {8--30\,Hz band-pass, OAS covariance};
+\node[frz, text width=3.0cm, below=of bp] (rc) {Re-centre at running Riemannian mean, tangent vectors $t_i$};
+\node[frz, text width=3.0cm, below=of rc] (em) {Soft EM class prototypes $\mu_c$};
+\node[frz, text width=3.0cm, below=of em] (pg) {$p^{\mathrm{geo}}_{c}\propto e^{-\lVert t-\mu_c\rVert^2/\tau}$};
+\node[trn, text width=2.9cm, below=1.0cm of dec |- pg] (fu) {Fusion $q\propto p^{\mathrm{dec}}\,(p^{\mathrm{geo}})^{\lambda n/(n+n_0)}$};
+\draw[arr] (b)--(dec); \draw[arr] (b)--(bp); \draw[arr] (bp)--(rc); \draw[arr] (rc)--(em); \draw[arr] (em)--(pg);
+\draw[arr] (pg.south) |- (fu.east); \draw[arr] (dec)--(fu);
+\end{tikzpicture}
+\end{document}

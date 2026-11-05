@@ -1,0 +1,21 @@
+\documentclass[10pt,border=1pt]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{amsmath,amssymb}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc,fit,decorations.pathreplacing}
+\definecolor{fmblue}{HTML}{2A78D6}
+\definecolor{cnnorange}{HTML}{EB6834}
+\definecolor{inkgray}{HTML}{52514E}
+\definecolor{lightfill}{HTML}{F1F0EC}
+\tikzset{
+  arr/.style={-{Stealth[length=2.2mm]}, draw=inkgray, line width=0.7pt},
+  blk/.style={draw=inkgray, rounded corners=2pt, fill=white, align=center, inner sep=3pt, font=\fontsize{10}{12}\selectfont},
+  frz/.style={blk, fill=lightfill},
+  trn/.style={blk, fill=fmblue!14},
+  trn2/.style={blk, fill=cnnorange!16},
+  note/.style={align=left, font=\fontsize{10}{12}\selectfont\itshape, text=inkgray},
+}
+\begin{document}
+\fontsize{10}{12}\selectfont
